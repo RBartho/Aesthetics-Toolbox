@@ -1,4 +1,4 @@
-# SIP Machine
+# Aesthetics Toolbox
 
 This project contains Python scripts to run a streamlit application "SIP machine" in your browser. This application can compute a number of commonly studied SIPs (statistical image properties) for aesthetic research.
 
