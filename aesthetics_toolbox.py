@@ -5,8 +5,8 @@ from  PIL import Image
 from skimage import color
 # import sys
 import os
-# import tkinter as tk
-# from tkinter import filedialog
+import tkinter as tk
+from tkinter import filedialog
 
 ### custom import
 from SIPmachine import balance_sips, box_count_sips, CNN_sips, color_and_simple_sips, edge_entropy_sips, fourier_sips, PHOG_sips, scaling
@@ -23,6 +23,14 @@ Image.MAX_IMAGE_PIXELS = 1e10
 # check for different RGB color formats and prevent differences (Chris and Hannahs skaling experiment)
 # Test image formats (png, tif, jpg)
 # Individuelle Parameter für PHOG measures
+# Slope Redies wieder auf 1024x1024 center crop
+
+# resize funktion to image size funktion
+# center crop algo zu image resizing
+# help erklärungen zu resize funktion
+# hinweis Upscaling und Warnunghinzufügen
+
+# QIPs, Sips, Aquips, ...
 
 # Correlation aller SIPs auf Basis aller Datensätze
 
@@ -56,36 +64,35 @@ Image.MAX_IMAGE_PIXELS = 1e10
 
 
 
-# def select_folder():
-#    root = tk.Tk()
-#    root.withdraw()
-#    folder_path = filedialog.askdirectory(master=root)
-#    root.destroy()
-#    return folder_path
+def select_folder():
+    root = tk.Tk()
+    root.withdraw()
+    folder_path = filedialog.askdirectory(master=root)
+    root.destroy()
+    return folder_path
 
 
+# import base64
 
-import base64
+# @st.cache_data()
+# def get_base64_of_bin_file(bin_file):
+#     with open(bin_file, 'rb') as f:
+#         data = f.read()
+#     return base64.b64encode(data).decode()
 
-@st.cache_data()
-def get_base64_of_bin_file(bin_file):
-    with open(bin_file, 'rb') as f:
-        data = f.read()
-    return base64.b64encode(data).decode()
-
-def set_png_as_page_bg(png_file):
-    bin_str = get_base64_of_bin_file(png_file)
-    page_bg_img = '''
-    <style>
-    .stApp {
-    background-image: url("data:image/png;base64,%s");
-    background-size: cover;
-    }
-    </style>
-    ''' % bin_str
+# def set_png_as_page_bg(png_file):
+#     bin_str = get_base64_of_bin_file(png_file)
+#     page_bg_img = '''
+#     <style>
+#     .stApp {
+#     background-image: url("data:image/png;base64,%s");
+#     background-size: cover;
+#     }
+#     </style>
+#     ''' % bin_str
     
-    st.markdown(page_bg_img, unsafe_allow_html=True)
-    return
+#     st.markdown(page_bg_img, unsafe_allow_html=True)
+#     return
 
 
 def custom_round(num):
@@ -180,12 +187,19 @@ if app_mode == 'SIP Calculation':
     )
 
 
-    selected_img_path = st.session_state.get("img_path", 'none_selected')
-    folder_path = st.text_input("Type the name of the image folder (jpg, png, tif format)", value='none_selected')
-    if folder_path != 'none_selected':
-        selected_img_path = folder_path
-        st.session_state.img_path = selected_img_path
+    # selected_img_path = st.session_state.get("img_path", 'none_selected')
+    # folder_path = st.text_input("Type the name of the image folder (jpg, png, tif format)", value='none_selected')
+    # if folder_path != 'none_selected':
+    #     selected_img_path = folder_path
+    #     st.session_state.img_path = selected_img_path
         
+
+    selected_img_path = st.session_state.get("img_path", 'none_selected')
+    folder_path = st.button("Select image folder (jpg, png, tif format)")
+    if folder_path:
+        selected_img_path = select_folder()
+        st.session_state.img_path = selected_img_path
+
 
 
     if selected_img_path != 'none_selected':
