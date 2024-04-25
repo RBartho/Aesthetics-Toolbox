@@ -5,8 +5,6 @@ from  PIL import Image
 from skimage import color
 # import sys
 import os
-import tkinter as tk
-from tkinter import filedialog
 
 ### custom import
 from SIPmachine import balance_sips, box_count_sips, CNN_sips, color_and_simple_sips, edge_entropy_sips, fourier_sips, PHOG_sips, scaling
@@ -194,61 +192,74 @@ if app_mode == 'SIP Calculation':
     #     st.session_state.img_path = selected_img_path
         
 
-    selected_img_path = st.session_state.get("img_path", 'none_selected')
-    folder_path = st.button("Select image folder (jpg, png, tif format)")
-    if folder_path:
-        selected_img_path = select_folder()
-        st.session_state.img_path = selected_img_path
+    # selected_img_path = st.session_state.get("img_path", 'none_selected')
+    # folder_path = st.button("Select image folder (jpg, png, tif format)")
+    # if folder_path:
+    #     selected_img_path = select_folder()
+    #     st.session_state.img_path = selected_img_path
 
+    # uploaded_file = st.file_uploader("Select images (jpg, png, tif format)")
 
-
-    if selected_img_path != 'none_selected':
-        st.write('Selected image path:', selected_img_path)
-        list_of_images = []
-        for root, dirs, files in os.walk(selected_img_path):
-            for file in files:
-                if ('.jpg' in file) or ('.jpeg' in file) or ('.png' in file) or ('.tif' in file) or ('.TIF' in file) or ('.TIFF' in file) or ('.tiff' in file): 
-                    list_of_images.append(file)
-        st.session_state.list_of_images = list_of_images
+    # if selected_img_path != 'none_selected':
+    #     st.write('Selected image path:', selected_img_path)
+    #     list_of_images = []
+    #     for root, dirs, files in os.walk(selected_img_path):
+    #         for file in files:
+    #             if ('.jpg' in file) or ('.jpeg' in file) or ('.png' in file) or ('.tif' in file) or ('.TIF' in file) or ('.TIFF' in file) or ('.tiff' in file): 
+    #                 list_of_images.append(file)
+    #     st.session_state.list_of_images = list_of_images
     
-    example_img = st.session_state.get("example_img", None)
+    # example_img = st.session_state.get("example_img", None)
     
-    if (selected_img_path != 'none_selected') and (example_img == None):
-        st.write('Examples of loaded images:') 
-        example_img = []
-        if len(list_of_images) >=20:
-            for k in range(20):
-                img_tmp = scaling.scale_to_width_keep_aspect_ratio(os.path.join(  selected_img_path , list_of_images[k]), width=120)
-                example_img.append(img_tmp)
-        else:
-            for k in list_of_images:
-                img_tmp = scaling.scale_to_width_keep_aspect_ratio(os.path.join(  selected_img_path , k), width=120)
-                example_img.append(img_tmp)
+    # if (selected_img_path != 'none_selected') and (example_img == None):
+    #     st.write('Examples of loaded images:') 
+    #     example_img = []
+    #     if len(list_of_images) >=20:
+    #         for k in range(20):
+    #             img_tmp = scaling.scale_to_width_keep_aspect_ratio(os.path.join(  selected_img_path , list_of_images[k]), width=120)
+    #             example_img.append(img_tmp)
+    #     else:
+    #         for k in list_of_images:
+    #             img_tmp = scaling.scale_to_width_keep_aspect_ratio(os.path.join(  selected_img_path , k), width=120)
+    #             example_img.append(img_tmp)
                  
-        st.session_state.example_img = example_img
+    #     st.session_state.example_img = example_img
         
 
-    if example_img:
-        st.image(example_img, width=120 )
+    # if example_img:
+    #     st.image(example_img, width=120 )
         
-        
+    upload_file = st.file_uploader('Load image files (Images are only loaded to your local machine. They are not uploaded to the internet)', type=['jpg','png','jpeg'], accept_multiple_files=True, label_visibility="collapsed" )# Check to see if a  file has been uploaded
+
+      # st.markdown('''
+      #     <style>
+      #         .uploadedFile {display: none}
+      #     <style>''',
+      #     unsafe_allow_html=True)
+    
+    
+    if len(upload_file) != 0 :
+          st.write('Examples of loaded images:')       
+          st.image(upload_file[:20], width=120 )
+      
+    
     commas = st.session_state.get("commas", None)
-    if example_img and (st.session_state.get("commas", None) != True):
-        for file in list_of_images:
+    if upload_file and (st.session_state.get("commas", None) != True):
+        for file in upload_file:
             if ',' in file:
                 st.session_state.commas = True
                 break
             else:
                 st.session_state.commas = None
         
-    if example_img and (st.session_state.commas == True):
+    if upload_file and (st.session_state.commas == True):
         st.warning('Commas found in image filenames. This is not recommended as commas are the delimiters in the result.csv file. Commas will be replaced with underscores in the image names in the CSV file.', icon="⚠️")
 
         
     #with col_down:
     selected_download_path = st.session_state.get("download_path", 'none_selected')
     csv_name = st.session_state.get("csv_name", None)
-    if selected_img_path != 'none_selected':
+    if upload_file != 'none_selected':
         
 
         selected_download_path = st.text_input("Type folder for saving results:", value='none_selected')
