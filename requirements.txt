@@ -5,4 +5,3 @@ streamlit
 Pillow
 scikit-image
 scipy
-tk 
