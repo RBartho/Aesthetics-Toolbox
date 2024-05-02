@@ -1,10 +1,16 @@
 # Aesthetics Toolbox
 
-This project contains Python scripts to run a streamlit application "SIP machine" in your browser. This application can compute a number of commonly studied SIPs (statistical image properties) for aesthetic research.
+### (This is still a beta version and should be used with caution. Bugfixes have not been completed. No warranties.)
+
+This project contains Python scripts to run a streamlit application "Aesthetics Toolbox" in your browser. This application can compute a number of commonly studied QIPs (quantitative image properties) for aesthetic research.
+
+# Cloud version with limited resources (but no installation)
+
+You can test the Toolbox without installation on the streamlit community cloud: https://aesthetics-toolbox.streamlit.app/
 
 # Installation instructions
 
-Download all the files from this GitHub repository to your computer. (Download the ZIP file under the green "Code" button.) Then follow the installation instructions for your operating system:
+For local installation download all the files from this GitHub repository to your computer. (Download the ZIP file under the green "Code" button.) Then follow the installation instructions for your operating system:
 
 [Linux Installation](docs/InstallationInstructions_Linux.md) \
 [MacOS Installation](docs/InstallationInstructions_MacOS.md)  \
@@ -34,7 +40,15 @@ python -m streamlit run SIP_machine.py
 
 4. Multithreading is not supported as it would limit platform independence. To speed up calculations, you may want to consider splitting the data and running multiple instances of the application.
 
-5. The number of images you can load into the application at one time is limited by the amount of RAM your computer has. Also, large images require much more processing time than smaller images.
+5. The number of images you can load into the application at one time is limited by the amount of RAM your computer (or the server) has. Also, large images require much more processing time than smaller images.
 
 # Privacy and security
-All calculations and data transfers of the application take place on your local computer. The browser is only used as an interface. No data is uploaded to the Internet.
+If you use the local installation version, all calculations and data transfers of the application take place on your local computer. The browser is used only as an interface. No data is uploaded to the Internet. The opposite is true for the Streamlit Community Cloud version.
+
+# Contributors
+Ralf Bartho: Toolbox concept, code development, maintenance, bugfixes <br />
+Christoph Redies: Toolbox concept, supervision of the project, documentation of image properties <br />
+Gregor Hayn-Leichsenring: Advice on the development of the toolbox <br />
+Branka Spehar: Provided code to compute image properties <br />
+Ronald Hübner: Provided code to compute image properties <br />
+George Mather: Provided code to compute image properties <br />
