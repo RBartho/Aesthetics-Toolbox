@@ -6,7 +6,7 @@ This project contains Python scripts to run a streamlit application "Aesthetics 
 
 # Cloud version with limited resources (but no installation)
 
-You can test the Toolbox without installation on the streamlit community cloud: https://aesthetics-toolbox.streamlit.app/
+You can try the toolbox without installation on the streamlit community cloud: https://aesthetics-toolbox.streamlit.app/ Please note the privacy and security information below when using the cloud version.
 
 # Local installation instructions
 
