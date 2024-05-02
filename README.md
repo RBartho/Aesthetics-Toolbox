@@ -8,7 +8,10 @@ This project contains Python scripts to run a streamlit application "Aesthetics 
 
 You can test the Toolbox without installation on the streamlit community cloud: https://aesthetics-toolbox.streamlit.app/
 
-# Installation instructions
+# Privacy and security
+If you use the local installation version, all calculations and data transfers of the application take place on your local computer. The browser is used only as an interface. No data is uploaded to the Internet. The opposite is true for the Streamlit Community Cloud version.
+
+# Local installation instructions
 
 For local installation download all the files from this GitHub repository to your computer. (Download the ZIP file under the green "Code" button.) Then follow the installation instructions for your operating system:
 
@@ -42,8 +45,6 @@ python -m streamlit run SIP_machine.py
 
 5. The number of images you can load into the application at one time is limited by the amount of RAM your computer (or the server) has. Also, large images require much more processing time than smaller images.
 
-# Privacy and security
-If you use the local installation version, all calculations and data transfers of the application take place on your local computer. The browser is used only as an interface. No data is uploaded to the Internet. The opposite is true for the Streamlit Community Cloud version.
 
 # Contributors
 Ralf Bartho: Toolbox concept, code development, maintenance, bugfixes <br />
