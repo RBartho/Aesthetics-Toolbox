@@ -18,16 +18,16 @@ For local installation download all the files from this GitHub repository to you
 
 # Starting the toolbox local (after installation)
 
-1. On MacOS and Linux open a terminal, on Windows open a Anaconda Prompt. Navigate to the downloaded folder containing the SIP_machine.py file.
+1. On MacOS and Linux open a terminal, on Windows open a Anaconda Prompt. Navigate to the downloaded folder containing the aesthetics_toolbox.py file.
 
 2. Activate the created Python environment by typing into the terminal
 ```shell
-conda activate SIP_machine
+conda activate aesthetics_toolbox
 ```
 3. Now start the application with:
 
 ```shell
-python -m streamlit run SIP_machine.py
+python -m streamlit run aesthetics_toolbox.py
  ```
 
 # Notes on using the application
