@@ -1,6 +1,7 @@
 import numpy as np
 from skimage import color
 import PIL
+import statsmodels.api as sm
 
 ################################ Redies Group - OSF #################################
 
@@ -75,68 +76,76 @@ def rotavg(array):
     return f
 
 
-def center_crop (img_gray):
-    
-    img_PIL = PIL.Image.fromarray(img_gray)
-    width, height = img_PIL.size   # Get dimensions
+def padding_and_resizing_to_square_1024_pixel(img):
+    '''
+    Parameters
+    ----------
+    img : TYPE
+        DESCRIPTION.
 
-    if width > height:
-        # center
-        c_width = np.floor(width/2)
-        c_height = np.floor(height/2)
-        # define corp borders
-        top=0
-        bottom = height
-        left = c_width - c_height
-        right =  c_width + c_height 
-        if height%2 == 1: # for uneven pixels
-            right += 1
-        img = img_PIL.crop((left, top, right, bottom))
+    Returns
+    -------
+    img : TYPE
+        DESCRIPTION.
         
-    elif width < height:
-        # center
-        c_width = np.floor(width/2)
-        c_height = np.floor(height/2)
-        # define corp borders
-        top    = c_height - c_width
-        bottom = c_height + c_width
-        left   = 0
-        right  =  width
-        if width%2 == 1: # for uneven pixels
-            bottom += 1
-        img = img_PIL.crop((left, top, right, bottom))
+    Note PIL and Numpy use different order for h,w in ".shape" and ".size" functions
+
+    '''
+    
+
+    mean = np.round(np.mean(img)).astype(np.uint8) # mean gray value for padding
+    
+    ### resize longer side to 1024 pixels, maintain aspect ratio
+    img = PIL.Image.fromarray(img)
+    if img.size[0] >= img.size[1]:
+        a = 1024 / float(img.size[0])
+        img = img.resize((int(img.size[0]*a),int(img.size[1]*a)), PIL.Image.Resampling.LANCZOS)
     else:
-        img = img_PIL
-
-    return np.asarray(img)
-
-
+        a = 1024 / float(img.size[1])
+        img = img.resize((int(img.size[0]*a),int(img.size[1]*a)), PIL.Image.Resampling.LANCZOS)
+    
+    ### padding with mean gray value
+    img = np.asarray(img)
+    h,w = img.shape
+    w_c = int(w/2)
+    h_c = int(h/2)
+    if h > w: 
+        img_pad = np.full([h,h], mean) 
+        if w%2 == 1: # uneven width
+            img_pad[ :  ,  h_c - w_c : h_c + w_c +1  ] = img
+        else:
+            img_pad[ :  ,  h_c - w_c : h_c + w_c  ] = img
+        img = img_pad
+    elif h < w:
+        img_pad = np.full([w,w], mean)  
+        if h%2 == 1: # uneven height
+            img_pad[w_c - h_c : w_c + h_c +1  , :  ] = img
+        else: 
+            img_pad[w_c - h_c : w_c + h_c  , :  ] = img     
+        img = img_pad
+        
+    return img
+    
 
 def fourier_redies(img_gray, bin_size=2, cycles_min=30, cycles_max=256):
     ## takes grayscale image
     
     ### center crop image
-    img_gray_cropped = center_crop (img_gray)
-    
-    
-    power = np.fft.fftshift(np.fft.fft2(img_gray_cropped.astype(float)))
+    img_gray_resized = padding_and_resizing_to_square_1024_pixel(img_gray)
+
+    power = np.fft.fftshift(np.fft.fft2(img_gray_resized.astype(float)))
     A = rotavg(np.abs(power)**2)
     A = A[:,8].copy()
         
     ### limit max frequency for small images
-    
-    
     if cycles_max > len(A):
         cycles_max = len(A)
         
-    
     rang = np.arange(cycles_min, cycles_max + 1) - 1
 
     x_min = rang[0]
     x_max = rang[-1]
-    
-    # print(rang)
-    
+
     using_range = A[rang]
     log_rang = np.log10(rang+1)
     log_using_range = np.log10(using_range)
@@ -155,7 +164,7 @@ def fourier_redies(img_gray, bin_size=2, cycles_min=30, cycles_max=256):
     return SIGMA, SLOPE
 
 
-################################ Branka Spehar #################################
+################################ Peter Kovesi (used by Branka Spehar) #################################
 
 # Original Matlab Code by Peter Kovesi
 
@@ -172,7 +181,7 @@ def fourier_redies(img_gray, bin_size=2, cycles_min=30, cycles_max=256):
 #% The Software is provided "as is", without warranty of any kind.
 
 
-def fourier_slope_branka_Spehar(img_gray, nbins=100, lowcut=2):
+def fourier_slope_branka_Spehar_Kovesi(img_gray, nbins=100, lowcut=2):
 
     ### power and ffshift
     f = np.fft.fftshift(np.fft.fft2(img_gray.astype(float), axes=(0, 1))) #,  axes=(0, 1))
@@ -230,6 +239,108 @@ def fourier_slope_branka_Spehar(img_gray, nbins=100, lowcut=2):
 
     return slope
 
+################################ Zoey Isherwoods & Branka Spehar #################################
+
+
+'''
+  Translation to Python 3 from Zoey Isherwoods Matlab Code on GitHub:
+  https://github.com/zoeyisherwood/pp-spatiotemp
+  
+  Isherwood, Z. J., Clifford, C. W. G., Schira, M. M., Roberts, M. M. & Spehar, B. (2021) 
+  Nice and slow: Measuring sensitivity and visual preference toward naturalistic stimuli 
+  varying in their amplitude spectra in space and time. Vision Research 181, 47-60, 
+  doi:10.1016/j.visres.2021.01.001.
+  
+  rot_avg.m function by Bruno Olshausen
+  
+  Before fitting the data, outliers are removed in the linear fit (not the log-log fit) if Cook's distance > n/4. 
+  This basically removes the low frequencies for most images.
+ 
+'''
+
+
+def rot_avg(array):
+    """
+    rotavg.m - Matlab function to compute rotational average of (square) array
+    by Bruno Olshausen
+    N should be even.
+    """
+    N, N = array.shape
+
+    X, Y = np.meshgrid(np.arange(-N/2, N/2), np.arange(-N/2, N/2))
+    rho = np.sqrt(X**2 + Y**2).round().astype(int)
+
+    f = np.zeros((N//2 + 1))
+
+    for r in range(N//2 + 1):
+        mask = (rho == r)
+        if np.any(mask):
+            f[r] = np.mean(array[mask])
+
+    return f
+
+
+def CooksDistance_SM(X, y):
+    '''
+    computes the Cook's distance using the statsmodel package'
+    '''
+    
+    # add constant value
+    X = sm.add_constant(X.reshape(-1, 1))
+    # fit the model
+    model = sm.OLS(y,X).fit()
+    # Get influence measures
+    influence = model.get_influence()
+    # Calculate Cook's distance
+    cooks_d = influence.cooks_distance[0] 
+    # Output the results
+    return cooks_d
+
+
+def fourier_slope_branka_Spehar_Isherwood(img_gray):
+    
+    img_gray = np.asarray(img_gray)
+
+
+    # Adjust image size to be even
+    if img_gray.shape[0] % 2 == 1:
+        img_gray = img_gray[:-1, :]
+    if img_gray.shape[1] % 2 == 1:
+        img_gray = img_gray[:, :-1]
+
+    # Ensure the input is square, center cropping to larges square with power of 2
+    if img_gray.shape[0] != img_gray.shape[1]:
+        s_original = img_gray.shape
+        s_trim = min(2**int(np.log2(s_original[0])), 2**int(np.log2(s_original[1])))
+        center_x, center_y = s_original[0] // 2, s_original[1] // 2
+        img_gray = img_gray[center_x - s_trim // 2:center_x + s_trim // 2,
+                                  center_y - s_trim // 2:center_y + s_trim // 2]
+
+    # Calculate spatial slope
+    # remove outliers/e.g. low frequencies first
+    xsize, ysize = img_gray.shape
+    
+    imf = np.fft.fftshift(np.fft.fft2(img_gray.astype(float)))
+
+    impf = np.abs(imf)
+    Pf = rot_avg(impf)
+    x_vec = np.arange(1, xsize // 2 + 1)
+    y_vec = Pf[1:ysize // 2 + 1]
+
+    cook_distance = CooksDistance_SM(x_vec, y_vec)
+    outliers = cook_distance > 4 / len(x_vec)
+    x_vec = x_vec[~outliers]
+    y_vec = y_vec[~outliers]
+    
+    # Log-log fit
+    A_loglog = np.log(x_vec)
+    B_loglog = np.log(y_vec)
+    b_loglog, _ = np.polyfit(A_loglog, B_loglog, 1)
+
+    spatialSlope_logFit = b_loglog
+
+    return spatialSlope_logFit
+
 
 ################################ George Mather #################################
 
@@ -242,9 +353,6 @@ def rotavg_mather(array):
     for r in range(int(N/2) + 1):
         f[r] = np.mean(array[np.where(rho == r)])
     return f
-
-
-
 
 def center_crop_mather (img_rgb): 
     # crop to largest center square with power of two
@@ -277,39 +385,11 @@ def center_crop_mather (img_rgb):
 
 def fourier_slope_mather(img_rgb):
     ## NO bining; num bins == num possible frequ.
-    
-    # # Crop the image to the largest central rectangle, power of 2
-    # nr, nc, N = img_rgb.shape
-    # if nr < nc:
-    #     npow = np.ceil(np.log2(nr))
-    #     if nr < 2**npow:
-    #         nnr = 2**(npow - 1)
-    #     else:
-    #         nnr = 2**npow
-    #     dc = nc - nnr
-    #     dr = nr - nnr
-    #     nnc = nnr
-    # else:
-    #     npow = np.ceil(np.log2(nc))
-    #     if nc < 2**npow:
-    #         nnc = 2**(npow - 1)
-    #     else:
-    #         nnc = 2**npow
-    #     dr = nr - nnc
-    #     dc = nc - nnc
-    #     nnr = nnc
-    
-    # nr = nnr;
-    # nc = nnc;
-    
-    # ci = img_rgb[int(np.round(1 + dr / 2))-1:int(np.round(dr / 2 + nr)), int(np.round(1 + dc / 2))-1:int(np.round(dc / 2 + nc)), :]
-    
+
     ci = center_crop_mather (img_rgb)
         
     [nr,nc, _] = ci.shape
-    
-    print(ci.shape)
-    
+
     ci = color.rgb2lab(ci)
     
     tmp = (ci[:, :, 0] / 100.0) *255.0  # Assuming Lab space with 'L' channel
