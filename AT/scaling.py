@@ -74,10 +74,50 @@ def resize_to_fit_display(file_path, disp_width=1920, disp_height=1080):
         img = img.resize((int(s[0]*a),int(s[1]*a)), PIL.Image.Resampling.LANCZOS)
     return img
 
+########################### center cropping
+
+def center_crop (img_gray):
+    
+    img_PIL = PIL.Image.fromarray(img_gray)
+    width, height = img_PIL.size   # Get dimensions
+
+    if width > height:
+        # center
+        c_width = np.floor(width/2)
+        c_height = np.floor(height/2)
+        # define corp borders
+        top=0
+        bottom = height
+        left = c_width - c_height
+        right =  c_width + c_height 
+        if height%2 == 1: # for uneven pixels
+            right += 1
+        img = img_PIL.crop((left, top, right, bottom))
+        
+    elif width < height:
+        # center
+        c_width = np.floor(width/2)
+        c_height = np.floor(height/2)
+        # define corp borders
+        top    = c_height - c_width
+        bottom = c_height + c_width
+        left   = 0
+        right  =  width
+        if width%2 == 1: # for uneven pixels
+            bottom += 1
+        img = img_PIL.crop((left, top, right, bottom))
+    else:
+        img = img_PIL
+
+    return np.asarray(img)
+
+
 
 # #file_path = '/home/ralf/Documents/18_SIP_Machine/GUI_streamlit/images_style/O-Martinez_Eddie_02.jpg'
 # file_path = '/home/ralf/Documents/18_SIP_Machine/GUI_streamlit/images_style/test.jpg'
-    
+
+# img = scale_longer_side_keep_aspect_ratio(file_path, longer_side=1024)
+# print(img.size)
 
 
 # img = scale_to_number_of_pixels_keep_aspect_ratio(file_path , num_pixels=100000)
