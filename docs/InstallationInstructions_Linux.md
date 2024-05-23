@@ -1,4 +1,4 @@
-# Installation instructions Linux
+# Installation instructions Linux and MacOS
 
 1. If you do not already have Anaconda or Miniconda installed, download and install Anaconda (use all default install options):
 
