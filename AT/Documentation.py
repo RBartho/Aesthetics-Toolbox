@@ -2,15 +2,10 @@ import streamlit as st
 
 def show_docs():
 
-    st.markdown('<p class="font2">Aesthetics Toolbox</p>', unsafe_allow_html=True)
+    st.markdown('<p class="head">Aesthetics Toolbox</p>', unsafe_allow_html=True)
     st.markdown('<p class="font0">Documentation</p>', unsafe_allow_html=True)
-    
-    st.markdown(""" <style> .fontgreen {
-    font-size:20px ; font-family: 'Cooper Black'; color: green;} 
-    </style> """, unsafe_allow_html=True)
-    
-    
-    st.markdown('<p class="fontgreen">Contrast and Luminance Entropy</p>', unsafe_allow_html=True)
+
+    st.markdown('<p class="font2">Contrast and Luminance Entropy</p>', unsafe_allow_html=True)
     
     st.write(""" Contrast is a widely studied feature in aesthetic research and there
     are many different methods to calculate it. It is unclear to what extent these different methods capture the
@@ -24,7 +19,7 @@ def show_docs():
     
         
     
-    st.markdown('<p class="fontgreen">Edge-Orientation Entropy</p>', unsafe_allow_html=True)
+    st.markdown('<p class="font2">Edge-Orientation Entropy</p>', unsafe_allow_html=True)
     
     st.write("""
     Second-Order Edge-Orientation Entropy is used to measure how
@@ -38,7 +33,7 @@ def show_docs():
     
     
     
-    st.markdown('<p class="fontgreen">PHOG Measures (Self-Similarity, Complexity and Anisotropy)</p>', unsafe_allow_html=True)
+    st.markdown('<p class="font2">PHOG Measures (Self-Similarity, Complexity and Anisotropy)</p>', unsafe_allow_html=True)
     st.write("""
     Self-Similarity, Complexity and
     Anisotropy measures are assessed using the (Pyramid of) Histograms of Orientation Gradients ([P]HOG)
@@ -55,7 +50,7 @@ def show_docs():
     
     
     
-    st.markdown('<p class="fontgreen">Fourier Slope and Fourier Sigma</p>', unsafe_allow_html=True)
+    st.markdown('<p class="font2">Fourier Slope and Fourier Sigma</p>', unsafe_allow_html=True)
     st.write("""
     Fourier Slope and Fourier Sigma are based on the Fourier power
     spectrum of the gray-scale version of an image. Roughly speaking, the Fourier Slope indicates the relative
@@ -66,7 +61,7 @@ def show_docs():
     
     
     
-    st.markdown('<p class="fontgreen">Symmetry-lr and Symmetry-ud</p>', unsafe_allow_html=True)
+    st.markdown('<p class="font2">Symmetry-lr and Symmetry-ud</p>', unsafe_allow_html=True)
     st.write("""
     Brachmann and Redies (2016) developed a symmetry measure that is
     based on the first layer of CNN filters from a pre-trained AlexNet (Hinton et al., 2012). Since these filters
@@ -77,7 +72,7 @@ def show_docs():
     importance and previous results on symmetry in aesthetics research, see Bertamini and Rampone (2020).""")
     
     
-    st.markdown('<p class="fontgreen">Sparseness and Variability</p>', unsafe_allow_html=True)
+    st.markdown('<p class="font2">Sparseness and Variability</p>', unsafe_allow_html=True)
     st.write("""
     Brachmann et al. (2017) used the first
     convolutional layer of a pre-trained AlexNet to also measure Sparseness/Richness and Variability of the
