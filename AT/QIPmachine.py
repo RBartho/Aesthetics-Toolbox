@@ -23,8 +23,8 @@ def run_QIP_machine():
     #Create two columns with different width
     col1, col2 = st.columns( [0.85, 0.15])
     with col1:               # To display the header text using css style
-        st.markdown('<p class="font2">Aesthetics Toolbox</p>', unsafe_allow_html=True)
-        st.markdown('<p class="font0">QIP Machine</p>', unsafe_allow_html=True)
+        st.markdown('<p class="head">Aesthetics Toolbox</p>', unsafe_allow_html=True)
+        st.markdown('<p class="subhead">QIP Machine</p>', unsafe_allow_html=True)
         st.markdown('<p class="font1">This is an interface to calculate Quantitative Image Properties (QIPs) for images</p>', unsafe_allow_html=True)
     with col2:               # To display brand logo
         st.image(image2,  width=120) 
@@ -44,7 +44,7 @@ def run_QIP_machine():
         unsafe_allow_html=True,
     )
 
-    upload_file = st.file_uploader('Load image files', type=['jpg','png','jpeg','tif'], accept_multiple_files=True, label_visibility="collapsed", on_change=callback_upload_img_files )# Check to see if a  file has been uploaded
+    upload_file = st.file_uploader('Load image files', type=['jpg','jpeg','png','tif'], accept_multiple_files=True, label_visibility="collapsed", on_change=callback_upload_img_files )# Check to see if a  file has been uploaded
     
     
     if st.session_state.get('new_files_uploaded' , False): # check if upload files have been changed, and only then do checks again
@@ -67,7 +67,7 @@ def run_QIP_machine():
             st.image(upload_file, width=120 )
      
         if st.session_state.get('large_files', None):
-            st.warning('Some loaded images are quite large (more than 6 MB). Consider reducing their size, as for most SIPs the calculation time increases (exponentially) with the image size.', icon="⚠️")
+            st.warning('Some loaded images are quite large (more than 6 MB). Consider reducing their size, as for most QIPs the calculation time increases (exponentially) with the image size.', icon="⚠️")
      
         if st.session_state.get('commas', None):
             st.warning('Commas found in image filenames. This is not recommended as commas are the delimiters in the result.csv file. Commas will be replaced with underscores in the image names in the CSV file.', icon="⚠️")
@@ -91,7 +91,7 @@ def run_QIP_machine():
 
     check_dict = st.session_state.get("check_dict", None)
     if upload_file:
-        with st.form('SIP Selection'):
+        with st.form('QIP Selection'):
             
             st.markdown("""       
             <style>
@@ -99,7 +99,7 @@ def run_QIP_machine():
             font-size:40px;
             }
             </style>""",unsafe_allow_html=True)
-            st.markdown('<p class="font2">Choose SIPs to calculate:</p>', unsafe_allow_html=True)
+            st.markdown('<p class="subhead">Choose QIPs to calculate:</p>', unsafe_allow_html=True)
         
             
             # Define the number of columns in the layout
@@ -111,9 +111,9 @@ def run_QIP_machine():
                 st.markdown('<p class="font2">' + 'Image dimensions' + '</p>', unsafe_allow_html=True)
                 check_dict['Image size (pixels)'] = st.checkbox('Image size' , help='Image size = width + height')
                 check_dict['Aspect ratio'] = st.checkbox('Aspect ratio' , help='Aspect ratio = width / height')
-                st.markdown('<p class="font2">' + 'Luminance & Complexity & Contrast' + '</p>', unsafe_allow_html=True)
-                check_dict['RMS contrast'] = st.checkbox('RMS contrast', help='RMS contrast = standard deviation of the Luminance channel (Lab)')
-                check_dict['Luminance entropy'] = st.checkbox('Luminance entropy' , help='Luminance entropy = Shannon entropy of the Luminance channel (Lab)')
+                st.markdown('<p class="font2">' + 'Lightness & Complexity & Contrast' + '</p>', unsafe_allow_html=True)
+                check_dict['RMS contrast'] = st.checkbox('RMS contrast', help='RMS contrast = standard deviation of the Lightness channel (Lab)')
+                check_dict['Lightness entropy'] = st.checkbox('Lightness entropy' , help='Lightness entropy = Shannon entropy of the Lightness channel (Lab)')
                 check_dict['Edge density'] = st.checkbox('Edge density', help='Edge density = density of edges in the image (Gabor filters)'  )
                 check_dict['Complexity'] = st.checkbox('Complexity', help='Complexity = mean of gradient strengths across the image (HOG method)'  )
             with columns[1]:
@@ -139,19 +139,19 @@ def run_QIP_machine():
                   check_dict['left-right & up-down'] = st.checkbox('left-right & up-down', help = 'CNN symmetry betwenn the original image and a left-right & up-down flipped image based on CNN-layer feature maps.')
             with columns[3]:
                   st.markdown('<p class="font2">' + 'Fractality & Self-similarity' + '</p>', unsafe_allow_html=True)
-                  st.write('**Fractal dimension**')
-                  check_dict['2-dimensional'] = st.checkbox('2-dimensional', help = '2d fractal dimension: two spatial axes for binarized image')
-                  check_dict['3-dimensional'] = st.checkbox('3-dimensional', help = '3d fractal dimension: two spatial axes and a pixel intensity axis')
                   st.write('**Fourier spectrum**')
                   check_dict['Slope'] = st.checkbox('Slope', help = 'Slope of straight line fitted to log-log plot of Fourier power vs. spatial frequency')
                   check_dict['Sigma'] = st.checkbox('Sigma', help = 'Deviation of Fourier spectral power curve from a straight line in log-log plot')
+                  st.write('**Fractal dimension**')
+                  check_dict['2-dimensional'] = st.checkbox('2-dimensional', help = '2d fractal dimension: two spatial axes for binarized image')
+                  check_dict['3-dimensional'] = st.checkbox('3-dimensional', help = '3d fractal dimension: two spatial axes and a pixel intensity axis')
                   st.write('**Self-similarity**')
                   check_dict['PHOG-based'] = st.checkbox('PHOG-based', help = 'Self-similarity based on pyramid of histograms of oriented gradients (PHOG)')
                   check_dict['CNN-based'] = st.checkbox('CNN-based', help = 'Self-similarity based on low-level features of a convolutional neural network (CNN)')
             with columns[4]:
                   st.markdown('<p class="font2">' + 'Feature distribution & Entropy' + '</p>', unsafe_allow_html=True)
                   check_dict['Anisotropy'] = st.checkbox('Anisotropy', help ='Variance in the gradient strength across orientations (HOG method)')
-                  check_dict['Homogeneity'] = st.checkbox('Homogeneity', help = 'Relative Shannon entropy of black pixel frequency in image bins')
+                  check_dict['Homogeneity'] = st.checkbox('Homogeneity', help = 'Relative Shannon entropy of black pixel frequency in binary image')
                   st.write('**Edge orientation entropy**')
                   check_dict['1st-order'] = st.checkbox('1st-order', help = '1st-order Shannon entropy of the histogram of edge orientations across an image')
                   check_dict['2nd-order'] = st.checkbox('2nd-order', help = '2nd-order Shannon entropy based on pairwise statistics of edge orientations across an image')
@@ -162,7 +162,7 @@ def run_QIP_machine():
             st.form_submit_button('**Commit selection**' , on_click=AT_misc.click_sub_SIPs, args=(check_dict,), use_container_width=True)
 
                     #########################################
-                    ###### ADD Parameters for individual SIPs
+                    ###### ADD Parameters for individual QIPs
                     #########################################
         
     
@@ -190,9 +190,9 @@ def run_QIP_machine():
                             bins = int(st.text_input('Enter width of bins:', value="2",  help=None,  label_visibility="visible"))
                         
                             
-                        if slope_selectbox == '**Spehar**':
-                            bins = int(st.text_input('Enter number of bins:', value="100",  help=None,  label_visibility="visible"))
-                            low_cut = int(st.text_input('Enter percent of lower frequencies to drop:', value="2",  help=None,  label_visibility="visible"))
+                        # if slope_selectbox == '**Spehar**':
+                        #     bins = int(st.text_input('Enter number of bins:', value="100",  help=None,  label_visibility="visible"))
+                        #     low_cut = int(st.text_input('Enter percent of lower frequencies to drop:', value="2",  help=None,  label_visibility="visible"))
     
                     if check_dict['Sparseness'] or check_dict['Variability']:
                         st.markdown('<p class="font2">Parameters for Sparseness and Variability:</p>', unsafe_allow_html=True)
@@ -476,7 +476,7 @@ def run_QIP_machine():
                                         elif key == 'Edge density':
                                             result_csv += str(AT_misc.custom_round(edge_d)) + sep
                                         
-                                elif (key == 'Luminance entropy') and check_dict[key]:
+                                elif (key == 'Lightness entropy') and check_dict[key]:
                                     res = color_and_simple_sips.shannonentropy_channels(img_lab[:,:,0])
                                     result_csv += str(AT_misc.custom_round(res)) + sep
                                     
@@ -548,7 +548,9 @@ def run_QIP_machine():
                                         result_csv += str(AT_misc.custom_round(slope)) + sep
                                     
                                     elif slope_selectbox == '**Spehar**':
-                                        slope = fourier_sips.fourier_slope_branka_Spehar(img_gray, nbins=bins, lowcut=low_cut)
+                                        #slope = fourier_sips.fourier_slope_branka_Spehar_Kovesi(img_gray, nbins=bins, lowcut=low_cut)
+                                        slope = fourier_sips.fourier_slope_branka_Spehar_Isherwood(img_gray)
+                                        
                                         result_csv += str(AT_misc.custom_round(slope)) + sep
 
                                     elif slope_selectbox == '**Mather**':
