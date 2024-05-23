@@ -217,6 +217,7 @@ def computeSD(descriptorglobal, bins, levels, section):
         temp[i, 1] = section ** ((i+1) * 2) * bins + temp[i, 0] - 1
         
     descript = descriptorglobal[temp[levels - 1, 0]-1 : temp[levels - 1, 1]]
+    
     sdvalue = np.std(descript)
     return sdvalue
 
