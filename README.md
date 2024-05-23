@@ -1,4 +1,4 @@
-# Aesthetics Toolbox
+# Aesthetics Toolbox v0.1.0-beta
 
 ### (This is still a beta version and should be used with caution. Bugfixes have not been completed. No warranties.)
 
