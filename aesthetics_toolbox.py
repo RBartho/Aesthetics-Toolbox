@@ -19,47 +19,50 @@ from AT import QIPmachine, References, Documentation, Datasets, Resizing
 
 ###################### TODO's
 ## important
-# check for different RGB color formats and prevent differences (Chris and Hannahs skaling experiment)
-# Test image formats (png, tif, jpg)
-# Individuelle Parameter für PHOG measures
-# Slope Redies wieder auf 1024x1024 center crop
+# Slope Redies 1024x1024 center crop erwähnen
 
 # resize funktion to image size funktion
 # center crop algo zu image resizing
 # help erklärungen zu resize funktion
 # hinweis Upscaling und Warnunghinzufügen
-
-# QIPs, Sips, Aquips, ...
-
+# upsizing images KI info
 # Correlation aller SIPs auf Basis aller Datensätze
-
 # "Navigate to the downloaded files in the Anaconda-Prompt window." präzisieren
 # x,y, Coordinate Schwerpunkt DCM ausgeben
-# Subfolder image caluclation like Segmentation
+# cropping to power of two
+
+# replace SIPs qith QIPs
+
+# option to disable standard image preprocessing where possible (resizing and cropping)
+
+# color also for black secren
+
+# CSV add Parameters, add extra column for grayscale, upscaling, version of toolbox used
+
+# add Version numbers to the toolbox
+
+# add warning and recomadation fpr image size/ image preprocessing
+
+
+# indicate type of FS in results.csv
+# indicate choosen parameters in results.csv
 
 ## later
 # Gitlab automatic Code Tests
 # Minifehler in Code kommentieren, Richtige Version auskommentieren
 # code dokumentieren
 # add center cropp algo
-# Wunschliste Lara Datensätze: filter und Kontaktfunktion
-# From home is Code BC dimension 3 Algo Mather?
-# Namen festlegen: Aesthetic Toolbox, image properties
+
+# add Dataset Part
+
+
+
+
 ### Collaboration fragen:
 #    https://www.frontiersin.org/articles/10.3389/fcomp.2023.1140723/full
 #    https://psycnet.apa.org/fulltext/2018-51763-001.html
 
-##################### recently added/fixed
-# Zähler einbauen, Remaining Time
-# fix download path (using os.path.join)
-# new standard for PHOG scaling to no scaling
-# finish image resize options
-# grayscale
-# refresh, wenn Sidebar wechselt
-# fix the names in result txt
-# Test Mac, Windows (Hannahs neuster Bug ()
 
-# Slopes überarbeitet und OSF Sloper Version eingefügt
 
 
 st.set_page_config(layout="wide")
@@ -74,8 +77,20 @@ st.markdown(""" <style> .font1 {
 font-size:20px ; font-family: 'Cooper Black'; color: black;} 
 </style> """, unsafe_allow_html=True)
 
-st.markdown(""" <style> .font2 {
+st.markdown(""" <style> .head {
 font-size:35px ;  font-family: 'Cooper Black'; color: #FF9633;}
+</style> """, unsafe_allow_html=True)
+
+st.markdown(""" <style> .subhead {
+font-size:28px ;  font-family: 'Cooper Black'; color: #FF9633;}
+</style> """, unsafe_allow_html=True)
+
+# st.markdown(""" <style> .font2 {
+# font-size:35px ;  font-family: 'Cooper Black'; color: #FF9633;}
+# </style> """, unsafe_allow_html=True)
+
+st.markdown(""" <style> .font2 {
+font-size:20px ; font-family: 'Cooper Black'; color: green;} 
 </style> """, unsafe_allow_html=True)
 
 ############################################################
@@ -99,10 +114,10 @@ st.sidebar.header("Sidebar")
 ### define order and names of sidebar menu
 #app_mode = st.sidebar.selectbox('Select mode',['SIP Calculation', 'Resizing images', 'Datasets', 'Documentation', 'References'] ) #three pages
    
-app_mode = st.sidebar.selectbox('Select mode',['SIP Calculation', 'Documentation', 'References'] ) #three pages
+app_mode = st.sidebar.selectbox('Select mode',['QIP Calculation', 'Documentation', 'References'] ) #three pages
 
 
-if app_mode == 'SIP Calculation':
+if app_mode == 'QIP Calculation':
     QIPmachine.run_QIP_machine()
  
 if app_mode == 'Documentation':
