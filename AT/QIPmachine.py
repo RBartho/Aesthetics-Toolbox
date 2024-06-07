@@ -3,31 +3,34 @@ import streamlit as st
 import numpy as np
 from  PIL import Image
 from skimage import color
-import os
 import timeit
 import sys
+import io
+from zipfile import ZipFile
 
-from . import balance_sips, box_count_sips, CNN_sips, color_and_simple_sips, edge_entropy_sips, fourier_sips, PHOG_sips, scaling, AT_misc
-
-
-
-def callback_upload_img_files():
-    st.session_state.new_files_uploaded = True
+from . import balance_qips, box_count_qips, CNN_qips, color_and_simple_qips, edge_entropy_qips, fourier_qips, PHOG_qips, AT_misc
 
 
 
+version = 'v0.1.1-beta'
+
+
+    
 def run_QIP_machine():
-    #image1 = Image.open('images/logo_ukj.png')
-    image2 = Image.open('images/LogoDesign EAJ final.png')
+    image1 = Image.open('images/LogoDesign EAJ final.png')
+    image2 = Image.open('images/GestatltReVision_Logo_mod.png')
+    
     
     #Create two columns with different width
-    col1, col2 = st.columns( [0.85, 0.15])
-    with col1:               # To display the header text using css style
+    col1, col2, col3 = st.columns( [0.15, 0.5, 0.25])
+    with col2:               # To display the header text using css style
         st.markdown('<p class="head">Aesthetics Toolbox</p>', unsafe_allow_html=True)
         st.markdown('<p class="subhead">QIP Machine</p>', unsafe_allow_html=True)
         st.markdown('<p class="font1">This is an interface to calculate Quantitative Image Properties (QIPs) for images</p>', unsafe_allow_html=True)
-    with col2:               # To display brand logo
-        st.image(image2,  width=120) 
+    with col1:
+        st.image(image1,  width=160) 
+    with col3:
+        st.image(image2,  width=400) 
     
 
     st.markdown(
@@ -44,7 +47,7 @@ def run_QIP_machine():
         unsafe_allow_html=True,
     )
 
-    upload_file = st.file_uploader('Load image files', type=['jpg','jpeg','png','tif'], accept_multiple_files=True, label_visibility="collapsed", on_change=callback_upload_img_files )# Check to see if a  file has been uploaded
+    upload_file = st.file_uploader('Load image files', type=['jpg','jpeg','png','tif'], accept_multiple_files=True, label_visibility="collapsed", on_change=AT_misc.callback_upload_img_files )# Check to see if a  file has been uploaded
     
     
     if st.session_state.get('new_files_uploaded' , False): # check if upload files have been changed, and only then do checks again
@@ -72,9 +75,9 @@ def run_QIP_machine():
         if st.session_state.get('commas', None):
             st.warning('Commas found in image filenames. This is not recommended as commas are the delimiters in the result.csv file. Commas will be replaced with underscores in the image names in the CSV file.', icon="⚠️")
 
-        csv_name = st.text_input('Type filename for saving:', value="results.csv",  help='File should have .csv extension to be recognized by standard software.' ,  label_visibility="visible")
-        
-        
+        zip_file_name = st.text_input('Type filename for download:', value="results.zip",  help='File should have .zip extension to be recognized by standard software.' ,  label_visibility="visible")
+
+
 
 ######################################
 
@@ -91,6 +94,13 @@ def run_QIP_machine():
 
     check_dict = st.session_state.get("check_dict", None)
     if upload_file:
+        
+        st.divider()
+        
+        
+        ALL_QIPS = st.checkbox("Calculate all QIPs")
+
+        
         with st.form('QIP Selection'):
             
             st.markdown("""       
@@ -109,73 +119,79 @@ def run_QIP_machine():
             # define each column
             with columns[0]:
                 st.markdown('<p class="font2">' + 'Image dimensions' + '</p>', unsafe_allow_html=True)
-                check_dict['Image size (pixels)'] = st.checkbox('Image size' , help='Image size = width + height')
-                check_dict['Aspect ratio'] = st.checkbox('Aspect ratio' , help='Aspect ratio = width / height')
+                check_dict['Image size (pixels)'] = st.checkbox('Image size' , help='Image size = width + height', value=ALL_QIPS)
+                check_dict['Aspect ratio'] = st.checkbox('Aspect ratio' , help='Aspect ratio = width / height', value=ALL_QIPS)
                 st.markdown('<p class="font2">' + 'Lightness & Complexity & Contrast' + '</p>', unsafe_allow_html=True)
-                check_dict['RMS contrast'] = st.checkbox('RMS contrast', help='RMS contrast = standard deviation of the Lightness channel (Lab)')
-                check_dict['Lightness entropy'] = st.checkbox('Lightness entropy' , help='Lightness entropy = Shannon entropy of the Lightness channel (Lab)')
-                check_dict['Edge density'] = st.checkbox('Edge density', help='Edge density = density of edges in the image (Gabor filters)'  )
-                check_dict['Complexity'] = st.checkbox('Complexity', help='Complexity = mean of gradient strengths across the image (HOG method)'  )
+                check_dict['RMS contrast'] = st.checkbox('RMS contrast', help='RMS contrast = standard deviation of the Lightness channel (Lab)', value=ALL_QIPS)
+                check_dict['Lightness entropy'] = st.checkbox('Lightness entropy' , help='Lightness entropy = Shannon entropy of the Lightness channel (Lab)', value=ALL_QIPS)
+                check_dict['Complexity'] = st.checkbox('Complexity', help='Complexity = mean of gradient strengths across the image (HOG method)'  , value=ALL_QIPS)
+                check_dict['Edge density'] = st.checkbox('Edge density', help='Edge density = density of edges in the image (Gabor filters)'  , value=ALL_QIPS)
             with columns[1]:
                 st.markdown('<p class="font2">' + 'Color' + '</p>', unsafe_allow_html=True)
-                check_dict['Color entropy'] =  st.checkbox('Color entropy', help='Color entropy = Shannon entropy of the Hue channel (HSV)'  )
+                check_dict['Color entropy'] =  st.checkbox('Color entropy', help='Color entropy = Shannon entropy of the Hue channel (HSV)' , value=ALL_QIPS)
                 st.write('**Channel means**')
-                check_dict['means RGB'] = st.checkbox('RGB', key='mean RGB' , help='Arithmetic mean for each color channel (RGB)'  )
-                check_dict['means Lab'] = st.checkbox('Lab', key='mean Lab' , help='Arithmetic mean for each channel (Lab)'  )
-                check_dict['means HSV'] = st.checkbox('HSV', key='mean HSV',  help='Arithmetic mean for S and V channel. Circular mean for H channel.'  )
+                check_dict['means RGB'] = st.checkbox('RGB', key='mean RGB' , help='Arithmetic mean for each color channel (RGB)', value=ALL_QIPS)
+                check_dict['means Lab'] = st.checkbox('Lab', key='mean Lab' , help='Arithmetic mean for each channel (Lab)' , value=ALL_QIPS)
+                check_dict['means HSV'] = st.checkbox('HSV', key='mean HSV',  help='Arithmetic mean for S and V channel. Circular mean for H channel.' , value=ALL_QIPS)
                 st.write('**Channel standard deviation**')
-                check_dict['std RGB'] = st.checkbox('RGB',  key='std RGB', help='Standard deviation for each color channel (RGB)'  )
-                check_dict['std Lab'] = st.checkbox('Lab',  key='std LAB', help='Standard deviation for each channel (Lab)'  )
-                check_dict['std HSV'] = st.checkbox('HSV',  key='std HSV', help='Standard deviation for S and V channel. Circular standard deviation for H channel'  )
+                check_dict['std RGB'] = st.checkbox('RGB',  key='std RGB', help='Standard deviation for each color channel (RGB)' , value=ALL_QIPS)
+                check_dict['std Lab'] = st.checkbox('Lab',  key='std LAB', help='Standard deviation for each channel (Lab)', value=ALL_QIPS)
+                check_dict['std HSV'] = st.checkbox('HSV',  key='std HSV', help='Standard deviation for S and V channel. Circular standard deviation for H channel' , value=ALL_QIPS)
             with columns[2]:
                   st.markdown('<p class="font2">' + 'Symmetry & Balance' + '</p>', unsafe_allow_html=True)
                   st.write('**Pixel-based**')
-                  check_dict['Mirror symmetry'] = st.checkbox('Mirror symmetry' , help = 'Left-right symmetry along the vertical image axis')
-                  check_dict['DCM'] = st.checkbox('DCM', help = 'DCM = **D**eviation of the **C**enter of **M**ass from the image center'  )
-                  check_dict['Balance'] = st.checkbox('Balance', help = 'Average symmetry of the vertical, horizontal and diagonal image axes'  )
+                  check_dict['Mirror symmetry'] = st.checkbox('Mirror symmetry' , help = 'Left-right symmetry along the vertical image axis', value=ALL_QIPS)
+                  check_dict['DCM'] = st.checkbox('DCM', help = 'DCM = **D**eviation of the **C**enter of **M**ass from the image center' , value=ALL_QIPS)
+                  check_dict['Balance'] = st.checkbox('Balance', help = 'Average symmetry of the vertical, horizontal and diagonal image axes' , value=ALL_QIPS)
                   st.write('**CNN-feature-based**')
-                  check_dict['left-right'] = st.checkbox('left-right',  help = 'Left-right (vertical) symmetry of CNN layer feature maps')
-                  check_dict['up-down'] = st.checkbox('up-down', help = 'Up-down (horizontal) symmetry of CNN layer feature maps.')
-                  check_dict['left-right & up-down'] = st.checkbox('left-right & up-down', help = 'CNN symmetry betwenn the original image and a left-right & up-down flipped image based on CNN-layer feature maps.')
+                  check_dict['left-right'] = st.checkbox('left-right',  help = 'Left-right (vertical) symmetry of CNN layer feature maps', value=ALL_QIPS)
+                  check_dict['up-down'] = st.checkbox('up-down', help = 'Up-down (horizontal) symmetry of CNN layer feature maps.', value=ALL_QIPS)
+                  check_dict['left-right & up-down'] = st.checkbox('left-right & up-down', help = 'CNN symmetry betwenn the original image and a left-right & up-down flipped image based on CNN-layer feature maps.', value=ALL_QIPS)
             with columns[3]:
                   st.markdown('<p class="font2">' + 'Fractality & Self-similarity' + '</p>', unsafe_allow_html=True)
                   st.write('**Fourier spectrum**')
-                  check_dict['Slope'] = st.checkbox('Slope', help = 'Slope of straight line fitted to log-log plot of Fourier power vs. spatial frequency')
-                  check_dict['Sigma'] = st.checkbox('Sigma', help = 'Deviation of Fourier spectral power curve from a straight line in log-log plot')
+                  check_dict['Slope'] = st.checkbox('Slope', help = 'Slope of straight line fitted to log-log plot of Fourier power vs. spatial frequency', value=ALL_QIPS)
+                  check_dict['Sigma'] = st.checkbox('Sigma', help = 'Deviation of Fourier spectral power curve from a straight line in log-log plot', value=ALL_QIPS)
                   st.write('**Fractal dimension**')
-                  check_dict['2-dimensional'] = st.checkbox('2-dimensional', help = '2d fractal dimension: two spatial axes for binarized image')
-                  check_dict['3-dimensional'] = st.checkbox('3-dimensional', help = '3d fractal dimension: two spatial axes and a pixel intensity axis')
+                  check_dict['2-dimensional'] = st.checkbox('2-dimensional', help = '2d fractal dimension: two spatial axes for binarized image', value=ALL_QIPS)
+                  check_dict['3-dimensional'] = st.checkbox('3-dimensional', help = '3d fractal dimension: two spatial axes and a pixel intensity axis', value=ALL_QIPS)
                   st.write('**Self-similarity**')
-                  check_dict['PHOG-based'] = st.checkbox('PHOG-based', help = 'Self-similarity based on pyramid of histograms of oriented gradients (PHOG)')
-                  check_dict['CNN-based'] = st.checkbox('CNN-based', help = 'Self-similarity based on low-level features of a convolutional neural network (CNN)')
+                  check_dict['PHOG-based'] = st.checkbox('PHOG-based', help = 'Self-similarity based on pyramid of histograms of oriented gradients (PHOG)', value=ALL_QIPS)
+                  check_dict['CNN-based'] = st.checkbox('CNN-based', help = 'Self-similarity based on low-level features of a convolutional neural network (CNN)', value=ALL_QIPS)
             with columns[4]:
                   st.markdown('<p class="font2">' + 'Feature distribution & Entropy' + '</p>', unsafe_allow_html=True)
-                  check_dict['Anisotropy'] = st.checkbox('Anisotropy', help ='Variance in the gradient strength across orientations (HOG method)')
-                  check_dict['Homogeneity'] = st.checkbox('Homogeneity', help = 'Relative Shannon entropy of black pixel frequency in binary image')
+                  check_dict['Anisotropy'] = st.checkbox('Anisotropy', help ='Variance in the gradient strength across orientations (HOG method)', value=ALL_QIPS)
+                  check_dict['Homogeneity'] = st.checkbox('Homogeneity', help = 'Relative Shannon entropy of black pixel frequency in binary image', value=ALL_QIPS)
                   st.write('**Edge orientation entropy**')
-                  check_dict['1st-order'] = st.checkbox('1st-order', help = '1st-order Shannon entropy of the histogram of edge orientations across an image')
-                  check_dict['2nd-order'] = st.checkbox('2nd-order', help = '2nd-order Shannon entropy based on pairwise statistics of edge orientations across an image')
+                  check_dict['1st-order'] = st.checkbox('1st-order', help = '1st-order Shannon entropy of the histogram of edge orientations across an image', value=ALL_QIPS)
+                  check_dict['2nd-order'] = st.checkbox('2nd-order', help = '2nd-order Shannon entropy based on pairwise statistics of edge orientations across an image', value=ALL_QIPS)
                   st.write('**CNN feature variance**')
-                  check_dict['Sparseness'] = st.checkbox('Sparseness', help = 'Total variance (Pa[n]) over all low-level CNN filter entries of all n ✕ n subregions of an image')
-                  check_dict['Variability'] = st.checkbox('Variability', help = 'Median over the variance of entries for each CNN filter for all n ✕ n subregions of an image (Pf[n])')
+                  check_dict['Sparseness'] = st.checkbox('Sparseness', help = 'Total variance (Pa[n]) over all low-level CNN filter entries of all n ✕ n subregions of an image', value=ALL_QIPS)
+                  check_dict['Variability'] = st.checkbox('Variability', help = 'Median over the variance of entries for each CNN filter for all n ✕ n subregions of an image (Pf[n])', value=ALL_QIPS)
                 
-            st.form_submit_button('**Commit selection**' , on_click=AT_misc.click_sub_SIPs, args=(check_dict,), use_container_width=True)
+            ### always add check for gray_scale images and check for upscaling images
+            check_dict['gray_scale'] = True
+            check_dict['upscaled'] = True
+                
+            st.form_submit_button('**Commit selection**' , on_click=AT_misc.click_sub_QIPs, args=(check_dict,), use_container_width=True)
 
                     #########################################
                     ###### ADD Parameters for individual QIPs
                     #########################################
-        
     
-    if st.session_state.get("commit_sips", None):
+    
+    if st.session_state.get("commit_qips", None):
 
         if  check_dict['Sparseness'] or check_dict['Variability'] or check_dict['Anisotropy'] or check_dict['Complexity'] or check_dict['PHOG-based'] or check_dict['Slope']:
-                #with st.form('Param Selection'):
+               
+                    st.divider()
+
                     if check_dict['Slope']:
                         st.markdown('<p class="font2">Select Type and Parameters for Fourier Slope:</p>', unsafe_allow_html=True)
                         slope_selectbox = st.radio(
                             "slope_selectbox",
                             label_visibility="collapsed",
-                            options=['**Redies**', 
+                            options=[ '**Redies**', 
                                       '**Spehar**', 
                                       '**Mather**',],
                             captions = ["", 
@@ -189,10 +205,6 @@ def run_QIP_machine():
                             upper_bound = int(st.text_input('Enter maximal cycles/img:', value="256",  help=None,  label_visibility="visible"))
                             bins = int(st.text_input('Enter width of bins:', value="2",  help=None,  label_visibility="visible"))
                         
-                            
-                        # if slope_selectbox == '**Spehar**':
-                        #     bins = int(st.text_input('Enter number of bins:', value="100",  help=None,  label_visibility="visible"))
-                        #     low_cut = int(st.text_input('Enter percent of lower frequencies to drop:', value="2",  help=None,  label_visibility="visible"))
     
                     if check_dict['Sparseness'] or check_dict['Variability']:
                         st.markdown('<p class="font2">Parameters for Sparseness and Variability:</p>', unsafe_allow_html=True)
@@ -210,14 +222,14 @@ def run_QIP_machine():
                         col1, col2 = st.columns(2)
                        
                         with col1:
-                            re = int(st.text_input('Resize images to number of pixels (-1 = no resizing):', value="-1",  help=None,  label_visibility="visible"))
+                            PHOG_resizing = int(st.text_input('Resize images to number of pixels (-1 = no resizing):', value="-1",  help=None,  label_visibility="visible"))
                             
+
                             
                             bins = int(st.text_input('Number of Bins:', value="16",  help=None,  label_visibility="visible"))
                             angle = int(st.text_input('Angle:', value="360",  help=None,  label_visibility="visible"))
                         with col2:
-                            #levels = int(st.text_input('Number of levels:', value="3",  help=None,  label_visibility="visible"))
-                            
+
                             levels = st.radio(
                                 "Number of levels",
                                 #label_visibility="visib",
@@ -239,8 +251,7 @@ def run_QIP_machine():
                             with col2c:
                                 weigths3 = int(st.text_input('Weights for level3:', value=1,  help=None,  label_visibility="visible"))
                             
-                    #st.form_submit_button("**Commit Parameter Selection**", on_click=click_sub_params())
-                    
+
                     Commit_Parameter_Selection = st.button("**Commit parameter selection**")
                     if Commit_Parameter_Selection:
                         st.session_state.params_submitted = Commit_Parameter_Selection
@@ -252,6 +263,7 @@ def run_QIP_machine():
     run = st.session_state.get("run", None)
     if st.session_state.get("params_submitted", None):
 
+        st.divider()
         run = st.button('**Run calculation**' )
         st.session_state.run = run
          
@@ -260,14 +272,16 @@ def run_QIP_machine():
         
         if run: 
             if upload_file:
-                ## check if at least one SIP is selected
+                ## check if at least one QIP is selected
                 for key in check_dict:
                       counter_checked_keys += check_dict[key]
                 if counter_checked_keys > 0:
-                    # create output csv and write headings
-
-                    result_csv = 'img_file,'
+                    # create results csv, write QIP parameters and write headings. write Notes
+                    
                     sep = ','
+
+                    result_csv = 'sep='+sep + '\n'  # denote column seperator for Excel software
+                    result_csv += 'img_file,'
                     
                     for key in check_dict:
                         if check_dict[key]:
@@ -287,7 +301,7 @@ def run_QIP_machine():
                                 elif key == '3-dimensional':
                                     result_csv += '3D Fractal dimension' + sep
                                 elif key == 'Slope':
-                                    result_csv += 'Fourier slope' + sep   
+                                    result_csv += 'Fourier slope ' + slope_selectbox + sep   
                                 elif key == 'Sigma':
                                     result_csv += 'Fourier sigma' + sep
                                 elif key == 'PHOG-based':
@@ -327,18 +341,12 @@ def run_QIP_machine():
                             if st.session_state.commas != None:
                                 file_name = file_name.replace(",", "_")
                                 
-                            result_csv += file_name + sep
-                         
+                            result_csv      += file_name + sep
+
                             
                             ### load images in different color spaces
                             img_plain_PIL = Image.open(upload_file[n])
                             img_plain_np = np.asarray(img_plain_PIL)
-                            
-                            ### Check for grayscale image, skip calculating color features for grayscale images  later
-                            gray_scale_img = False
-                            if len(img_plain_np.shape) == 2:
-                                gray_scale_img = True
-                                
                             img_rgb = np.asarray(img_plain_PIL.convert('RGB'))
                             img_lab = color.rgb2lab(img_rgb)
                             img_hsv = color.rgb2hsv(img_rgb)
@@ -364,94 +372,94 @@ def run_QIP_machine():
                             for key in check_dict:
                                
                                 if (key == 'means RGB') and check_dict[key]:
-                                    if gray_scale_img == False:
-                                        res = color_and_simple_sips.mean_channels(img_rgb)
+                                    #if gray_scale_img == False:
+                                        res = color_and_simple_qips.mean_channels(img_rgb)
                                         result_csv += str(AT_misc.custom_round(res[0])) + sep
                                         result_csv += str(AT_misc.custom_round(res[1])) + sep
                                         result_csv += str(AT_misc.custom_round(res[2])) + sep
                                         
-                                    else:
-                                        result_csv += 'grayscale' + sep
-                                        result_csv += 'grayscale' + sep
-                                        result_csv += 'grayscale' + sep
+                                    # else:
+                                    #     result_csv += 'grayscale' + sep
+                                    #     result_csv += 'grayscale' + sep
+                                    #     result_csv += 'grayscale' + sep
 
                                 elif (key == 'means Lab') and check_dict[key]:
-                                    if gray_scale_img == False:
-                                        res = color_and_simple_sips.mean_channels(img_lab)
+                                    #if gray_scale_img == False:
+                                        res = color_and_simple_qips.mean_channels(img_lab)
                                         result_csv += str(AT_misc.custom_round(res[0])) + sep
                                         result_csv += str(AT_misc.custom_round(res[1])) + sep
                                         result_csv += str(AT_misc.custom_round(res[2])) + sep
-                                    else:
-                                        res = color_and_simple_sips.mean_channels(img_lab)
-                                        result_csv += str(AT_misc.custom_round(res[0])) + sep
-                                        result_csv += 'grayscale' + sep
-                                        result_csv += 'grayscale' + sep
+                                    # else:
+                                    #     res = color_and_simple_qips.mean_channels(img_lab)
+                                    #     result_csv += str(AT_misc.custom_round(res[0])) + sep
+                                    #     result_csv += 'grayscale' + sep
+                                    #     result_csv += 'grayscale' + sep
                                         
                                 elif (key == 'means HSV') and check_dict[key]:
-                                    if gray_scale_img == False:
+                                    #if gray_scale_img == False:
                                         ## get circular statistic for H channel
-                                        circ_mean, _ = color_and_simple_sips.circ_stats(img_hsv)
+                                        circ_mean, _ = color_and_simple_qips.circ_stats(img_hsv)
                                         # get normal mean for S and V
-                                        res = color_and_simple_sips.mean_channels(img_hsv)
+                                        res = color_and_simple_qips.mean_channels(img_hsv)
                                         result_csv += str(AT_misc.custom_round(circ_mean)) + sep
                                         result_csv += str(AT_misc.custom_round(res[1])) + sep
                                         result_csv += str(AT_misc.custom_round(res[2])) + sep
                                         
                                         
-                                    else:
-                                        result_csv += 'grayscale' + sep
-                                        result_csv += 'grayscale' + sep
-                                        result_csv += 'grayscale' + sep
+                                    # else:
+                                    #     result_csv += 'grayscale' + sep
+                                    #     result_csv += 'grayscale' + sep
+                                    #     result_csv += 'grayscale' + sep
     
                                 
                                 elif (key == 'std RGB') and check_dict[key]:
-                                    res = color_and_simple_sips.std_channels(img_rgb)
-                                    if gray_scale_img == False:
+                                        res = color_and_simple_qips.std_channels(img_rgb)
+                                    #if gray_scale_img == False:
                                         result_csv += str(AT_misc.custom_round(res[0])) + sep
                                         result_csv += str(AT_misc.custom_round(res[1])) + sep
                                         result_csv += str(AT_misc.custom_round(res[2])) + sep
-                                    else:
-                                        result_csv += 'grayscale' + sep
-                                        result_csv += 'grayscale' + sep
-                                        result_csv += 'grayscale' + sep
+                                    # else:
+                                    #     result_csv += 'grayscale' + sep
+                                    #     result_csv += 'grayscale' + sep
+                                    #     result_csv += 'grayscale' + sep
                                 
                                 elif (key == 'std Lab') and check_dict[key]:
-                                    if gray_scale_img == False:
-                                        res = color_and_simple_sips.std_channels(img_lab)
+                                    #if gray_scale_img == False:
+                                        res = color_and_simple_qips.std_channels(img_lab)
                                         result_csv += str(AT_misc.custom_round(res[0])) + sep
                                         result_csv += str(AT_misc.custom_round(res[1])) + sep
                                         result_csv += str(AT_misc.custom_round(res[2])) + sep
-                                    else:
-                                        res = color_and_simple_sips.std_channels(img_lab)
-                                        result_csv += str(AT_misc.custom_round(res[0])) + sep
-                                        result_csv += 'grayscale' + sep
-                                        result_csv += 'grayscale' + sep
+                                    # else:
+                                    #     res = color_and_simple_qips.std_channels(img_lab)
+                                    #     result_csv += str(AT_misc.custom_round(res[0])) + sep
+                                    #     result_csv += 'grayscale' + sep
+                                    #     result_csv += 'grayscale' + sep
                                     
 
                                 elif (key == 'std HSV') and check_dict[key]:
-                                    if gray_scale_img == False:
+                                    #if gray_scale_img == False:
                                         ## get circular statistic for H channel
-                                        _ , circ_std = color_and_simple_sips.circ_stats(img_hsv)
-                                        res = color_and_simple_sips.std_channels(img_hsv)
+                                        _ , circ_std = color_and_simple_qips.circ_stats(img_hsv)
+                                        res = color_and_simple_qips.std_channels(img_hsv)
                                         result_csv += str(AT_misc.custom_round(circ_std)) + sep
                                         result_csv += str(AT_misc.custom_round(res[1])) + sep
                                         result_csv += str(AT_misc.custom_round(res[2])) + sep
-                                    else:
-                                        result_csv += 'grayscale' + sep
-                                        result_csv += 'grayscale' + sep
-                                        result_csv += 'grayscale' + sep
+                                    # else:
+                                    #     result_csv += 'grayscale' + sep
+                                    #     result_csv += 'grayscale' + sep
+                                    #     result_csv += 'grayscale' + sep
     
     
                                 elif (key == 'Color entropy') and check_dict[key]:
-                                    if gray_scale_img == False:
-                                        res = color_and_simple_sips.shannonentropy_channels(img_hsv[:,:,0])
+                                    #if gray_scale_img == False:
+                                        res = color_and_simple_qips.shannonentropy_channels(img_hsv[:,:,0])
                                         result_csv += str(AT_misc.custom_round(res)) + sep
-                                    else:
-                                        result_csv += 'grayscale' + sep
+                                    # else:
+                                    #     result_csv += 'grayscale' + sep
                                     
                                         
                                                               
-                                elif ((key == '1st-order') and check_dict[key]) or ((key == '2nd-order') and check_dict[key]) or ((key == 'Edge density') and check_dict[key]):
+                                elif ((key == '1st-order' ) and check_dict['1st-order']) or ((key == '2nd-order' ) and check_dict['2nd-order']) or ((key == 'Edge density' ) and check_dict['Edge density']):
                                     
                                     # if already first or second order entropy has been calculated
                                     if first_ord != None:
@@ -465,7 +473,7 @@ def run_QIP_machine():
                                             
                                     # if not jet calculated, calculate both
                                     else:
-                                        res = edge_entropy_sips.do_first_and_second_order_entropy_and_edge_density (img_gray)
+                                        res = edge_entropy_qips.do_first_and_second_order_entropy_and_edge_density (img_gray)
                                         first_ord = res[0]
                                         sec_ord   = res[1]
                                         edge_d    = res[2]
@@ -477,16 +485,16 @@ def run_QIP_machine():
                                             result_csv += str(AT_misc.custom_round(edge_d)) + sep
                                         
                                 elif (key == 'Lightness entropy') and check_dict[key]:
-                                    res = color_and_simple_sips.shannonentropy_channels(img_lab[:,:,0])
+                                    res = color_and_simple_qips.shannonentropy_channels(img_lab[:,:,0])
                                     result_csv += str(AT_misc.custom_round(res)) + sep
                                     
                                 elif (key == 'Image size (pixels)') and check_dict[key]:
-                                    res = color_and_simple_sips.image_size(img_rgb)
+                                    res = color_and_simple_qips.image_size(img_rgb)
                                     result_csv += str(AT_misc.custom_round(res)) + sep
     
                                     
                                 elif (key == 'Aspect ratio') and check_dict[key]:
-                                    res = color_and_simple_sips.aspect_ratio(img_rgb)
+                                    res = color_and_simple_qips.aspect_ratio(img_rgb)
                                     result_csv += str(AT_misc.custom_round(res)) + sep
                                     
                                 elif ((key == 'left-right') and check_dict[key]) or ((key == 'up-down') and check_dict[key]) or ((key == 'left-right & up-down') and check_dict[key]):
@@ -505,7 +513,7 @@ def run_QIP_machine():
                                     # if not jet calculated, calculate all syms together and store results
                                     else:
     
-                                        sym_lr,sym_ud,sym_lrud = CNN_sips.get_symmetry(img_rgb, kernel, bias)
+                                        sym_lr,sym_ud,sym_lrud = CNN_qips.get_symmetry(img_rgb, kernel, bias)
                                         if key == 'left-right':
                                             result_csv += str(AT_misc.custom_round(sym_lr)) + sep
                                         elif key == 'up-down':
@@ -516,25 +524,25 @@ def run_QIP_machine():
                                     
                                 elif (key == 'Sparseness') and check_dict[key]:
                                     
-                                    resp_scipy = CNN_sips.conv2d(img_rgb, kernel, bias)
-                                    _, normalized_max_pooling_map_Sparseness  = CNN_sips.max_pooling (resp_scipy, patches=p22_Sparseness )
-                                    sparseness =  CNN_sips.get_CNN_Variance (normalized_max_pooling_map_Sparseness   , kind='sparseness' )
+                                    resp_scipy = CNN_qips.conv2d(img_rgb, kernel, bias)
+                                    _, normalized_max_pooling_map_Sparseness  = CNN_qips.max_pooling (resp_scipy, patches=p22_Sparseness )
+                                    sparseness =  CNN_qips.get_CNN_Variance (normalized_max_pooling_map_Sparseness   , kind='sparseness' )
                                     result_csv += str(AT_misc.custom_round(sparseness)) + sep
                               
     
                                 elif (key == 'Variability') and check_dict[key]:
                                     
-                                    resp_scipy = CNN_sips.conv2d(img_rgb, kernel, bias)
-                                    _, normalized_max_pooling_map_Variability = CNN_sips.max_pooling (resp_scipy, patches=p12_Variability )
-                                    variability = CNN_sips.get_CNN_Variance (normalized_max_pooling_map_Variability , kind='variability' )
+                                    resp_scipy = CNN_qips.conv2d(img_rgb, kernel, bias)
+                                    _, normalized_max_pooling_map_Variability = CNN_qips.max_pooling (resp_scipy, patches=p12_Variability )
+                                    variability = CNN_qips.get_CNN_Variance (normalized_max_pooling_map_Variability , kind='variability' )
                                     result_csv += str(AT_misc.custom_round(variability)) + sep
     
                                 elif (key == 'CNN-based') and check_dict[key]:
                                     img_switch_channel = img_rgb[:,:,(2,1,0)].astype(np.float32)
-                                    resp_scipy = CNN_sips.conv2d(img_switch_channel, kernel, bias)
-                                    _, normalized_max_pooling_map_8 = CNN_sips.max_pooling (resp_scipy, patches=8 )
-                                    _, normalized_max_pooling_map_1 = CNN_sips.max_pooling (resp_scipy, patches=1 )
-                                    cnn_self_sym = CNN_sips.get_selfsimilarity (normalized_max_pooling_map_1 , normalized_max_pooling_map_8 )
+                                    resp_scipy = CNN_qips.conv2d(img_switch_channel, kernel, bias)
+                                    _, normalized_max_pooling_map_8 = CNN_qips.max_pooling (resp_scipy, patches=8 )
+                                    _, normalized_max_pooling_map_1 = CNN_qips.max_pooling (resp_scipy, patches=1 )
+                                    cnn_self_sym = CNN_qips.get_selfsimilarity (normalized_max_pooling_map_1 , normalized_max_pooling_map_8 )
                                     
                                     result_csv += str(AT_misc.custom_round(cnn_self_sym)) + sep
                                     
@@ -543,52 +551,50 @@ def run_QIP_machine():
                                                                         
                                     if slope_selectbox == '**Redies**':
 
-                                        _, slope = fourier_sips.fourier_redies(img_gray, bin_size = bins, cycles_min = lower_bound, cycles_max=upper_bound)
-                                        #_, slope = fourier_sips.fourier_sigma(img_lab[:,:,0])
+                                        _, slope = fourier_qips.fourier_redies(img_gray, bin_size = bins, cycles_min = lower_bound, cycles_max=upper_bound)
                                         result_csv += str(AT_misc.custom_round(slope)) + sep
                                     
                                     elif slope_selectbox == '**Spehar**':
-                                        #slope = fourier_sips.fourier_slope_branka_Spehar_Kovesi(img_gray, nbins=bins, lowcut=low_cut)
-                                        slope = fourier_sips.fourier_slope_branka_Spehar_Isherwood(img_gray)
+                                        slope = fourier_qips.fourier_slope_branka_Spehar_Isherwood(img_gray)
                                         
                                         result_csv += str(AT_misc.custom_round(slope)) + sep
 
                                     elif slope_selectbox == '**Mather**':
-                                        slope = fourier_sips.fourier_slope_mather(img_rgb)
+                                        slope = fourier_qips.fourier_slope_mather(img_rgb)
                                         result_csv += str(AT_misc.custom_round(slope)) + sep
 
                                 elif ((key == 'Sigma') and check_dict[key]):
-                                    sigma, _ = fourier_sips.fourier_redies(img_gray, bin_size = 2, cycles_min = 30, cycles_max=256)
+                                    sigma, _ = fourier_qips.fourier_redies(img_gray, bin_size = 2, cycles_min = 30, cycles_max=256)
                                     result_csv += str(AT_misc.custom_round(sigma)) + sep
 
                                 elif (key == 'RMS contrast') and check_dict[key]:
-                                    res = color_and_simple_sips.std_channels(img_lab)[0]
+                                    res = color_and_simple_qips.std_channels(img_lab)[0]
                                     result_csv += str(AT_misc.custom_round(res)) + sep
                                     
                                     
                                 elif (key == 'Balance') and check_dict[key]:
-                                    res = balance_sips.APB_Score(img_gray)
+                                    res = balance_qips.APB_Score(img_gray)
                                     result_csv += str(AT_misc.custom_round(res)) + sep
                                     
                                 elif (key == 'DCM') and check_dict[key]:
-                                    res = balance_sips.DCM_Key(img_gray)
+                                    res = balance_qips.DCM_Key(img_gray)
                                     result_csv += str(AT_misc.custom_round(res)) + sep
                                     
                                 elif (key == 'Mirror symmetry') and check_dict[key]:
-                                    res = balance_sips.MS_Score(img_gray)
+                                    res = balance_qips.MS_Score(img_gray)
                                     result_csv += str(AT_misc.custom_round(res)) + sep
     
                                 elif (key == 'Homogeneity') and check_dict[key]:
-                                    res = balance_sips.entropy_score_2d(img_gray)
+                                    res = balance_qips.entropy_score_2d(img_gray)
                                     result_csv += str(AT_misc.custom_round(res)) + sep
     
                                 elif (key == '2-dimensional') and check_dict[key]:
-                                    res = box_count_sips.box_count_2d(img_gray)
+                                    res = box_count_qips.box_count_2d(img_gray)
                                     result_csv += str(AT_misc.custom_round(res)) + sep
     
     
                                 elif (key == '3-dimensional') and check_dict[key]:
-                                    res = box_count_sips.custom_differential_box_count(img_gray)
+                                    res = box_count_qips.custom_differential_box_count(img_gray)
                                     result_csv += str(AT_misc.custom_round(res)) + sep
 
                                
@@ -605,14 +611,17 @@ def run_QIP_machine():
                                             result_csv += str(AT_misc.custom_round(anisotropy)) + sep
                                                      
                                     else:
-                                        self_sim, complexity, anisotropy = PHOG_sips.PHOGfromImage(img_rgb, section=2, bins=bins, angle=angle, levels=int(levels), re=re, sesfweight=[weigths1,weigths2,weigths3] )
+                                        self_sim, complexity, anisotropy = PHOG_qips.PHOGfromImage(img_rgb, section=2, bins=bins, angle=angle, levels=int(levels), re=PHOG_resizing, sesfweight=[weigths1,weigths2,weigths3] )
                                         if key == 'PHOG-based':
                                             result_csv += str(AT_misc.custom_round(self_sim)) + sep
                                         elif key == 'Complexity':
                                             result_csv += str(AT_misc.custom_round(complexity)) + sep
                                         elif key == 'Anisotropy':
                                             result_csv += str(AT_misc.custom_round(anisotropy)) + sep
+                                         
                                             
+                               
+        
                                 ### predict remaining time
                                 
                                 if n < 3:
@@ -626,30 +635,84 @@ def run_QIP_machine():
                                     expected_time_h = str(  temp_time // 60  )
                                     expected_time_m = str(  temp_time % 60  )
                                     
-                                    
-                            result_csv += '\n'
-                            # with open(csv_save_path, 'a') as log:
-                            #     log.write('\n')   
+                            ### outside of key loop
+                            
+                            ### check if images are upscaled, check for grayscale, always in last columns of results
+                            # check for grayscale                                
+                            if len(img_plain_np.shape) == 2:
+                                result_csv += '1' + sep
+                            else:
+                                result_csv += '0' + sep
                                 
-                            #my_bar.progress((n+1)* int(100 / (len(upload_file)))  )
+                            ### check for upscaled images
+                            # PHOG scaling
+                            upscaled = False
+                            if check_dict['PHOG-based'] or check_dict['Complexity'] or check_dict['Anisotropy']:
+                                if AT_misc.check_upscaling_img(img_plain_PIL, res_type='PHOG', PHOG_Pixel = PHOG_resizing):
+                                    upscaled = True
+                            # CNN scaling
+                            if check_dict['left-right'] or check_dict['up-down'] or check_dict['left-right & up-down'] or check_dict['Sparseness']  or check_dict['Variability'] or check_dict['Sparseness'] or check_dict['CNN-based']:
+                                if AT_misc.check_upscaling_img(img_plain_PIL, res_type='CNN'):
+                                    upscaled = True
+                                    
+                            # EOE scaling
+                            if check_dict['1st-order'] or check_dict['2nd-order'] or check_dict['Edge density']:
+                                if AT_misc.check_upscaling_img(img_plain_PIL, res_type='EOE'):
+                                    upscaled = True
+                                    
+                            # Fourier Scaling
+                            if check_dict['Sigma'] or (check_dict['Slope'] and  (slope_selectbox == '**Redies**')):
+                                if AT_misc.check_upscaling_img(img_plain_PIL, res_type='Fourier'):
+                                    upscaled = True
+                            
+                            if upscaled:
+                                result_csv += '1' + sep
+                            else:
+                                result_csv += '0' + sep
+
+                            ## finish line in result.csv
+                            result_csv += '\n'
+
                             my_bar.progress( int( (n+1)/len(upload_file) * 100) )
                         placeholder.text('')
     
                 else:
-                    st.write('Select SIP(s) to compute first.')       
+                    st.write('Select QIP(s) to compute first.')       
             else:
                 st.write('No image files found. Load images first.')
-        
-        
-    
 
     enable_download = False
     if run and upload_file and (counter_checked_keys>0):
         enable_download = True
-        download_file = result_csv
+        
+        ### write used QIP params to info csv
+        params_vers_csv = 'Aesthetics Toolbox version used:'  + sep + version + '\n'
+        if check_dict['Slope']:
+            params_vers_csv = 'Fourier Slope Type:'  + sep + slope_selectbox + '\n' 
+            if slope_selectbox == '**Redies**':
+                params_vers_csv += 'Fourier Slope Redies min cycles:'  + sep + str(lower_bound) + '\n' 
+                params_vers_csv += 'Fourier Slope Redies max cycles:'  + sep + str(upper_bound) + '\n' 
+                params_vers_csv += 'Fourier Slope Redies width of bins:'  + sep + str(bins) + '\n'
+        if check_dict['Sparseness']:
+            params_vers_csv += 'Paramter for Sparseness:'  + sep + str(p22_Sparseness) + '\n'
+        if check_dict['Variability']:
+            params_vers_csv += 'Paramter for Variability:' + sep + str(p12_Variability) + '\n' 
+        if check_dict['PHOG-based'] or check_dict['Complexity'] or check_dict['Anisotropy']:
+            params_vers_csv += 'Paramter for PHOG: Resize images to number of pixels:' + sep + str(PHOG_resizing) + '\n' 
+            params_vers_csv += 'Paramter for PHOG: Number of bins:' + sep + str(bins) + '\n' 
+            params_vers_csv += 'Paramter for PHOG: Number of angel:' + sep + str(angle) + '\n'
+            params_vers_csv += 'Paramter for PHOG: Number of levels:' + sep + str(levels) + '\n' 
+            params_vers_csv += 'Paramter for PHOG: Weigth level 1:' + sep + str(weigths1) + '\n' 
+            params_vers_csv += 'Paramter for PHOG: Weigth level 2:' + sep + str(weigths2) + '\n' 
+            params_vers_csv += 'Paramter for PHOG: Weigth level 3:' + sep + str(weigths3) + '\n' 
+            
+        
+        zip_file_bytes_io = io.BytesIO()
+        with ZipFile(zip_file_bytes_io, 'w') as zip_file:
+            zip_file.writestr('QIP_results.csv', result_csv)  
+            zip_file.writestr('QIP_parameters_used_and_Toolbox_version.csv', params_vers_csv)
           
     if enable_download:
         st.success('Calculations finished. A csv-file has been created in your selected results folder.', icon="✅")
-        
-        st.download_button('Download Results', download_file, file_name=csv_name)  # Defaults to 'text/plain'
+        st.download_button('Download Results', file_name=zip_file_name, data=zip_file_bytes_io)  
         

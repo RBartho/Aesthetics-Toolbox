@@ -7,7 +7,8 @@
 
 2. Open an Anaconda-Prompt on your system. (Click Start, search for Anaconda Prompt, and click to open.)
 
-3. Navigate to the downloaded files in the Anaconda-Prompt window. If you do not know how to change folders in a Command-Pompt (with "cd"- Command), google it :-). 
+3. Change to the folder that contains the "requirements.txt" file that you downloaded from github (by using the cd command). If you do not know how to change folders in a Command-Pomp/terminal, google it :-). 
+
 
 4. In the same folder where the file "requirements.txt" is, run this command in the terminal:
 

@@ -51,3 +51,4 @@ Gregor Hayn-Leichsenring: Advice on the development of the toolbox <br />
 Branka Spehar: Provided code to compute image properties <br />
 Ronald Hübner: Provided code to compute image properties <br />
 George Mather: Provided code to compute image properties <br />
+

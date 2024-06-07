@@ -18,8 +18,8 @@ def custom_round(num):
         return np.round(num,3)
 
 
-def click_sub_SIPs(check_dict):
-    st.session_state.commit_sips = True
+def click_sub_QIPs(check_dict):
+    st.session_state.commit_qips = True
     st.session_state.check_dict = check_dict
     
 def click_sub_params():
@@ -32,3 +32,41 @@ def click_sub_scaling(check_dict_scaling):
 
 def click_sub_params_resizing():
     st.session_state.params_resizing_submitted = True
+
+
+def check_upscaling_img(img_PIL, res_type, PHOG_Pixel = -1):
+    w,h = img_PIL.size  
+    
+    ### Edge QIPs use different resizing to 300*400 pixels
+    if res_type == 'EOE':  
+        if w*h < 120000:
+            return True
+  
+    ### PHOG resizing   
+    elif res_type == 'PHOG': 
+        if (PHOG_Pixel != -1): # upscaling used
+            if w*h < PHOG_Pixel:
+                return True
+
+    ### CNN QIPs use 512x512 pixels
+    elif res_type == 'CNN':  
+        if (w<512) or (h<512):
+            return True
+        
+    ### Fourier Slope **Redies** resize longer image side to 1024 pixels
+    elif res_type == 'Fourier':  
+        if w>=h:
+            if w<1024:
+                return True
+        else:
+            if h<1024:
+                return True
+    else:
+        raise('Not implemented error')
+    
+ 
+    return False
+
+    
+def callback_upload_img_files():
+    st.session_state.new_files_uploaded = True

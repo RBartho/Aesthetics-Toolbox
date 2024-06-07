@@ -4,7 +4,7 @@ from skimage.measure import shannon_entropy
 from skimage.color import lab2rgb
 
 
-################################# Size SIPs ################################
+################################# Size QIPs ################################
     
 def aspect_ratio(img_RGB):
     return img_RGB.shape[1] / img_RGB.shape[0]
@@ -13,10 +13,10 @@ def image_size(img_RGB):
     return img_RGB.shape[1] + img_RGB.shape[0] 
 
 
-################################# Color SIPs ################################
+################################# Color QIPs ################################
 
 ### Mean RGB, Mean HSV, Mean LAB
-def mean_channels(img, circ=False):
+def mean_channels(img):
     # returns 1 value for grayscale and 3 values for color channels
     return np.mean(img, axis=(0,1))
     

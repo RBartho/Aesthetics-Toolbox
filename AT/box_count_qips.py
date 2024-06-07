@@ -48,7 +48,7 @@ def box_count_2d(im):
 ### George Mather, "3D" Box Count Algo unsing graylevels
 def custom_differential_box_count(img_gray):  ### Takes 2 dim Image/array as input
 
-    ### center crop largest rectangle image
+    ### center crop largest rectangle image with power of 2
     nr, nc = img_gray.shape
     # Find largest square that is a power of 2 (for box count)
     if nr < nc:

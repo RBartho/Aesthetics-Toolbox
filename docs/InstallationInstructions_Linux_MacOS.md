@@ -6,7 +6,7 @@
 
 2. Open a terminal on your system. If you do not know how to do this on your system, google it :-).
 
-3. Navigate to the downloaded files in the terminal window. If you do not know how to change folders in terminal, google it :-). 
+3. Change to the folder that contains the "requirements.txt" file that you downloaded from github (by using the cd command). If you do not know how to change folders in terminal, google it :-). 
 
 4. In the same folder where the file "requirements.txt" is, run this command in the terminal:
 
