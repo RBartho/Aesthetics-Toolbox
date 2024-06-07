@@ -158,7 +158,8 @@ def show_docs():
                 References    = 'TBA', 
                 Notes         = 'The Hue channel of the HSV colour space is a cyclic value, so the normal standard deviation \
                                 cannot be applied here. Therefore, the circular standard deviation is calculated for the Hue channel. \
-                                For all other channels, the normal standard deviation is used.' 
+                                For all other channels, the normal standard deviation is used. Note that the standard deviation of \
+                                the ligthness channel of L*a*b* color space is the RMS contrast.' 
                 )
 
 
