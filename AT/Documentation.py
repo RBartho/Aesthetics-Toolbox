@@ -65,7 +65,7 @@ def show_docs():
                 Image_preproc = 'RGB image, no resizing', 
                 CComplex      = 'low', 
                 API           = 'AT.color_and_simple_qips.image_size(img_RGB)', 
-                References    = 'TBA', 
+                References    = 'Datta et al., 2006', 
                 Notes         = 'Image size = image_width + image_height in pixel'
                 )
 
@@ -74,7 +74,7 @@ def show_docs():
                 Image_preproc = 'RGB image, no resizing', 
                 CComplex      = 'low', 
                 API           = 'AT.color_and_simple_qips.aspect_ratio(img_RGB)', 
-                References    = 'TBA', 
+                References    = 'Datta et al., 2006;  Li et al., 2006; Iigaya et al., 2021', 
                 Notes         = 'Aspect ratio = image_width / image_height'
                 )
 
@@ -83,7 +83,7 @@ def show_docs():
                 Image_preproc = 'Converting to L*a*b* color space, no resizing', 
                 CComplex      = 'low', 
                 API           = 'AT.color_and_simple_qips.std_channels(img_LAB)', 
-                References    = 'TBA', 
+                References    = 'Peli, 1990; ; Tong et al., 2004 ; Luo & Tang, 2008; Li & Chen, 2009; Schifanella, 2015', 
                 Notes         = 'RMS contrast = standard deviation of the Lightness channel (L*a*b*)'
                 )
     
@@ -94,7 +94,7 @@ def show_docs():
                 Image_preproc = 'Converting to L*a*b* color space, no resizing', 
                 CComplex      = 'low', 
                 API           = 'AT.color_and_simple_qips.shannonentropy_channels(img_LAB)', 
-                References    = 'TBA', 
+                References    = 'Shannon, 1948; Kersten, 1987; Mather, 2018', 
                 Notes         = 'RMS Contrast = shannon entropy of the Lightness channel (L*a*b*)'
                 )
     
@@ -105,7 +105,7 @@ def show_docs():
                 Image_preproc = 'Converting to Matlab L*a*b* color space, optional resizing to number of pixel possible (-1 = no resizing)', 
                 CComplex      = 'high', 
                 API           = 'AT.PHOG_qips.PHOGfromImage(img_rgb, section, bins, angle, levels, re, sesfweight )', 
-                References    = 'TBA', 
+                References    = 'Braun et al., 2013; Redies & Gross, 2013', 
                 Notes         = 'By default, image resizing is disabled (parameter is set to -1). The resize function of the original \
                                 Matlab script is different from the Python implementations. Calculating PHOG QIPs with resizing will \
                                 give different results than the original Matlab script. Without resizing, the results are the same. \
@@ -120,7 +120,7 @@ def show_docs():
                 Image_preproc = 'Converting to 8-bit grayscale image, resizing to 120.000 pixel while maintaining aspect ratio', 
                 CComplex      = 'very high', 
                 API           = 'AT.edge_entropy_qips.do_first_and_second_order_entropy_and_edge_density (img_gray)', 
-                References    = 'TBA', 
+                References    = 'Redies et al., 2017', 
                 Notes         = 'Compares the orientation and strength of the 10,000 strongest edge pixels in pairs, \
                                 which is computationally intensive. A fast C++ implementaion of this QIP can be found in the following \
                                 github repository: https://github.com/RBartho/C-version-2nd-Order-Edge-Orientation-Entropy'
@@ -133,7 +133,7 @@ def show_docs():
                 Image_preproc = 'Converting to HSV color space, no resizing', 
                 CComplex      = 'low', 
                 API           = 'AT.color_and_simple_qips.shannonentropy_channels(img_HSV)', 
-                References    = 'TBA', 
+                References    = 'Geller et al., 2022', 
                 Notes         = 'TBA'
                 )
 
@@ -151,11 +151,12 @@ def show_docs():
 
 
     build_entry(
-                QIP           = 'Standard deviation of channels RGB, HSV, L*a*b* color channels' , 
+                QIP           = 'Standard deviation of RGB, HSV, L*a*b* color channels' , 
                 Image_preproc = 'Converting to respective color spaces (RGB, HSV, L*a*b*), no resizing', 
                 CComplex      = 'low', 
                 API           = 'AT.color_and_simple_qips.std_channels(img)  ,  AT.color_and_simple_qips.circ_stats(img_hsv)'  , 
-                References    = 'TBA', 
+                References    = 'Datta et al., 2006; Geller et al., 2022; Iigaya et al., 2021; Li & Chen, 2009; Li et al., 2006; \
+                                Mallon et al., 2014; Nakauchi et al., 2022; Peng, 2022; Schifanella, 2015; Thieleking et al., 2020', 
                 Notes         = 'The Hue channel of the HSV colour space is a cyclic value, so the normal standard deviation \
                                 cannot be applied here. Therefore, the circular standard deviation is calculated for the Hue channel. \
                                 For all other channels, the normal standard deviation is used. Note that the standard deviation of \
@@ -169,7 +170,7 @@ def show_docs():
                 Image_preproc = 'conversion to 8-bit grayscale image, no resizing', 
                 CComplex      = 'medium', 
                 API           = 'AT.balance_qips.APB_Score(img_gray)  ,  AT.balance_qips.DCM_Key(img_gray) , AT.balance_qips.entropy_score_2d(img_gray)'  , 
-                References    = 'TBA', 
+                References    = 'Hübner & Fillinger, 2016', 
                 Notes         = 'TBA' 
                 )
 
@@ -178,7 +179,7 @@ def show_docs():
                 Image_preproc = 'Converting to binary image, no resizing', 
                 CComplex      = 'low', 
                 API           = 'AT.balance_qips.MS_Score(img_gray)'  , 
-                References    = 'TBA', 
+                References    = 'Hübner & Fillinger, 2016', 
                 Notes         = 'TBA' 
                 )
 
@@ -188,11 +189,11 @@ def show_docs():
                 Image_preproc = 'RGB image resized to 512x512 pixel', 
                 CComplex      = 'high', 
                 API           = 'AT.CNN_qips', 
-                References    = 'TBA', 
-                Notes         = 'All CNN image properties are Based on feature maps of the first layer of an Alex-Net trained \
+                References    = 'Brachmann and Redies (2016)', 
+                Notes         = 'All CNN image properties are Based on feature maps of the first layer of an Alex-Net (Krizhevsky et al., 2012 trained \
                                 on Image Net from the no longer maintained Caffe module. Weights of this Caffe module have been extracted \
-                                  and the folding operation has been reimplemented with Numpy to keep the  \
-                                  toolbox memory footprint small (not needing Tensorflow or Pytorch).'
+                                  and the folding and max-pooling operation has been reimplemented with Numpy to keep the  \
+                                  toolbox memory footprint small (no Tensorflow or Pytorch needed).'
                 )
     
     build_entry(
@@ -200,7 +201,7 @@ def show_docs():
                 Image_preproc = 'differs strongly between Branka, Redies, Mather, see notes below', 
                 CComplex      = 'high', 
                 API           = 'AT.fourier_qips', 
-                References    = 'TBA', 
+                References    = 'Graham & Field, 2007; Redies et al., 2007; Graham & Redies, 2010; Koch et al., 2010; Spehar & Taylor, 2013;  Mather, 2014', 
                 Notes         = 'TBA'
                 )
     
@@ -209,7 +210,7 @@ def show_docs():
                 Image_preproc = 'input 8-bit grayscale image, Converting to binary image and resizing to square image', 
                 CComplex      = 'medium', 
                 API           = 'AT.box_count_qips.box_count_2d(img_gray)', 
-                References    = 'TBA', 
+                References    = 'Mandelbrot, 1983; Taylor, 2002; Spehar et al., 2003; Spehar & Taylor, 2013; Viengkham & Spehar, 2018', 
                 Notes         = 'TBA'
                 )
     
@@ -218,7 +219,7 @@ def show_docs():
                 Image_preproc = 'input 8-bit grayscale, cropp to largest square with power of two', 
                 CComplex      = 'high', 
                 API           = 'AT.box_count_qips.custom_differential_box_count(img_gray)', 
-                References    = 'TBA', 
+                References    = 'Mather, 2018', 
                 Notes         = 'TBA'
                 )
     
