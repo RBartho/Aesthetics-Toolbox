@@ -1,27 +1,24 @@
 import streamlit as st
-import os
+import io
+from PIL import Image
+from zipfile import ZipFile
 
-from AT import scaling, AT_misc
+from AT import resize_functions, AT_misc
 
 def run_resizing():
-    st.markdown('<p class="font2">Aesthetics Toolbox</p>', unsafe_allow_html=True)   
-    st.markdown('<p class="font0">Resizing images</p>', unsafe_allow_html=True)
-    st.markdown('<p class="font1">Common options for resizing images</p>', unsafe_allow_html=True)
+    image1 = Image.open('images/LogoDesign EAJ final.png')
+    image2 = Image.open('images/GestatltReVision_Logo_mod.png')
     
-    st.markdown(
-        """
-    <style>
-    .stButton > button {
-    color: black;
-    background: white;
-    width: auto;
-    height: auto;
-    }
-    </style>
-    """,
-        unsafe_allow_html=True,
-    )
-
+    #Create two columns with different width
+    col1, col2, col3 = st.columns( [0.15, 0.5, 0.25])
+    with col2:               # To display the header text using css style
+        st.markdown('<p class="head">Aesthetics Toolbox</p>', unsafe_allow_html=True)
+        st.markdown('<p class="subhead">Resizing images</p>', unsafe_allow_html=True)
+        st.markdown('<p class="font1">Common options for resizing images in aesthetic research</p>', unsafe_allow_html=True)
+    with col1:
+        st.image(image1,  width=160) 
+    with col3:
+        st.image(image2,  width=400) 
  
     
     upload_file = st.file_uploader('Load image files', type=['jpg','png','jpeg','tif'], accept_multiple_files=True, label_visibility="collapsed" )# Check to see if a  file has been uploaded
@@ -37,17 +34,8 @@ def run_resizing():
       
     st.divider()
         
-
-    # #with col_down:
-    # selected_download_path_r = st.session_state.get("download_path_r", 'none_selected')
-
-    # if selected_img_path_r != 'none_selected':
-    #     selected_download_path_r =st.text_input("Select folder to save resized images", value='none_selected')
-    #     if selected_download_path_r != 'none_selected':
-    #         st.session_state.download_path_r = selected_download_path_r
-    #         st.write("The results will be saved to:", os.path.join(selected_download_path_r))
              
-    scaling_selectbox   = st.session_state.get( "sacling_selectbox", None)  
+    resizing_selectbox   = st.session_state.get( "resizing_selectbox", None)  
     if upload_file:
 
         st.markdown("""       
@@ -58,7 +46,7 @@ def run_resizing():
         </style>""",unsafe_allow_html=True)
         st.markdown('<p class="font2">Select the type of resizing:</p>', unsafe_allow_html=True)
                 
-        scaling_selectbox = st.radio(
+        resizing_selectbox = st.radio(
             "sacling_selectbox",
             label_visibility="collapsed",
             options=['**Resize longer side**', 
@@ -67,55 +55,89 @@ def run_resizing():
                       '**Resize image height**',
                       '**Resize to fit display**',
                       '**Resize to number of pixel**',
-                      '**Resize to fixed resolution**'],
-            captions = ["Resize longer side  \n while maintaining  \n aspekt ratio.", 
+                      '**Resize to fixed resolution**',
+                      '**Resize to Image size**',
+                      '**Padding to square**',
+                      '**Center crop to square**',
+                      '**Center crop to power of two**'],
+            captions = ["Resize longer side  \n while maintaining  \n aspekt ratio.",    ### use two spaces for "\n" to get a line brake
                         "Resize shorter side  \n while maintaining  \n aspect ratio.", 
                         "Resize width  \n while maintaining  \n aspect ratio.",
                         "Resize height  \n while maintaining  \n aspect ratio.",
                         "Fit image to resolution  \n on the given display while  \n maintaining aspect ratio.", 
                         "Resize image to a given number  \n of pixels while maintaining  \n aspect ratio.",
-                        "Resize image to the given resolution  \n  **not** maintaining the  \n aspect ratio.",],
+                        "Resize image to the given resolution  \n  **not** maintaining the  \n aspect ratio.",
+                        "Resize image to the given  \n Image size (width+heigth) maintaining the  \n aspect ratio.",
+                        'Pad image to square using  \n the mean gray values or the  \n mean RGB values, resizing optional.',
+                        "Center crop image to  \n largest possible square  \n image.", 
+                        'Center crop image to  \n largest square with side  \n length of power of two'],
             horizontal=True
         )
         
-        st.session_state.scaling_selectbox = scaling_selectbox
+        st.session_state.resizing_selectbox = resizing_selectbox
         
     
-    if scaling_selectbox:
+    if resizing_selectbox:
         with st.form('Parameter for Resizing'):
-            if scaling_selectbox == '**Resize longer side**':
-                st.markdown('<p class="font2">Parameters for scaling longer side:</p>', unsafe_allow_html=True)
+            if resizing_selectbox == '**Resize longer side**':
+                st.markdown('<p class="font2">Parameters for resizing longer side:</p>', unsafe_allow_html=True)
                 longer_side = int(st.text_input('To how many pixels should the longer side be resized?:', value="255",  help=None,  label_visibility="visible"))
+                st.form_submit_button("**Commit resize parameter selection**", on_click=AT_misc.click_sub_params_resizing)
             
-            elif scaling_selectbox == '**Resize shorter side**':
-                st.markdown('<p class="font2">Parameters for scaling shorter side:</p>', unsafe_allow_html=True)
+            elif resizing_selectbox == '**Resize shorter side**':
+                st.markdown('<p class="font2">Parameters for resizing shorter side:</p>', unsafe_allow_html=True)
                 shorter_side = int(st.text_input('To how many pixels should the shorter side be resized?:', value="255",  help=None,  label_visibility="visible"))
+                st.form_submit_button("**Commit resize parameter selection**", on_click=AT_misc.click_sub_params_resizing)
                 
-            elif scaling_selectbox == '**Resize image width**':
-                  st.markdown('<p class="font2">Parameters for scaling image width:</p>', unsafe_allow_html=True)
-                  img_width = int(st.text_input('To how many pixels should the image width be resized?:', value="255",  help=None,  label_visibility="visible"))   
+            elif resizing_selectbox == '**Resize image width**':
+                  st.markdown('<p class="font2">Parameters for resizing image width:</p>', unsafe_allow_html=True)
+                  img_width = int(st.text_input('To how many pixels should the image width be resized?:', value="255",  help=None,  label_visibility="visible"))  
+                  st.form_submit_button("**Commit resize parameter selection**", on_click=AT_misc.click_sub_params_resizing)
                  
-            elif scaling_selectbox == '**Resize image height**':
-                  st.markdown('<p class="font2">Parameters for scaling image height:</p>', unsafe_allow_html=True)
+            elif resizing_selectbox == '**Resize image height**':
+                  st.markdown('<p class="font2">Parameters for resizing image height:</p>', unsafe_allow_html=True)
                   img_height = int(st.text_input('To how many pixels should the image height be resized?:', value="255",  help=None,  label_visibility="visible"))   
+                  st.form_submit_button("**Commit resize parameter selection**", on_click=AT_misc.click_sub_params_resizing)
                       
-            elif scaling_selectbox == '**Resize to fit display**':
-                  st.markdown('<p class="font2">Parameters for scaling to fit display:</p>', unsafe_allow_html=True)
+            elif resizing_selectbox == '**Resize to fit display**':
+                  st.markdown('<p class="font2">Parameters for resizing to fit display:</p>', unsafe_allow_html=True)
                   disp_width = int(st.text_input('Whats the width of the display you want to fit?:', value="1920",  help=None,  label_visibility="visible"))   
-                  disp_height = int(st.text_input('Whats the height of the display you want to fit?:', value="1080",  help=None,  label_visibility="visible"))   
+                  disp_height = int(st.text_input('Whats the height of the display you want to fit?:', value="1080",  help=None,  label_visibility="visible"))  
+                  st.form_submit_button("**Commit resize parameter selection**", on_click=AT_misc.click_sub_params_resizing)
                   
-            elif scaling_selectbox == '**Resize to number of pixel**':
-                  st.markdown('<p class="font2">Parameters for scaling to number of pixels:</p>', unsafe_allow_html=True)
+            elif resizing_selectbox == '**Resize to number of pixel**':
+                  st.markdown('<p class="font2">Parameters for resizing to number of pixels:</p>', unsafe_allow_html=True)
                   num_pixels = int(st.text_input('To how many pixels should the image be resized?:', value="100000",  help='Number of pixels = height*width',  label_visibility="visible"))   
+                  st.form_submit_button("**Commit resize parameter selection**", on_click=AT_misc.click_sub_params_resizing)
 
-            elif scaling_selectbox == '**Resize to fixed resolution**':
-                  st.markdown('<p class="font2">Parameters for scaling to fixed resolution:</p>', unsafe_allow_html=True)
+            elif resizing_selectbox == '**Resize to fixed resolution**':
+                  st.markdown('<p class="font2">Parameters for resizing to fixed resolution:</p>', unsafe_allow_html=True)
                   img_width = int(st.text_input('To what width you want to resize the images?:', value="900",  help=None,  label_visibility="visible"))   
-                  img_height = int(st.text_input('To what height you want to resize the images?:', value="900",  help=None,  label_visibility="visible"))    
+                  img_height = int(st.text_input('To what height you want to resize the images?:', value="900",  help=None,  label_visibility="visible"))   
+                  st.form_submit_button("**Commit resize parameter selection**", on_click=AT_misc.click_sub_params_resizing)
+                  
+            elif resizing_selectbox == '**Resize to Image size**':
+                  st.markdown('<p class="font2">Parameters for resizing to Image size:</p>', unsafe_allow_html=True)
+                  des_img_size = int(st.text_input('To what Image size you want to resize the images?:', value="900",  help=None,  label_visibility="visible"))   
+                  st.form_submit_button("**Commit resize parameter selection**", on_click=AT_misc.click_sub_params_resizing)
+           
+            elif resizing_selectbox == '**Padding to square**':
+                  st.markdown('<p class="font2">Parameters for padding image to square:</p>', unsafe_allow_html=True)
+                  pad_resize_to = int(st.text_input('Do you want to resize the longer image side before padding (-1 = no resizing)?:', value="-1",  help=None,  label_visibility="visible"))   
+                  st.form_submit_button("**Commit resize parameter selection**", on_click=AT_misc.click_sub_params_resizing)
+                  
+                  
+                  
+            elif resizing_selectbox == '**Center crop to square**':
+                  st.session_state.params_resizing_submitted = True
+                
+            elif resizing_selectbox == '**Center crop to power of two**':
+                  st.session_state.params_resizing_submitted = True
+
             else:
                 raise('wrong resizing option selected, not implemented error')
                 
-            st.form_submit_button("**Commit resize parameter selection**", on_click=AT_misc.click_sub_params_resizing)
+            
 
     params_resizing_submitted = st.session_state.get("params_resizing_submitted", None)
 ######################################
@@ -133,39 +155,63 @@ def run_resizing():
                     with st.spinner("Operation in progress. Please wait and don't refresh your browser."):
                         
                         
+                        name_images_pairs = []
                         
                         for n in range(len(upload_file)):
+                            
+                            img_PIL = Image.open(upload_file[n])
                             
                             placeholder.text('Resizing image:   ' + upload_file[n].name)
     
                             #file_path = list_of_images_r[n]
-                            if sacling_selectbox == '**Resize longer side**':
-                                img_resized = scaling.scale_longer_side_keep_aspect_ratio(file_path, longer_side)
+                            if resizing_selectbox == '**Resize longer side**':
+                                img_resized = resize_functions.resize_using_longer_side_kepp_aspect_ratio(img_PIL, longer_side)
                                 
-                            elif sacling_selectbox == '**Resize shorter side**':
-                                img_resized = scaling.scale_shorter_side_keep_aspect_ratio(file_path, shorter_side)
+                            elif resizing_selectbox == '**Resize shorter side**':
+                                img_resized = resize_functions.resize_using_shorter_side_kepp_aspect_ratio(img_PIL, shorter_side)
                                
-                            elif sacling_selectbox == '**Resize image width**':
-                                img_resized = scaling.scale_to_width_keep_aspect_ratio(file_path, img_width)
+                            elif resizing_selectbox == '**Resize image width**':
+                                img_resized = resize_functions.resize_width_keep_aspect_ratio(img_PIL, img_width)
                                
-                            elif sacling_selectbox == '**Resize image height**':
-                                img_resized =  scaling.scale_to_height_keep_aspect_ratio(file_path, img_height)
+                            elif resizing_selectbox == '**Resize image height**':
+                                img_resized =  resize_functions.resize_height_keep_aspect_ratio(img_PIL, img_height)
                                 
-                            elif sacling_selectbox == '**Resize to fit display**':
-                                img_resized = scaling.resize_to_fit_display(file_path, disp_width, disp_height)
+                            elif resizing_selectbox == '**Resize to fit display**':
+                                img_resized = resize_functions.resize_to_fit_display(img_PIL, disp_width, disp_height)
                                 
-                            elif sacling_selectbox == '**Resize to number of pixel**':
-                                img_resized = scaling.scale_to_number_of_pixels_keep_aspect_ratio(file_path, num_pixels)
+                            elif resizing_selectbox == '**Resize to number of pixel**':
+                                img_resized = resize_functions.resize_to_number_of_pixels_keep_aspect_ratio(img_PIL, num_pixels)
                                 
-                            elif sacling_selectbox == '**Resize to fixed resolution**':
-                                img_resized = scaling.scale_to_resolution(file_path, img_width, img_height)
+                            elif resizing_selectbox == '**Resize to fixed resolution**':
+                                img_resized = resize_functions.resize_to_resolution(img_PIL, img_width, img_height)
                                 
+                            elif resizing_selectbox == '**Resize to Image size**':
+                                img_resized = resize_functions.resize_to_image_size(img_PIL, des_img_size = des_img_size)
+
+                            elif resizing_selectbox == '**Center crop to square**':
+                                img_resized = resize_functions.center_crop (img_PIL)
+                                  
+                            elif resizing_selectbox == '**Center crop to square power of two**':
+                                img_resized = resize_functions.center_crop_to_square_power_of_two (img_PIL)
+                                
+                            elif resizing_selectbox == '**Padding to square**':
+                                img_resized = resize_functions.padding_and_resizing_to_square_X_pixel(img_PIL, resize_to=pad_resize_to)
+                            
                             else:
                                 raise('wrong resizing option selected, not implemented error')
 
-                            img_resized.save( os.path.join(selected_download_path_r , 'Resized_images', list_of_images_r[n].split('/')[-1]) ,  quality=100, subsampling=0)  
+                            img_name = upload_file[n].name
+                            name_images_pairs.append([img_name, img_resized])
 
-                            my_bar.progress( int( (n+1)/len(list_of_images_r) * 100) )
+                            my_bar.progress( int( (n+1)/len(upload_file) * 100) )
+    
+                    images = resize_functions.file_process_in_memory(name_images_pairs )
+                    zip_file_bytes_io = io.BytesIO()
+                    
+                    with ZipFile(zip_file_bytes_io, 'w') as zip_file:
+                        for image_name, bytes_stream in images:
+                            zip_file.writestr(image_name+".png", bytes_stream.getvalue())
+
     
     
             else:
@@ -173,10 +219,11 @@ def run_resizing():
         
     
         enable_download = False
-        if run and list_of_images_r:
+        if run and upload_file:
             enable_download = True
               
         if enable_download:
+            st.download_button('Download resized images', zip_file_bytes_io, file_name='resized_or_cropped_images.zip')  # Defaults to 'text/plain'
             st.success('Resizing finished.', icon="✅")
           
     

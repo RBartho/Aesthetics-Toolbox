@@ -29,8 +29,6 @@ def build_entry(QIP , Image_preproc, CComplex, API, References, Notes):
             st.markdown('<p class="font1"> ' + Notes         + '  </p>', unsafe_allow_html=True)
 
 
-
-
 def show_docs():
        
     image1 = Image.open('images/LogoDesign EAJ final.png')
@@ -83,7 +81,7 @@ def show_docs():
                 Image_preproc = 'Converting to L*a*b* color space, no resizing', 
                 CComplex      = 'low', 
                 API           = 'AT.color_and_simple_qips.std_channels(img_LAB)', 
-                References    = 'Peli, 1990; ; Tong et al., 2004 ; Luo & Tang, 2008; Li & Chen, 2009; Schifanella, 2015', 
+                References    = 'Peli, 1990; Tong et al., 2004 ; Luo & Tang, 2008; Li & Chen, 2009; Schifanella, 2015', 
                 Notes         = 'RMS contrast = standard deviation of the Lightness channel (L*a*b*)'
                 )
     
@@ -107,10 +105,8 @@ def show_docs():
                 API           = 'AT.PHOG_qips.PHOGfromImage(img_rgb, section, bins, angle, levels, re, sesfweight )', 
                 References    = 'Braun et al., 2013; Redies & Gross, 2013', 
                 Notes         = 'By default, image resizing is disabled (parameter is set to -1). The resize function of the original \
-                                Matlab script is different from the Python implementations. Calculating PHOG QIPs with resizing will \
-                                give different results than the original Matlab script. Without resizing, the results are the same. \
-                                MatLab L*a*b* color space has a different range of values than Python equivalent implementations. \
-                                Input images are converted to the Matlab L*a*b* color space prior to QIP calculation.'
+                                Matlab script is different from the available Python implementations. Calculating PHOG QIPs with resizing will \
+                                give different results than the original Matlab script. Without resizing, the results are the same.'
                 )
     
       
@@ -143,7 +139,8 @@ def show_docs():
                 Image_preproc = 'Converting to respective color spaces (RGB, HSV, L*a*b*), no resizing', 
                 CComplex      = 'low', 
                 API           = 'AT.color_and_simple_qips.mean_channels(img)  and  AT.color_and_simple_qips.circ_stats(img_hsv)'  , 
-                References    = 'TBA', 
+                References    = 'Datta et al., 2006; Geller et al., 2022; Iigaya et al., 2021; Li & Chen, 2009; Li et al., 2006; \
+                                Mallon et al., 2014; Nakauchi et al., 2022; Peng, 2022; Schifanella, 2015; Thieleking et al., 2020', 
                 Notes         = 'The Hue channel of the HSV colour space is a cyclic value, so the normal arithmetic mean \
                                 cannot be applied here. Therefore, the circular mean is calculated for the Hue channel. \
                                 For all other channels, the normal arithmetic mean is used.' 

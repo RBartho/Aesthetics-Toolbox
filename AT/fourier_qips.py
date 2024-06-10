@@ -77,21 +77,7 @@ def rotavg(array):
 
 
 def padding_and_resizing_to_square_1024_pixel(img):
-    '''
-    Parameters
-    ----------
-    img : TYPE
-        DESCRIPTION.
-
-    Returns
-    -------
-    img : TYPE
-        DESCRIPTION.
-        
-    Note PIL and Numpy use different order for h,w in ".shape" and ".size" functions
-
-    '''
-    
+   
 
     mean = np.round(np.mean(img)).astype(np.uint8) # mean gray value for padding
     

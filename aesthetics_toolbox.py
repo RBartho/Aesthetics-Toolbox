@@ -66,7 +66,7 @@ st.sidebar.header("Sidebar")
 ### define order and names of sidebar menu
 #app_mode = st.sidebar.selectbox('Select mode',['QIP Calculation', 'Resizing images', 'Datasets', 'Documentation', 'References'] ) #three pages
    
-app_mode = st.sidebar.selectbox('Select mode',['QIP Calculation', 'QIP Documentation', 'References'] ) #three pages
+app_mode = st.sidebar.selectbox('Select mode',['QIP Calculation', 'QIP Documentation', 'Resizing Images', 'References', ] ) #three pages
 
 
 if app_mode == 'QIP Calculation':
@@ -81,7 +81,7 @@ if app_mode == 'References':
 if app_mode == 'Datasets':
     Datasets.show_list()
         
-if app_mode == 'Resizing images':
+if app_mode == 'Resizing Images':
     Resizing.run_resizing()
     
     
