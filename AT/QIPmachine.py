@@ -235,9 +235,6 @@ def run_QIP_machine():
                                 options=[ '1', 
                                           '2', 
                                           '3',],
-                                captions = ["", 
-                                            "", 
-                                            "",],
                                 horizontal=True,
                                 index=2
                             )
