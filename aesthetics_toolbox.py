@@ -1,6 +1,6 @@
 #Import the required libraries
 import streamlit as st
-from  PIL import Image
+from PIL import Image
 
 
 Image.MAX_IMAGE_PIXELS = 1e14

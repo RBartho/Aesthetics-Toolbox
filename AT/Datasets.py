@@ -2,7 +2,7 @@ import pandas as pd
 import streamlit as st
 from PIL import Image
 
-
+from AT import AT_misc
  
 # df = pd.read_csv("/home/ralf/Documents/18_SIP_Machine/Aesthetics-Toolbox/datasets/MSC.csv")  # read a CSV file inside the 'data" folder next to 'app.py'
 # # df = pd.read_excel(...)  # will work for Excel files
@@ -14,21 +14,12 @@ from PIL import Image
 
 def show_list():
     
-    image1 = Image.open('images/LogoDesign EAJ final.png')
-    image2 = Image.open('images/GestatltReVision_Logo_mod.png')
+     
+    AT_misc.build_heading(head=     'Datasets in aesthetics research',
+                          notes=    'This interactive table lists numerous datasets in aesthetics research.  Use the sidebar filters to narrow your search. '
+                          )
     
-    #Create two columns with different width
-    col1, col2, col3 = st.columns( [0.15, 0.5, 0.25])
-    with col2:               # To display the header text using css style
-        st.markdown('<p class="head">Datasets in aesthetics research</p>', unsafe_allow_html=True)
-        #st.markdown('<p class="subhead">Datasets in aesthetics research</p>', unsafe_allow_html=True)
-        st.markdown('<p class="font1"> This interactive table lists numerous datasets in aesthetics research.  Use the sidebar filters to narrow your search. </p>', unsafe_allow_html=True)
-    with col1:
-        st.image(image1,  width=160) 
-    with col3:
-        st.image(image2,  width=400) 
-    
-    
+
     st.divider()
     
     df = pd.read_csv("./datasets/MSC.csv")  # read a CSV file inside the 'data" folder next to 'app.py'

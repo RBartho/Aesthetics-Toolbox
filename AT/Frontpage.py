@@ -1,28 +1,17 @@
 import streamlit as st
-from PIL import Image
 
-
+from . import AT_misc
 
 def show_frontpage():
        
-    image1 = Image.open('images/LogoDesign EAJ final.png')
-    image2 = Image.open('images/GestatltReVision_Logo_mod.png')
-
     
-    #Create two columns with different width
-    col1, col2, col3 = st.columns( [0.15, 0.5, 0.25])
-    with col2:               # To display the header text using css style
-        st.markdown('<p class="head">Aesthetics Toolbox</p>', unsafe_allow_html=True)
-        st.markdown('<p class="font1">This is a toolbox for aesthetic research. \
-                    The features of this toolbox can be selected from the sidebar and are briefly explained below. \
-                    The toolbox is designed as an open source project and we hereby encourage any feedback,\
-                    or extensions to the toolbox (see contacts below).  </p>', unsafe_allow_html=True)
-    with col1:
-        st.image(image1,  width=160) 
-    with col3:
-        st.image(image2,  width=400) 
-        
-        
+    AT_misc.build_heading(head=     'Aesthetics Toolbox',
+                          notes=    'This is a toolbox for aesthetic research. \
+                                      The features of this toolbox can be selected from the sidebar and are briefly explained below. \
+                                      The toolbox is designed as an open source project and we hereby encourage any feedback,\
+                                      or extensions to the toolbox (see contacts below). '
+                          )
+    
     st.divider() 
     
     st.markdown('<p class="subhead">Toolbox Features</p>', unsafe_allow_html=True)

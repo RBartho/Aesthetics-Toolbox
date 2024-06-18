@@ -1,6 +1,6 @@
 import streamlit as st
 import numpy as np
-
+from PIL import Image
 
 def custom_round(num):
     '''
@@ -67,6 +67,19 @@ def check_upscaling_img(img_PIL, res_type, PHOG_Pixel = -1):
  
     return False
 
-    
 def callback_upload_img_files():
     st.session_state.new_files_uploaded = True
+    
+def build_heading(head,notes):
+    image1 = Image.open('images/LogoDesign EAJ final.png')
+    image2 = Image.open('images/GestatltReVision_Logo_mod.png')
+
+    #Create two columns with different width
+    col1, col2, col3 = st.columns( [0.10, 0.7, 0.2])
+    with col2:               # To display the header text using css style
+        st.markdown('<p class="head">' + head + '</p>', unsafe_allow_html=True)
+        st.markdown('<p class="font1">' + notes + '</p>', unsafe_allow_html=True)
+    with col1:
+        st.image(image1,  use_column_width=True) 
+    with col3:
+        st.image(image2,  use_column_width=True) 

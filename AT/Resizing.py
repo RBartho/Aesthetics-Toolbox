@@ -6,20 +6,12 @@ from zipfile import ZipFile
 from AT import resize_functions, AT_misc
 
 def run_resizing():
-    image1 = Image.open('images/LogoDesign EAJ final.png')
-    image2 = Image.open('images/GestatltReVision_Logo_mod.png')
     
-    #Create two columns with different width
-    col1, col2, col3 = st.columns( [0.15, 0.5, 0.25])
-    with col2:               # To display the header text using css style
-        #st.markdown('<p class="head">Aesthetics Toolbox</p>', unsafe_allow_html=True)
-        st.markdown('<p class="head">Resizing and Cropping</p>', unsafe_allow_html=True)
-        st.markdown('<p class="font1">Common options for resizing images in aesthetic research</p>', unsafe_allow_html=True)
-    with col1:
-        st.image(image1,  width=160) 
-    with col3:
-        st.image(image2,  width=400) 
- 
+    
+    AT_misc.build_heading(head=     'Resizing and Cropping',
+                          notes=    'Common options for resizing images in aesthetic research.'
+                          )
+    
     
     upload_file = st.file_uploader('Load image files', type=['jpg','png','jpeg','tif'], accept_multiple_files=True, label_visibility="collapsed" )# Check to see if a  file has been uploaded
     

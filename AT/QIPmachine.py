@@ -17,20 +17,11 @@ version = 'v0.1.2-beta'
 
     
 def run_QIP_machine():
-    image1 = Image.open('images/LogoDesign EAJ final.png')
-    image2 = Image.open('images/GestatltReVision_Logo_mod.png')
     
     
-    #Create two columns with different width
-    col1, col2, col3 = st.columns( [0.15, 0.5, 0.25])
-    with col2:               # To display the header text using css style
-        st.markdown('<p class="head">QIP Machine</p>', unsafe_allow_html=True)
-        #st.markdown('<p class="subhead">QIP Machine</p>', unsafe_allow_html=True)
-        st.markdown('<p class="font1">This is an interface to calculate Quantitative Image Properties (QIPs) for images</p>', unsafe_allow_html=True)
-    with col1:
-        st.image(image1,  width=160) 
-    with col3:
-        st.image(image2,  width=400) 
+    AT_misc.build_heading(head=     'QIP Machine',
+                          notes=    'This is an interface to calculate Quantitative Image Properties (QIPs) for images.'
+                          )
     
 
     st.markdown(
@@ -686,7 +677,7 @@ def run_QIP_machine():
         ### write used QIP params to info csv
         params_vers_csv = 'Aesthetics Toolbox version used:'  + sep + version + '\n'
         if check_dict['Slope']:
-            params_vers_csv = 'Fourier Slope Type:'  + sep + slope_selectbox + '\n' 
+            params_vers_csv += 'Fourier Slope Type:'  + sep + slope_selectbox + '\n' 
             if slope_selectbox == '**Redies**':
                 params_vers_csv += 'Fourier Slope Redies min cycles:'  + sep + str(lower_bound) + '\n' 
                 params_vers_csv += 'Fourier Slope Redies max cycles:'  + sep + str(upper_bound) + '\n' 
