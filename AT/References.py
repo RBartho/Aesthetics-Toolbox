@@ -1,8 +1,7 @@
 import streamlit as st
 
 def show_references():
-    st.markdown('<p class="head">Aesthetics Toolbox</p>', unsafe_allow_html=True)
-    st.markdown('<p class="font0">References</p>', unsafe_allow_html=True)
+    st.markdown('<p class="head">References</p>', unsafe_allow_html=True)
     
     st.write(
     

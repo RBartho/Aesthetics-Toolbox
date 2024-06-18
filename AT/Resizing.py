@@ -12,8 +12,8 @@ def run_resizing():
     #Create two columns with different width
     col1, col2, col3 = st.columns( [0.15, 0.5, 0.25])
     with col2:               # To display the header text using css style
-        st.markdown('<p class="head">Aesthetics Toolbox</p>', unsafe_allow_html=True)
-        st.markdown('<p class="subhead">Resizing images</p>', unsafe_allow_html=True)
+        #st.markdown('<p class="head">Aesthetics Toolbox</p>', unsafe_allow_html=True)
+        st.markdown('<p class="head">Resizing and Cropping</p>', unsafe_allow_html=True)
         st.markdown('<p class="font1">Common options for resizing images in aesthetic research</p>', unsafe_allow_html=True)
     with col1:
         st.image(image1,  width=160) 

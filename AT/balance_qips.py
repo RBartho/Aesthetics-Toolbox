@@ -144,23 +144,23 @@ def DCM_Key(im):
     dist = np.sqrt(htmp ** 2 + vtmp ** 2)
     rdist = (dist / 0.5) * 100
 
-    # Calculate direction in degrees
-    xcenter = width / 2
-    ycenter = height / 2
+    # # Calculate direction in degrees
+    # xcenter = width / 2
+    # ycenter = height / 2
 
     # Direction goes from 0 to 180° (upper half, right to left), from 0 to -180° lower half (right to left)
-    direction = np.degrees(np.arctan2(ycenter - Rv, Rh - xcenter))
+    #direction = np.degrees(np.arctan2(ycenter - Rv, Rh - xcenter))
 
-    if (direction >= 45) and (direction < 135):
-        area = 1  # top
-    elif (direction >= 135) or (direction < -135):
-        area = 2  # left
-    elif (direction >= -135) and (direction < -45):
-        area = 3  # bottom
-    else:
-        area = 4  # right
+    # if (direction >= 45) and (direction < 135):
+    #     area = 1  # top
+    # elif (direction >= 135) or (direction < -135):
+    #     area = 2  # left
+    # elif (direction >= -135) and (direction < -45):
+    #     area = 3  # bottom
+    # else:
+    #     area = 4  # right
 
-    return rdist
+    return rdist, htmp, vtmp
 
 
 def MS_Score(img_gray):

@@ -12,7 +12,7 @@ from . import balance_qips, box_count_qips, CNN_qips, color_and_simple_qips, edg
 
 
 
-version = 'v0.1.1-beta'
+version = 'v0.1.2-beta'
 
 
     
@@ -24,8 +24,8 @@ def run_QIP_machine():
     #Create two columns with different width
     col1, col2, col3 = st.columns( [0.15, 0.5, 0.25])
     with col2:               # To display the header text using css style
-        st.markdown('<p class="head">Aesthetics Toolbox</p>', unsafe_allow_html=True)
-        st.markdown('<p class="subhead">QIP Machine</p>', unsafe_allow_html=True)
+        st.markdown('<p class="head">QIP Machine</p>', unsafe_allow_html=True)
+        #st.markdown('<p class="subhead">QIP Machine</p>', unsafe_allow_html=True)
         st.markdown('<p class="font1">This is an interface to calculate Quantitative Image Properties (QIPs) for images</p>', unsafe_allow_html=True)
     with col1:
         st.image(image1,  width=160) 
@@ -81,13 +81,14 @@ def run_QIP_machine():
 
 ######################################
 
-    dict_of_simple_color_measures = {
+    dict_of_multi_measures = {
                         'means RGB' : ['mean R channel', 'mean G channel' , 'mean B channel (RGB)'],  
                         'means Lab' : ['mean L channel', 'mean a channel' , 'mean b channel (Lab)'],  
                         'means HSV' : ['mean H channel', 'mean S channel' , 'mean V channel'],
                         'std RGB'   : ['std R channel', 'std G channel' , 'std B channel'],
                         'std Lab'   : ['std L channel', 'std a channel' , 'std b channel (Lab)'],  
                         'std HSV'   : ['std H channel', 'std S channel' , 'std V channel'],
+                        'DCM'       : ['DCM distance', 'DCM x position' , 'DCM y position'],
                         }
     
     
@@ -285,8 +286,8 @@ def run_QIP_machine():
                     
                     for key in check_dict:
                         if check_dict[key]:
-                            if key in dict_of_simple_color_measures:
-                                for sub_key in dict_of_simple_color_measures[key]:
+                            if key in dict_of_multi_measures:
+                                for sub_key in dict_of_multi_measures[key]:
                                     result_csv += sub_key + ','
                             else:
                                 ### get full names for indivual measures
@@ -335,7 +336,7 @@ def run_QIP_machine():
                             file_name = upload_file[n].name
                             
                             placeholder.text('Number of completed images: '  + str(n) + '    Number of remaining images: '  + str(num_images - (n)) + '     Calculating image: ' + file_name)
-                            placeholder_remaining_time.text( 'Remaining time: '  + expected_time_h + ' hours and  ' +  expected_time_m + ' minuits.'        )
+                            placeholder_remaining_time.text( 'Remaining time: '  + expected_time_h + ' hours and  ' +  expected_time_m + ' minutes.'        )
     
 
                             if st.session_state.commas != None:
@@ -578,7 +579,9 @@ def run_QIP_machine():
                                     
                                 elif (key == 'DCM') and check_dict[key]:
                                     res = balance_qips.DCM_Key(img_gray)
-                                    result_csv += str(AT_misc.custom_round(res)) + sep
+                                    result_csv += str(AT_misc.custom_round(res[0])) + sep
+                                    result_csv += str(AT_misc.custom_round(res[1])) + sep
+                                    result_csv += str(AT_misc.custom_round(res[2])) + sep
                                     
                                 elif (key == 'Mirror symmetry') and check_dict[key]:
                                     res = balance_qips.MS_Score(img_gray)

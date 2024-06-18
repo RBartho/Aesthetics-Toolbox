@@ -7,7 +7,7 @@ Image.MAX_IMAGE_PIXELS = 1e14
 
 ### custom libraries
 
-from AT import QIPmachine, References, Documentation, Datasets, Resizing
+from AT import QIPmachine, References, Documentation, Resizing, Frontpage
 
 st.set_page_config(layout="wide")
 
@@ -37,6 +37,10 @@ st.markdown(""" <style> .font2 {
 font-size:20px ; font-family: 'Cooper Black'; color: green;} 
 </style> """, unsafe_allow_html=True)
 
+st.markdown(""" <style> .greenL {
+font-size:28px ; font-family: 'Cooper Black'; color: green;} 
+</style> """, unsafe_allow_html=True)
+
 st.markdown(""" <style> .font3 {
 font-size:18px ; font-family: 'Cooper Black'; color: black;} 
 </style> """, unsafe_allow_html=True)
@@ -64,24 +68,31 @@ st.markdown(
 st.sidebar.header("Sidebar")
 
 ### define order and names of sidebar menu
-#app_mode = st.sidebar.selectbox('Select mode',['QIP Calculation', 'Resizing images', 'Datasets', 'Documentation', 'References'] ) #three pages
-   
-app_mode = st.sidebar.selectbox('Select mode',['QIP Calculation', 'QIP Documentation', 'Resizing Images', 'References', ] ) #three pages
+ 
+# app_mode = st.sidebar.selectbox('Select mode',['Home' , 'QIP Machine',  'Aesthetics Datasets',  'Resizing and Cropping', 'Docs QIPs', 'Docs Datasets', 'References', ] ) #three pages
+
+app_mode = st.sidebar.selectbox('Select mode',['Home' , 'QIP Machine',   'Resizing and Cropping', 'Docs QIPs',  'References', ] ) #three pages
 
 
-if app_mode == 'QIP Calculation':
+if app_mode == 'Home':
+    Frontpage.show_frontpage()
+
+if app_mode == 'QIP Machine':
     QIPmachine.run_QIP_machine()
  
-if app_mode == 'QIP Documentation':
+# if app_mode == 'Aesthetics Datasets':
+#     Datasets.show_list()
+
+if app_mode == 'Resizing and Cropping':
+    Resizing.run_resizing()
+    
+if app_mode == 'Docs QIPs':
     Documentation.show_docs()
+    
+# if app_mode == 'Docs Datasets':
+#     Datasets_documentation.show_data_docs()
     
 if app_mode == 'References':
     References.show_references()
-    
-if app_mode == 'Datasets':
-    Datasets.show_list()
-        
-if app_mode == 'Resizing Images':
-    Resizing.run_resizing()
     
     
