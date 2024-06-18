@@ -195,9 +195,7 @@ def run_QIP_machine():
                             options=[ '**Redies**', 
                                       '**Spehar**', 
                                       '**Mather**',],
-                            captions = ["", 
-                                        "", 
-                                        "",],
+                            
                             horizontal=True
                         )
                         
