@@ -1,6 +1,8 @@
 import numpy as np
 import PIL
 import io
+from skimage.color import lab2rgb, rgb2lab
+
 
 PIL.Image.MAX_IMAGE_PIXELS = 933120000
 
@@ -231,4 +233,42 @@ def padding_and_resizing_to_square_X_pixel(img, resize_to=1024):
         img = img_pad
         
     return PIL.Image.fromarray(img)
+
+################################# LAB Color rotation ################################
+
+
+def cart2pol(x, y):
+    rho = np.sqrt(x**2 + y**2)
+    phi = np.arctan2(y, x)
+    return rho, phi
+
+def pol2cart(rho, phi):
+    x = rho * np.cos(phi)
+    y = rho * np.sin(phi)
+    return x, y
+
+
+def rotate_image_in_LAB_colorspace(img_rgb, degree):
+    img_lab = rgb2lab(img_rgb)
     
+    #print(img_lab)
+    
+    degree_in_pi = degree/(180)
+    
+    ### get polar coordinates for each pixel
+    rho, phi = cart2pol(img_lab[:,:,1], img_lab[:,:,2])
+  
+    ### change angle
+    phi = phi+  degree_in_pi * np.pi
+    
+    ### convert back to polar coordinates
+    x, y = pol2cart(rho, phi)
+    
+    ## assign to image, ceeping original luminance
+    img_lab[:,:,1] = x
+    img_lab[:,:,2] = y
+    
+    # convert to RGB
+    img_RGB_rotated = lab2rgb(img_lab) * 255
+
+    return PIL.Image.fromarray(img_RGB_rotated.astype(np.uint8))

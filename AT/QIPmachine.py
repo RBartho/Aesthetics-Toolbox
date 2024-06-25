@@ -8,7 +8,7 @@ import sys
 import io
 from zipfile import ZipFile
 
-from . import balance_qips, box_count_qips, CNN_qips, color_and_simple_qips, edge_entropy_qips, fourier_qips, PHOG_qips, AT_misc
+from . import balance_qips, CNN_qips, color_and_simple_qips, edge_entropy_qips, fourier_qips, fractal_dimension_qips, PHOG_qips, AT_misc
 
 
 
@@ -500,7 +500,7 @@ def run_QIP_machine():
                                     # if not jet calculated, calculate all syms together and store results
                                     else:
     
-                                        sym_lr,sym_ud,sym_lrud = CNN_qips.get_symmetry(img_rgb, kernel, bias)
+                                        sym_lr,sym_ud,sym_lrud = CNN_qips.CNN_symmetry(img_rgb, kernel, bias)
                                         if key == 'left-right':
                                             result_csv += str(AT_misc.custom_round(sym_lr)) + sep
                                         elif key == 'up-down':
@@ -513,7 +513,7 @@ def run_QIP_machine():
                                     
                                     resp_scipy = CNN_qips.conv2d(img_rgb, kernel, bias)
                                     _, normalized_max_pooling_map_Sparseness  = CNN_qips.max_pooling (resp_scipy, patches=p22_Sparseness )
-                                    sparseness =  CNN_qips.get_CNN_Variance (normalized_max_pooling_map_Sparseness   , kind='sparseness' )
+                                    sparseness =  CNN_qips.CNN_Variance (normalized_max_pooling_map_Sparseness   , kind='sparseness' )
                                     result_csv += str(AT_misc.custom_round(sparseness)) + sep
                               
     
@@ -521,15 +521,15 @@ def run_QIP_machine():
                                     
                                     resp_scipy = CNN_qips.conv2d(img_rgb, kernel, bias)
                                     _, normalized_max_pooling_map_Variability = CNN_qips.max_pooling (resp_scipy, patches=p12_Variability )
-                                    variability = CNN_qips.get_CNN_Variance (normalized_max_pooling_map_Variability , kind='variability' )
+                                    variability = CNN_qips.CNN_Variance (normalized_max_pooling_map_Variability , kind='variability' )
                                     result_csv += str(AT_misc.custom_round(variability)) + sep
     
                                 elif (key == 'CNN-based') and check_dict[key]:
-                                    img_switch_channel = img_rgb[:,:,(2,1,0)].astype(np.float32)
-                                    resp_scipy = CNN_qips.conv2d(img_switch_channel, kernel, bias)
+                            
+                                    resp_scipy = CNN_qips.conv2d(img_rgb, kernel, bias)
                                     _, normalized_max_pooling_map_8 = CNN_qips.max_pooling (resp_scipy, patches=8 )
                                     _, normalized_max_pooling_map_1 = CNN_qips.max_pooling (resp_scipy, patches=1 )
-                                    cnn_self_sym = CNN_qips.get_selfsimilarity (normalized_max_pooling_map_1 , normalized_max_pooling_map_8 )
+                                    cnn_self_sym = CNN_qips.CNN_selfsimilarity (normalized_max_pooling_map_1 , normalized_max_pooling_map_8 )
                                     
                                     result_csv += str(AT_misc.custom_round(cnn_self_sym)) + sep
                                     
@@ -560,30 +560,30 @@ def run_QIP_machine():
                                     
                                     
                                 elif (key == 'Balance') and check_dict[key]:
-                                    res = balance_qips.APB_Score(img_gray)
+                                    res = balance_qips.Balance(img_gray)
                                     result_csv += str(AT_misc.custom_round(res)) + sep
                                     
                                 elif (key == 'DCM') and check_dict[key]:
-                                    res = balance_qips.DCM_Key(img_gray)
+                                    res = balance_qips.DCM(img_gray)
                                     result_csv += str(AT_misc.custom_round(res[0])) + sep
                                     result_csv += str(AT_misc.custom_round(res[1])) + sep
                                     result_csv += str(AT_misc.custom_round(res[2])) + sep
                                     
                                 elif (key == 'Mirror symmetry') and check_dict[key]:
-                                    res = balance_qips.MS_Score(img_gray)
+                                    res = balance_qips.Mirror_symmetry(img_gray)
                                     result_csv += str(AT_misc.custom_round(res)) + sep
     
                                 elif (key == 'Homogeneity') and check_dict[key]:
-                                    res = balance_qips.entropy_score_2d(img_gray)
+                                    res = balance_qips.Homogeneity(img_gray)
                                     result_csv += str(AT_misc.custom_round(res)) + sep
     
                                 elif (key == '2-dimensional') and check_dict[key]:
-                                    res = box_count_qips.box_count_2d(img_gray)
+                                    res = fractal_dimension_qips.fractal_dimension_2d(img_gray)
                                     result_csv += str(AT_misc.custom_round(res)) + sep
     
     
                                 elif (key == '3-dimensional') and check_dict[key]:
-                                    res = box_count_qips.custom_differential_box_count(img_gray)
+                                    res = fractal_dimension_qips.fractal_dimension_3d(img_gray)
                                     result_csv += str(AT_misc.custom_round(res)) + sep
 
                                
@@ -702,6 +702,6 @@ def run_QIP_machine():
             zip_file.writestr('QIP_parameters_used_and_Toolbox_version.csv', params_vers_csv)
           
     if enable_download:
-        st.success('Calculations finished. A csv-file has been created in your selected results folder.', icon="✅")
+        st.success('Calculations finished. A zip file with the calculated QIPs and used parameters is ready for download.', icon="✅")
         st.download_button('Download Results', file_name=zip_file_name, data=zip_file_bytes_io)  
         

@@ -2,38 +2,44 @@ import numpy as np
 from skimage.transform import rotate
 from skimage.filters import threshold_otsu
 
-
-
 ########################################################################################
 ################################# Huebner Group ########################################
 ########################################################################################
 
 
-def APB_Score(im):
+def Balance(img_gray):
     '''
-    1. nall sollte Zahl der Scharzen Pixel sein, ist hier aber die Summer der Intensitätswerte im Bild
-    2. Im Matlab code wird der treshold wert 126 in zwei Schleifen addiert!!! Hier auch so übernommen, ist aber eigentlich ein Fehler.
+    Calculates the "Balance" QIP from Ronald Huebner Group
+    
+    Input: Takes a grayscale image in Pillow format as input. 
+    Output: Balance QIP
+    
+    Usage:
+    Load images like this:
+        
+    Import Image from PIL    
+    
+    img_gray = np.asarray(Image.open( path_to_image_file ).convert('L')) 
+    Balance(img_gray)
     '''
     
-    height, width = im.shape
+    height, width = img_gray.shape
 
-    hist = np.histogram(im, bins=256, range=(0, 256))
+    hist = np.histogram(img_gray, bins=256, range=(0, 256))
 
     counts = hist[0]
     
     thres = 128
 
     sum1 = sum(counts[:thres])
-    sum2 = sum(counts[thres-1:])  # hier Fehler in Berechnungen, aber kaum Auswirkunge auf Ergebnisse
+    sum2 = sum(counts[thres-1:])  # in the Matlab code, the treshold value 126 is added twice. This programming error has hardly any effect on the results and has been adopted here in the Python code.
     
     if sum1 <= sum2:
-        im_comp = 255 - im  # Invert image
+        im_comp = 255 - img_gray
     else:
-        im_comp = im
+        im_comp = img_gray
 
-    nall = np.sum(im_comp)   ### Number of Pixels with value of 0
-    
-    #print('NALL:', nall)
+    nall = np.sum(im_comp)  
     
     ## to avoid division 0
     if nall == 0:
@@ -93,17 +99,25 @@ def APB_Score(im):
     return bs
 
 
-
-
-def DCM_Key(im):
+def DCM(img_gray):
     '''
-    Input grayscale in range [0-256]
+    Calculates the "DCM" QIP from Ronald Huebner Group
     
+    Input: Takes a grayscale image in Pillow format as input. 
+    Output: DCM QIP
+    
+    Usage:
+    Load images like this:
+        
+    Import Image from PIL    
+    
+    img_gray = np.asarray(Image.open( path_to_image_file ).convert('L')) 
+    DCM(img_gray)
     '''
     
-    height, width = im.shape
+    height, width = img_gray.shape
 
-    hist = np.histogram(im, bins=256, range=(0, 256))
+    hist = np.histogram(img_gray, bins=256, range=(0, 256))
     counts = hist[0]
        
     thres = 128
@@ -111,13 +125,10 @@ def DCM_Key(im):
     sum1 = sum(counts[:thres])
     sum2 = sum(counts[thres:])
     
-
     if sum1 <= sum2:
-        im_comp = 255 - im  # Invert image
-        inv = 'inverted';
+        im_comp = 255 - img_gray  # Invert image
     else:
-        im_comp = im
-        inv = 'original';
+        im_comp = img_gray
 
     nall = np.sum(im_comp)   ### Number of Pixels with value of 0
     
@@ -129,7 +140,6 @@ def DCM_Key(im):
     Rh = np.round(r / nall) + 1  # x position of fulcrum
     Rhnorm = Rh / width  # Normalized
     
-
     # Vertical balance point
     r = 0
     for i in range(height):
@@ -144,26 +154,24 @@ def DCM_Key(im):
     dist = np.sqrt(htmp ** 2 + vtmp ** 2)
     rdist = (dist / 0.5) * 100
 
-    # # Calculate direction in degrees
-    # xcenter = width / 2
-    # ycenter = height / 2
-
-    # Direction goes from 0 to 180° (upper half, right to left), from 0 to -180° lower half (right to left)
-    #direction = np.degrees(np.arctan2(ycenter - Rv, Rh - xcenter))
-
-    # if (direction >= 45) and (direction < 135):
-    #     area = 1  # top
-    # elif (direction >= 135) or (direction < -135):
-    #     area = 2  # left
-    # elif (direction >= -135) and (direction < -45):
-    #     area = 3  # bottom
-    # else:
-    #     area = 4  # right
-
     return rdist, htmp, vtmp
 
 
-def MS_Score(img_gray):
+def Mirror_symmetry(img_gray):
+    '''
+    Calculates the "Mirror symmetry" QIP from Ronald Huebner Group
+    
+    Input: Takes a grayscale image in Pillow format as input. 
+    Output: Mirror symmetry QIP
+    
+    Usage:
+    Load images like this:
+        
+    Import Image from PIL    
+    
+    img_gray = np.asarray(Image.open( path_to_image_file ).convert('L')) 
+    Mirror_symmetry(img_gray)
+    '''
 
     # Automatically find optimal threshold level
     level  = threshold_otsu(img_gray)
@@ -232,25 +240,38 @@ def MS_Score(img_gray):
     return ms
 
 
-def entropy_score_2d(im):  ## takes grayscale image!!
-
+def Homogeneity(img_gray):  
+    '''
+    Calculates the "Homogeneity" QIP from Ronald Huebner Group
+    
+    Input: Takes a grayscale image in Pillow format as input. 
+    Output: Homogeneity QIP
+    
+    Usage:
+    Load images like this:
+        
+    Import Image from PIL    
+    
+    img_gray = np.asarray(Image.open( path_to_image_file ).convert('L')) 
+    Homogeneity(img_gray)
+    '''
+    
     # number of bins taken from original paper: Hübner & Fillinger. Comparison of Objective Measures for Predicting Perceptual Balance and Visual Aesthetic Preference. Page: 4
     hbins = 10;
     vbins = 10;
     
-    height, width = im.shape
+    height, width = img_gray.shape
     
-    hist = np.histogram(im, bins=256, range=(0, 256))
+    hist = np.histogram(img_gray, bins=256, range=(0, 256))
     counts = hist[0]
     thres = 128
     sum1 = sum(counts[:thres])
     sum2 = sum(counts[thres-1:])  # hier Fehler in Berechnungen, aber kaum Auswirkunge auf Ergebnisse
     if sum1 <= sum2:
-        im = 255 - im  # Invert image
+        im = 255 - img_gray  # Invert image
         #print('inverted')
     else:
         im = im
-    
     
     level  = threshold_otsu(im)
     

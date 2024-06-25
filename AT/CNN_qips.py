@@ -2,9 +2,7 @@ import numpy as np
 from scipy.signal import correlate
 from skimage.transform import resize
 
-################################ CNN Measures #####################################
-
-
+################################ helper functions #####################################
 
 
 def resize_and_add_ImageNet_mean(img):
@@ -56,19 +54,6 @@ def conv2d(input_img, kernel, bias):
         
     return output_data
 
-###################### Variances ####################################################
-
-
-def get_CNN_Variance(normalized_max_pool_map, kind):
-    result = 0
-    if kind == 'sparseness':
-        result =  np.var( normalized_max_pool_map)
-    elif kind == 'variability':
-        result =  np.median(np.var(normalized_max_pool_map , axis=(0,1)))
-    else:
-        raise ValueError("Wrong input for kind of CNN_Variance. Use sparseness or variability")
-    return result
-
 
 def max_pooling (resp, patches ):
     (i_filters, ih, iw) = resp.shape
@@ -88,12 +73,72 @@ def max_pooling (resp, patches ):
     max_pool_map_sum = np.sum(max_pool_map, axis=2)
     normalized_max_pool_map = max_pool_map / max_pool_map_sum[:,:,np.newaxis]
 
-    
     return max_pool_map, normalized_max_pool_map
+
+
+def get_differences(max_pooling_map_orig, max_pooling_map_flip):
+    assert(max_pooling_map_orig.shape == max_pooling_map_flip.shape)
+    sum_abs = np.sum(np.abs(max_pooling_map_orig - max_pooling_map_flip))
+    sum_max = np.sum(np.maximum(max_pooling_map_orig, max_pooling_map_flip))
+    return 1.0 - sum_abs / sum_max
+
+
+###################### Variances ####################################################
+
+
+def CNN_Variance(normalized_max_pool_map, kind):
+    '''
+    Calculates the 'variability' or 'sparseness' QIP 
+    
+    Input: Takes the CNN-features of the first layer of an AlexNet as input
+    Output: CNN_Variance, Sparseness or Variability
+    
+    Usage:
+    Import Image from PIL    
+    
+    img_rgb = np.asarray(Image.open( path_to_image_file ).convert('RGB')) 
+    
+    patches = 12 # default is 12 for variability and 22 for sparseness 
+    kind = 'variability' or 'sparseness'
+    
+    [kernel,bias] = np.load(open("AT/bvlc_alexnet_conv1.npy", "rb"), encoding="latin1", allow_pickle=True)
+    resp_scipy = CNN_qips.conv2d(img_rgb, kernel, bias)
+    _, normalized_max_pooling_map_Variability = CNN_qips.max_pooling (resp_scipy, patches=patches )
+    variability = CNN_qips.CNN_Variance (normalized_max_pooling_map_Variability , kind=kind )
+    '''
+    
+    result = 0
+    if kind == 'sparseness':
+        result =  np.var( normalized_max_pool_map)
+    elif kind == 'variability':
+        result =  np.median(np.var(normalized_max_pool_map , axis=(0,1)))
+    else:
+        raise ValueError("Wrong input for kind of CNN_Variance. Use sparseness or variability")
+    return result
+
+
 
 ################### Self-Similarity ################################
 
-def get_selfsimilarity(histogram_ground, histogram_level):
+def CNN_selfsimilarity(histogram_ground, histogram_level):
+    '''
+    Calculates the 'CNN-based Self-similarity' QIP 
+    
+    Input: Takes the CNN-features of the first layer of an AlexNet as input
+    Output: CNN-based Self-similarity
+    
+    Usage:
+    Import Image from PIL    
+    
+    img_rgb = np.asarray(Image.open( path_to_image_file ).convert('RGB')) 
+    
+    [kernel,bias] = np.load(open("AT/bvlc_alexnet_conv1.npy", "rb"), encoding="latin1", allow_pickle=True)
+    resp_scipy = CNN_qips.conv2d(img_rgb, kernel, bias)
+    _, normalized_max_pooling_map_8 = CNN_qips.max_pooling (resp_scipy, patches=8 )
+    _, normalized_max_pooling_map_1 = CNN_qips.max_pooling (resp_scipy, patches=1 )
+    cnn_self_sym = CNN_qips.CNN_selfsimilarity (normalized_max_pooling_map_1 , normalized_max_pooling_map_8 )
+    '''
+    
     ph, pw, n = histogram_level.shape
     hiks = []
     for ih in range(ph):
@@ -106,14 +151,21 @@ def get_selfsimilarity(histogram_ground, histogram_level):
 ################### CNN Symmetry ################################
 
 
-def get_differences(max_pooling_map_orig, max_pooling_map_flip):
-    assert(max_pooling_map_orig.shape == max_pooling_map_flip.shape)
-    sum_abs = np.sum(np.abs(max_pooling_map_orig - max_pooling_map_flip))
-    sum_max = np.sum(np.maximum(max_pooling_map_orig, max_pooling_map_flip))
-    return 1.0 - sum_abs / sum_max
-
-
-def get_symmetry(input_img, kernel, bias):
+def CNN_symmetry(input_img, kernel, bias):
+    '''
+    Calculates the 'CNN-feature-based Symmetry' QIP 
+    
+    Input: Takes the CNN-features of the first layer of an AlexNet as input
+    Output: CNN-based Symmetry, left-rigth Symmetry, up-down Symmetry and left-right-up-down Symmetry
+    
+    Usage:
+    Import Image from PIL    
+    
+    img_rgb = np.asarray(Image.open( path_to_image_file ).convert('RGB')) 
+    
+    [kernel,bias] = np.load(open("AT/bvlc_alexnet_conv1.npy", "rb"), encoding="latin1", allow_pickle=True)
+    sym_lr,sym_ud,sym_lrud = CNN_qips.CNN_symmetry(img_rgb, kernel, bias)
+    '''
     
     ### get max pooling map for orig. image
     resp_orig = conv2d(input_img, kernel, bias)

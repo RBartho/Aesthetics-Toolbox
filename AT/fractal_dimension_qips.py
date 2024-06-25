@@ -8,20 +8,33 @@ import PIL
 ########################################################################################################################
 
 
-
 ### Branka Spehar, "2D" Box Count Algo using binary images
-def box_count_2d(im):
+def fractal_dimension_2d(img_gray):
+    '''
+    Calculates the "2-dimensional Fractal Dimension" QIP 
+    
+    Input: Takes a grayscale image in Pillow format as input. 
+    Output: 2-dimensional Fractal Dimension QIP
+    
+    Usage:
+    Load images like this:
+        
+    Import Image from PIL    
+    
+    img_gray = np.asarray(Image.open( path_to_image_file ).convert('L')) 
+    fractal_dimension_2d(img_gray)
+    '''
 
-    nr, nc = im.shape  # get y & x dimensions of image
+    nr, nc = img_gray.shape  # get y & x dimensions of image
 
     # Scale image to square if not already square
     if nr > nc:
-        im = np.asarray(PIL.Image.fromarray(im).resize((nc, nc)))
+        img_gray = np.asarray(PIL.Image.fromarray(img_gray).resize((nc, nc)))
     elif nr < nc:
-        im = np.asarray(PIL.Image.fromarray(im).resize((nr, nr)))
+        img_gray = np.asarray(PIL.Image.fromarray(img_gray).resize((nr, nr)))
 
-    threshold = np.mean(im)
-    b = im < threshold
+    threshold = np.mean(img_gray)
+    b = img_gray < threshold
     b = b.astype(np.uint8)
 
     x, y = [], []
@@ -46,7 +59,21 @@ def box_count_2d(im):
 
 
 ### George Mather, "3D" Box Count Algo unsing graylevels
-def custom_differential_box_count(img_gray):  ### Takes 2 dim Image/array as input
+def fractal_dimension_3d(img_gray):  
+    '''
+    Calculates the "3-dimensional Fractal Dimension" QIP 
+    
+    Input: Takes a grayscale image in Pillow format as input. 
+    Output: 3-dimensional Fractal Dimension QIP
+    
+    Usage:
+    Load images like this:
+        
+    Import Image from PIL    
+    
+    img_gray = np.asarray(Image.open( path_to_image_file ).convert('L')) 
+    fractal_dimension_3d(img_gray)
+    '''
 
     ### center crop largest rectangle image with power of 2
     nr, nc = img_gray.shape

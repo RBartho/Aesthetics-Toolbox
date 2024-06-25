@@ -8,8 +8,8 @@ from AT import resize_functions, AT_misc
 def run_resizing():
     
     
-    AT_misc.build_heading(head=     'Resizing and Cropping',
-                          notes=    'Common options for resizing images in aesthetic research.'
+    AT_misc.build_heading(head=     'Resizing, Cropping, Color rotation',
+                          notes=    'Common options for image preprocessing in aesthetic research.'
                           )
     
     
@@ -51,7 +51,8 @@ def run_resizing():
                       '**Resize to Image size**',
                       '**Padding to square**',
                       '**Center crop to square**',
-                      '**Center crop to power of two**'],
+                      '**Center crop to power of two**',
+                      '**Color rotaion in LAB color space**'],
             captions = ["Resize longer side  \n while maintaining  \n aspekt ratio.",    ### use two spaces for "\n" to get a line brake
                         "Resize shorter side  \n while maintaining  \n aspect ratio.", 
                         "Resize width  \n while maintaining  \n aspect ratio.",
@@ -62,7 +63,8 @@ def run_resizing():
                         "Resize image to the given  \n Image size (width+heigth) maintaining the  \n aspect ratio.",
                         'Pad image to square using  \n the mean gray values or the  \n mean RGB values, resizing optional.',
                         "Center crop image to  \n largest possible square  \n image.", 
-                        'Center crop image to  \n largest square with side  \n length of power of two'],
+                        'Center crop image to  \n largest square with side  \n length of power of two.',
+                        'Rotate the color of  \n all images to a specified  \n degree in the Lab color space.' ],
             horizontal=True
         )
         
@@ -73,22 +75,22 @@ def run_resizing():
         with st.form('Parameter for Resizing'):
             if resizing_selectbox == '**Resize longer side**':
                 st.markdown('<p class="font2">Parameters for resizing longer side:</p>', unsafe_allow_html=True)
-                longer_side = int(st.text_input('To how many pixels should the longer side be resized?:', value="255",  help=None,  label_visibility="visible"))
+                longer_side = int(st.text_input('To how many pixels should the longer side be resized?:', value="1024",  help=None,  label_visibility="visible"))
                 st.form_submit_button("**Commit resize parameter selection**", on_click=AT_misc.click_sub_params_resizing)
             
             elif resizing_selectbox == '**Resize shorter side**':
                 st.markdown('<p class="font2">Parameters for resizing shorter side:</p>', unsafe_allow_html=True)
-                shorter_side = int(st.text_input('To how many pixels should the shorter side be resized?:', value="255",  help=None,  label_visibility="visible"))
+                shorter_side = int(st.text_input('To how many pixels should the shorter side be resized?:', value="1024",  help=None,  label_visibility="visible"))
                 st.form_submit_button("**Commit resize parameter selection**", on_click=AT_misc.click_sub_params_resizing)
                 
             elif resizing_selectbox == '**Resize image width**':
                   st.markdown('<p class="font2">Parameters for resizing image width:</p>', unsafe_allow_html=True)
-                  img_width = int(st.text_input('To how many pixels should the image width be resized?:', value="255",  help=None,  label_visibility="visible"))  
+                  img_width = int(st.text_input('To how many pixels should the image width be resized?:', value="1024",  help=None,  label_visibility="visible"))  
                   st.form_submit_button("**Commit resize parameter selection**", on_click=AT_misc.click_sub_params_resizing)
                  
             elif resizing_selectbox == '**Resize image height**':
                   st.markdown('<p class="font2">Parameters for resizing image height:</p>', unsafe_allow_html=True)
-                  img_height = int(st.text_input('To how many pixels should the image height be resized?:', value="255",  help=None,  label_visibility="visible"))   
+                  img_height = int(st.text_input('To how many pixels should the image height be resized?:', value="1024",  help=None,  label_visibility="visible"))   
                   st.form_submit_button("**Commit resize parameter selection**", on_click=AT_misc.click_sub_params_resizing)
                       
             elif resizing_selectbox == '**Resize to fit display**':
@@ -104,13 +106,13 @@ def run_resizing():
 
             elif resizing_selectbox == '**Resize to fixed resolution**':
                   st.markdown('<p class="font2">Parameters for resizing to fixed resolution:</p>', unsafe_allow_html=True)
-                  img_width = int(st.text_input('To what width you want to resize the images?:', value="900",  help=None,  label_visibility="visible"))   
-                  img_height = int(st.text_input('To what height you want to resize the images?:', value="900",  help=None,  label_visibility="visible"))   
+                  img_width = int(st.text_input('To what width you want to resize the images?:', value="1024",  help=None,  label_visibility="visible"))   
+                  img_height = int(st.text_input('To what height you want to resize the images?:', value="1024",  help=None,  label_visibility="visible"))   
                   st.form_submit_button("**Commit resize parameter selection**", on_click=AT_misc.click_sub_params_resizing)
                   
             elif resizing_selectbox == '**Resize to Image size**':
                   st.markdown('<p class="font2">Parameters for resizing to Image size:</p>', unsafe_allow_html=True)
-                  des_img_size = int(st.text_input('To what Image size you want to resize the images?:', value="900",  help=None,  label_visibility="visible"))   
+                  des_img_size = int(st.text_input('To what Image size you want to resize the images?:', value="1024",  help=None,  label_visibility="visible"))   
                   st.form_submit_button("**Commit resize parameter selection**", on_click=AT_misc.click_sub_params_resizing)
            
             elif resizing_selectbox == '**Padding to square**':
@@ -118,8 +120,11 @@ def run_resizing():
                   pad_resize_to = int(st.text_input('Do you want to resize the longer image side before padding (-1 = no resizing)?:', value="-1",  help=None,  label_visibility="visible"))   
                   st.form_submit_button("**Commit resize parameter selection**", on_click=AT_misc.click_sub_params_resizing)
                   
-                  
-                  
+            elif resizing_selectbox == '**Color rotaion in LAB color space**':
+                  st.markdown('<p class="font2">Parameters for color space rotation:</p>', unsafe_allow_html=True)
+                  rotaion_degree = int(st.text_input('How many degrees do you want the images to be rotated?:', value="45",  help=None,  label_visibility="visible"))   
+                  st.form_submit_button("**Commit resize parameter selection**", on_click=AT_misc.click_sub_params_resizing)
+                      
             elif resizing_selectbox == '**Center crop to square**':
                   st.session_state.params_resizing_submitted = True
                 
@@ -135,7 +140,7 @@ def run_resizing():
 ######################################
 
     if params_resizing_submitted:
-        run = st.button('**Start resizing**' )
+        run = st.button('**Start resizing, cropping or color rotation**' )
     
         placeholder = st.empty()
         if run: 
@@ -152,6 +157,7 @@ def run_resizing():
                         for n in range(len(upload_file)):
                             
                             img_PIL = Image.open(upload_file[n])
+                            
                             
                             placeholder.text('Resizing image:   ' + upload_file[n].name)
     
@@ -183,17 +189,21 @@ def run_resizing():
                             elif resizing_selectbox == '**Center crop to square**':
                                 img_resized = resize_functions.center_crop (img_PIL)
                                   
-                            elif resizing_selectbox == '**Center crop to square power of two**':
+                            elif resizing_selectbox == '**Center crop to power of two**':
                                 img_resized = resize_functions.center_crop_to_square_power_of_two (img_PIL)
                                 
                             elif resizing_selectbox == '**Padding to square**':
                                 img_resized = resize_functions.padding_and_resizing_to_square_X_pixel(img_PIL, resize_to=pad_resize_to)
                             
+                            elif resizing_selectbox == '**Color rotaion in LAB color space**':
+                                
+                                img_resized = resize_functions.rotate_image_in_LAB_colorspace(img_PIL, degree=rotaion_degree)
+
                             else:
                                 raise('wrong resizing option selected, not implemented error')
 
                             img_name = upload_file[n].name
-                            name_images_pairs.append([img_name, img_resized])
+                            name_images_pairs.append([img_name[:-4], img_resized])
 
                             my_bar.progress( int( (n+1)/len(upload_file) * 100) )
     

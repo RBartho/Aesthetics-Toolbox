@@ -1,7 +1,7 @@
 import numpy as np
 from scipy import stats
 from skimage.measure import shannon_entropy
-from skimage.color import lab2rgb
+
 
 
 ################################# Size QIPs ################################
@@ -43,39 +43,4 @@ def shannonentropy_channels(img):
         chan_2 = shannon_entropy(img[:,:,2])
         return chan_0, chan_1, chan_2
     
-
-################################# LAB Color rotation ################################
-
-def cart2pol(x, y):
-    rho = np.sqrt(x**2 + y**2)
-    phi = np.arctan2(y, x)
-    return rho, phi
-
-def pol2cart(rho, phi):
-    x = rho * np.cos(phi)
-    y = rho * np.sin(phi)
-    return x, y
-
-
-def rotate_image_in_LAB_colorspace(img_lab, degree):
-    degree_in_pi = degree/(180)
-    
-    ### get polar coordinates for each pixel
-    rho, phi = cart2pol(img_lab[:,:,1], img_lab[:,:,2])
-  
-    ### change angle
-    phi = phi+  degree_in_pi * np.pi
-    
-    ### convert back to polar coordinates
-    x, y = pol2cart(rho, phi)
-    
-    ## assign to image, ceeping original luminance
-    img_lab[:,:,1] = x
-    img_lab[:,:,2] = y
-    
-    # convert to RGB
-    img_RGB_rotated = lab2rgb(img_lab)
-    
-    return img_RGB_rotated
-
 
