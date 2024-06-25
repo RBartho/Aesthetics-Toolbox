@@ -123,7 +123,7 @@ def run_resizing():
             elif resizing_selectbox == '**Color rotaion in LAB color space**':
                   st.markdown('<p class="font2">Parameters for color space rotation:</p>', unsafe_allow_html=True)
                   rotaion_degree = int(st.text_input('How many degrees do you want the images to be rotated?:', value="45",  help=None,  label_visibility="visible"))   
-                  st.form_submit_button("**Commit resize parameter selection**", on_click=AT_misc.click_sub_params_resizing)
+                  st.form_submit_button("**Commit parameter selection**", on_click=AT_misc.click_sub_params_resizing)
                       
             elif resizing_selectbox == '**Center crop to square**':
                   st.session_state.params_resizing_submitted = True
@@ -156,7 +156,7 @@ def run_resizing():
                         
                         for n in range(len(upload_file)):
                             
-                            img_PIL = Image.open(upload_file[n])
+                            img_PIL = Image.open(upload_file[n]).convert('RGB')
                             
                             
                             placeholder.text('Resizing image:   ' + upload_file[n].name)

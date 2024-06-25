@@ -250,8 +250,7 @@ def pol2cart(rho, phi):
 
 def rotate_image_in_LAB_colorspace(img_rgb, degree):
     img_lab = rgb2lab(img_rgb)
-    
-    #print(img_lab)
+
     
     degree_in_pi = degree/(180)
     
