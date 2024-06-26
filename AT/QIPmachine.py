@@ -82,6 +82,20 @@ def run_QIP_machine():
                         'DCM'       : ['DCM distance', 'DCM x position' , 'DCM y position'],
                         }
     
+    dict_full_names_QIPs = {
+        'left-right' : 'CNN symmetry left-right',
+        'up-down'    : 'CNN symmetry up-down',
+        'left-right & up-down' : 'CNN symmetry left-right & up-down' ,
+        '2-dimensional' : '2D Fractal dimension',
+        '3-dimensional' : '3D Fractal dimension',
+        'Slope'         :  'Fourier slope',
+        'Sigma'         :  'Fourier sigma',
+        'PHOG-based'    :  'Self-similarity (PHOG)',
+        'CNN-based'     :  'Self-similarity (CNN)',
+        '1st-order'     :  '1st-order EOE',
+        '2nd-order'     :  '2nd-order EOE',
+        }
+
     
 
     check_dict = st.session_state.get("check_dict", None)
@@ -255,6 +269,7 @@ def run_QIP_machine():
         st.session_state.run = run
          
         placeholder = st.empty()
+        placeholder_QIP = st.empty()
         placeholder_remaining_time = st.empty()
         
         if run: 
@@ -321,10 +336,6 @@ def run_QIP_machine():
                             
                             file_name = upload_file[n].name
                             
-                            placeholder.text('Number of completed images: '  + str(n) + '    Number of remaining images: '  + str(num_images - (n)) + '     Calculating image: ' + file_name)
-                            placeholder_remaining_time.text( 'Remaining time: '  + expected_time_h + ' hours and  ' +  expected_time_m + ' minutes.'        )
-    
-
                             if st.session_state.commas != None:
                                 file_name = file_name.replace(",", "_")
                                 
@@ -356,7 +367,16 @@ def run_QIP_machine():
                             complexity = None
                             anisotropy = None
     
+                            calculated_QIP = ''
                             for key in check_dict:
+                                
+                                if check_dict[key]:
+                                    calculated_QIP = key
+                                
+                                placeholder.text('Number of completed images: '  + str(n) + '     Number of remaining images: '  + str(num_images - (n)) )
+                                placeholder_QIP.text('Calculating image: ' + file_name + '   Calculating QIP:  '  +  dict_full_names_QIPs.get(calculated_QIP, calculated_QIP))
+                                placeholder_remaining_time.text( 'Remaining time: '  + expected_time_h + ' hours and  ' +  expected_time_m + ' minutes.'        )
+        
                                
                                 if (key == 'means RGB') and check_dict[key]:
                                     #if gray_scale_img == False:

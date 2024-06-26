@@ -49,7 +49,7 @@ def show_docs():
                 )
 
     build_entry(
-                QIP           = 'Aspect Ratio' , 
+                QIP           = 'Aspect ratio' , 
                 Image_preproc = 'RGB image, no resizing', 
                 CComplex      = 'low', 
                 API           = 'AT.color_and_simple_qips.aspect_ratio(img_RGB)', 
@@ -175,7 +175,7 @@ def show_docs():
                 )
     
     build_entry(
-                QIP           = 'Fourier Slope and Fourier Sigma' , 
+                QIP           = 'Fourier slope and Fourier sigma' , 
                 Image_preproc = 'differs strongly between Branka, Redies, Mather, see notes below', 
                 CComplex      = 'high', 
                 API           = 'AT.fourier_qips', 

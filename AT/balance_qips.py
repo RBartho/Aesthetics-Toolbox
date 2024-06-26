@@ -271,7 +271,7 @@ def Homogeneity(img_gray):
         im = 255 - img_gray  # Invert image
         #print('inverted')
     else:
-        im = im
+        im = img_gray
     
     level  = threshold_otsu(im)
     
