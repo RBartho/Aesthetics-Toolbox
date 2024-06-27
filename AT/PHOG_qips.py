@@ -1,4 +1,3 @@
-
 import numpy as np
 from skimage.transform import resize
 from skimage.color import rgb2lab
@@ -239,8 +238,19 @@ def displayDistances(distances, bins, levels, section):
     return distanceatlevel
 
 
-
-def PHOGfromImage(img_rgb, section=2, bins=16, angle=360, levels=3, re=None, sesfweight=[1,1,1] ):
+def PHOGfromImage(img_rgb, section=2, bins=16, angle=360, levels=3, re=-1, sesfweight=[1,1,1] ):
+    '''
+    Calculates the PHOG QIPs 'Anisotropy, Complexity, PHOG-based Self-similarity'
+    
+    Input: 8 bit rgb image in Pillow format
+    Output: Anisotropy, Complexity, PHOG-based Self-similarity
+    
+    Usage:
+    Import Image from PIL    
+       
+    img_rgb = np.asarray(Image.open( path_to_image_file ).convert('RGB')) 
+    PHOGfromImage(img_rgb)
+    '''
     
     img = resize_img(img_rgb, re)
     img = convert_to_matlab_lab(img)

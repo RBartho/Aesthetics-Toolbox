@@ -291,31 +291,8 @@ def run_QIP_machine():
                                 for sub_key in dict_of_multi_measures[key]:
                                     result_csv += sub_key + ','
                             else:
-                                ### get full names for indivual measures
-                                if key == 'left-right':
-                                    result_csv += 'CNN symmetry left-right' + sep
-                                elif key == 'up-down':
-                                    result_csv += 'CNN symmetry up-down' + sep
-                                elif key == 'left-right & up-down':
-                                    result_csv += 'CNN symmetry left-right & up-down' + sep
-                                elif key == '2-dimensional':
-                                    result_csv += '2D Fractal dimension' + sep
-                                elif key == '3-dimensional':
-                                    result_csv += '3D Fractal dimension' + sep
-                                elif key == 'Slope':
-                                    result_csv += 'Fourier slope ' + slope_selectbox + sep   
-                                elif key == 'Sigma':
-                                    result_csv += 'Fourier sigma' + sep
-                                elif key == 'PHOG-based':
-                                    result_csv += 'Self-similarity (PHOG)' + sep                         
-                                elif key == 'CNN-based':
-                                    result_csv += 'Self-similarity (CNN)' + sep  
-                                elif key == '1st-order':
-                                    result_csv += '1st-order EOE' + sep
-                                elif key == '2nd-order':
-                                    result_csv += '2nd-order EOE' + sep
-                                else:   
-                                    result_csv += key + sep
+                                result_csv += dict_full_names_QIPs.get(key,key) + sep
+                              
                     result_csv = result_csv[:-1] + '\n'   
                 
                     ### load values for CNN kernel and bias
@@ -379,92 +356,54 @@ def run_QIP_machine():
         
                                
                                 if (key == 'means RGB') and check_dict[key]:
-                                    #if gray_scale_img == False:
-                                        res = color_and_simple_qips.mean_channels(img_rgb)
-                                        result_csv += str(AT_misc.custom_round(res[0])) + sep
-                                        result_csv += str(AT_misc.custom_round(res[1])) + sep
-                                        result_csv += str(AT_misc.custom_round(res[2])) + sep
+                                    res = color_and_simple_qips.mean_channels(img_rgb)
+                                    result_csv += str(AT_misc.custom_round(res[0])) + sep
+                                    result_csv += str(AT_misc.custom_round(res[1])) + sep
+                                    result_csv += str(AT_misc.custom_round(res[2])) + sep
                                         
-                                    # else:
-                                    #     result_csv += 'grayscale' + sep
-                                    #     result_csv += 'grayscale' + sep
-                                    #     result_csv += 'grayscale' + sep
 
                                 elif (key == 'means Lab') and check_dict[key]:
-                                    #if gray_scale_img == False:
-                                        res = color_and_simple_qips.mean_channels(img_lab)
-                                        result_csv += str(AT_misc.custom_round(res[0])) + sep
-                                        result_csv += str(AT_misc.custom_round(res[1])) + sep
-                                        result_csv += str(AT_misc.custom_round(res[2])) + sep
-                                    # else:
-                                    #     res = color_and_simple_qips.mean_channels(img_lab)
-                                    #     result_csv += str(AT_misc.custom_round(res[0])) + sep
-                                    #     result_csv += 'grayscale' + sep
-                                    #     result_csv += 'grayscale' + sep
+                                    res = color_and_simple_qips.mean_channels(img_lab)
+                                    result_csv += str(AT_misc.custom_round(res[0])) + sep
+                                    result_csv += str(AT_misc.custom_round(res[1])) + sep
+                                    result_csv += str(AT_misc.custom_round(res[2])) + sep
+
                                         
                                 elif (key == 'means HSV') and check_dict[key]:
-                                    #if gray_scale_img == False:
-                                        ## get circular statistic for H channel
-                                        circ_mean, _ = color_and_simple_qips.circ_stats(img_hsv)
-                                        # get normal mean for S and V
-                                        res = color_and_simple_qips.mean_channels(img_hsv)
-                                        result_csv += str(AT_misc.custom_round(circ_mean)) + sep
-                                        result_csv += str(AT_misc.custom_round(res[1])) + sep
-                                        result_csv += str(AT_misc.custom_round(res[2])) + sep
+                                    ## get circular statistic for H channel
+                                    circ_mean, _ = color_and_simple_qips.circ_stats(img_hsv)
+                                    # get normal mean for S and V
+                                    res = color_and_simple_qips.mean_channels(img_hsv)
+                                    result_csv += str(AT_misc.custom_round(circ_mean)) + sep
+                                    result_csv += str(AT_misc.custom_round(res[1])) + sep
+                                    result_csv += str(AT_misc.custom_round(res[2])) + sep
                                         
-                                        
-                                    # else:
-                                    #     result_csv += 'grayscale' + sep
-                                    #     result_csv += 'grayscale' + sep
-                                    #     result_csv += 'grayscale' + sep
-    
-                                
+
                                 elif (key == 'std RGB') and check_dict[key]:
-                                        res = color_and_simple_qips.std_channels(img_rgb)
-                                    #if gray_scale_img == False:
-                                        result_csv += str(AT_misc.custom_round(res[0])) + sep
-                                        result_csv += str(AT_misc.custom_round(res[1])) + sep
-                                        result_csv += str(AT_misc.custom_round(res[2])) + sep
-                                    # else:
-                                    #     result_csv += 'grayscale' + sep
-                                    #     result_csv += 'grayscale' + sep
-                                    #     result_csv += 'grayscale' + sep
-                                
+                                    res = color_and_simple_qips.std_channels(img_rgb)
+                                    result_csv += str(AT_misc.custom_round(res[0])) + sep
+                                    result_csv += str(AT_misc.custom_round(res[1])) + sep
+                                    result_csv += str(AT_misc.custom_round(res[2])) + sep
+
                                 elif (key == 'std Lab') and check_dict[key]:
-                                    #if gray_scale_img == False:
-                                        res = color_and_simple_qips.std_channels(img_lab)
-                                        result_csv += str(AT_misc.custom_round(res[0])) + sep
-                                        result_csv += str(AT_misc.custom_round(res[1])) + sep
-                                        result_csv += str(AT_misc.custom_round(res[2])) + sep
-                                    # else:
-                                    #     res = color_and_simple_qips.std_channels(img_lab)
-                                    #     result_csv += str(AT_misc.custom_round(res[0])) + sep
-                                    #     result_csv += 'grayscale' + sep
-                                    #     result_csv += 'grayscale' + sep
-                                    
+                                    res = color_and_simple_qips.std_channels(img_lab)
+                                    result_csv += str(AT_misc.custom_round(res[0])) + sep
+                                    result_csv += str(AT_misc.custom_round(res[1])) + sep
+                                    result_csv += str(AT_misc.custom_round(res[2])) + sep
 
                                 elif (key == 'std HSV') and check_dict[key]:
-                                    #if gray_scale_img == False:
-                                        ## get circular statistic for H channel
-                                        _ , circ_std = color_and_simple_qips.circ_stats(img_hsv)
-                                        res = color_and_simple_qips.std_channels(img_hsv)
-                                        result_csv += str(AT_misc.custom_round(circ_std)) + sep
-                                        result_csv += str(AT_misc.custom_round(res[1])) + sep
-                                        result_csv += str(AT_misc.custom_round(res[2])) + sep
-                                    # else:
-                                    #     result_csv += 'grayscale' + sep
-                                    #     result_csv += 'grayscale' + sep
-                                    #     result_csv += 'grayscale' + sep
-    
+                                    ## get circular statistic for H channel
+                                    _ , circ_std = color_and_simple_qips.circ_stats(img_hsv)
+                                    res = color_and_simple_qips.std_channels(img_hsv)
+                                    result_csv += str(AT_misc.custom_round(circ_std)) + sep
+                                    result_csv += str(AT_misc.custom_round(res[1])) + sep
+                                    result_csv += str(AT_misc.custom_round(res[2])) + sep
+                          
     
                                 elif (key == 'Color entropy') and check_dict[key]:
-                                    #if gray_scale_img == False:
-                                        res = color_and_simple_qips.shannonentropy_channels(img_hsv[:,:,0])
-                                        result_csv += str(AT_misc.custom_round(res)) + sep
-                                    # else:
-                                    #     result_csv += 'grayscale' + sep
-                                    
-                                        
+                                    res = color_and_simple_qips.shannonentropy_channels(img_hsv[:,:,0])
+                                    result_csv += str(AT_misc.custom_round(res)) + sep
+
                                                               
                                 elif ((key == '1st-order' ) and check_dict['1st-order']) or ((key == '2nd-order' ) and check_dict['2nd-order']) or ((key == 'Edge density' ) and check_dict['Edge density']):
                                     
@@ -571,7 +510,7 @@ def run_QIP_machine():
                                         result_csv += str(AT_misc.custom_round(slope)) + sep
 
                                 elif ((key == 'Sigma') and check_dict[key]):
-                                    sigma, _ = fourier_qips.fourier_redies(img_gray, bin_size = 2, cycles_min = 30, cycles_max=256)
+                                    sigma, _ = fourier_qips.fourier_redies(img_gray, bin_size = 2, cycles_min = 10, cycles_max=256)
                                     result_csv += str(AT_misc.custom_round(sigma)) + sep
 
                                 elif (key == 'RMS contrast') and check_dict[key]:

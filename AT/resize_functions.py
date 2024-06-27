@@ -10,7 +10,6 @@ PIL.Image.MAX_IMAGE_PIXELS = 933120000
 
 ### helper functions
 
-
 def file_process_in_memory(images):
     """ Converts PIL image objects into BytesIO in-memory bytes buffers. """
 
@@ -23,14 +22,11 @@ def file_process_in_memory(images):
     return images  # Return modified list.
 
 
-
-
-
 ###############################################
 
 def resize_using_longer_side_kepp_aspect_ratio(img, longer_side):
     '''
-    'Input img in PILLOW format
+    'Input 8 bit img in PILLOW format
     '''
     
     if img.size[0] >= img.size[1]:
@@ -44,7 +40,7 @@ def resize_using_longer_side_kepp_aspect_ratio(img, longer_side):
 
 def resize_using_shorter_side_kepp_aspect_ratio(img, shorter_side):
     '''
-    'Input img in PILLOW format
+    'Input 8 bit img in PILLOW format
     '''
     if img.size[0] <= img.size[1]:
         a = shorter_side / float(img.size[0])
@@ -57,7 +53,7 @@ def resize_using_shorter_side_kepp_aspect_ratio(img, shorter_side):
 
 def resize_width_keep_aspect_ratio(img, width=1000):
     '''
-    'Input img in PILLOW format
+    'Input 8 bit img in PILLOW format
     '''
     a = width / float(img.size[0])
     img = img.resize((int(img.size[0]*a),int(img.size[1]*a)), PIL.Image.Resampling.LANCZOS)
@@ -65,7 +61,7 @@ def resize_width_keep_aspect_ratio(img, width=1000):
 
 def resize_height_keep_aspect_ratio(img, height=1000):
     '''
-    'Input img in PILLOW format
+    'Input 8 bit img in PILLOW format
     '''
     a = height / float(img.size[1])
     img = img.resize((int(img.size[0]*a),int(img.size[1]*a)), PIL.Image.Resampling.LANCZOS)
@@ -73,14 +69,14 @@ def resize_height_keep_aspect_ratio(img, height=1000):
         
 def resize_to_resolution(img, width=1000, height=1000):
     '''
-    'Input img in PILLOW format
+    'Input 8 bit img in PILLOW format
     '''
     img = img.resize((int(width),int(height)), PIL.Image.Resampling.LANCZOS)
     return img
 
 def resize_to_number_of_pixels_keep_aspect_ratio(img, num_pixels=100000):
     '''
-    'Input img in PILLOW format
+    'Input 8 bit img in PILLOW format
     '''
     s = img.size
     old_num_pixels = s[0]*s[1]
@@ -91,7 +87,7 @@ def resize_to_number_of_pixels_keep_aspect_ratio(img, num_pixels=100000):
 
 def resize_to_fit_display(img, disp_width=1920, disp_height=1080):
     '''
-    'Input img in PILLOW format
+    'Input 8 bit img in PILLOW format
     '''
     disp_ratio = disp_width/disp_height
     s = img.size
@@ -108,7 +104,7 @@ def resize_to_fit_display(img, disp_width=1920, disp_height=1080):
 
 def center_crop (img):
     '''
-    'Input img in PILLOW format
+    'Input 8 bit img in PILLOW format
     '''
     width, height = img.size   # Get dimensions
 
@@ -145,7 +141,7 @@ def center_crop (img):
 
 def center_crop_to_square_power_of_two (img): 
     '''
-    'Input img in PILLOW format
+    'Input 8 bit img in PILLOW format
     '''
     # crop to largest center square with power of two
     width, height = img.size   # Get dimensions
@@ -173,14 +169,10 @@ def center_crop_to_square_power_of_two (img):
     return img
 
 
-###################################################
-### to add
-
-# + padding umschreiben für RGB und Grayscale
-# + padding optional ohne resizing, kein resizing
-
-
 def resize_to_image_size(img, des_img_size=900):
+    '''
+    'Input 8 bit img in PILLOW format
+    '''
     
     width, height = img.size   
     img_size =  width + height
@@ -194,12 +186,12 @@ def resize_to_image_size(img, des_img_size=900):
     
     return img
     
-    
-    
 
 
 def padding_and_resizing_to_square_X_pixel(img, resize_to=1024):
-    
+    '''
+    'Input 8 bit img in PILLOW format
+    '''
     mean = np.round(np.mean(img, axis=(0,1))).astype(np.uint8) # mean RGB values or mean gray value for padding
     
     ### resize first if needes
@@ -249,9 +241,12 @@ def pol2cart(rho, phi):
 
 
 def rotate_image_in_LAB_colorspace(img_rgb, degree):
+    '''
+    'Input 8 bit RGB image in PILLOW format
+    '''
+    
     img_lab = rgb2lab(img_rgb)
 
-    
     degree_in_pi = degree/(180)
     
     ### get polar coordinates for each pixel

@@ -6,6 +6,7 @@ import PIL
 
 
 def create_gabor(size, theta=0, octave=3):
+    
     amplitude = 1.0
     phase = np.pi/2.0
     frequency = 0.5**octave # 0.5**(octave+0.5)
@@ -119,9 +120,22 @@ def edge_resize (img_gray_np, max_pixels = 300*400):
     return img_gray_np
 
 
-def do_first_and_second_order_entropy_and_edge_density (img, GABOR_BINS=24):
+def do_first_and_second_order_entropy_and_edge_density (img_gray, GABOR_BINS=24):
+    '''
+    Calculates the 'Edge density, 1st-order and 2nd-order Edge orientation entropy' QIPs 
+    
+    Input: 8 bit grayscale image in Pillow format
+    Output: Edge density, 1st-order and 2nd-order Edge orientation entropy
+    
+    Usage:
+    Import Image from PIL    
+    
+    img_gray = np.asarray(Image.open( path_to_image_file ).convert('L')) 
+    do_first_and_second_order_entropy_and_edge_density (img_gray)
+    '''
+    
     flt_raw = create_filterbank()
-    img = edge_resize (img)
+    img = edge_resize (img_gray)
     resp_bin, resp_val = run_filterbank(flt_raw, img)
     
     ### edge density

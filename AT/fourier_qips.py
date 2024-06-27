@@ -113,8 +113,20 @@ def padding_and_resizing_to_square_1024_pixel(img):
     return img
     
 
-def fourier_redies(img_gray, bin_size=2, cycles_min=30, cycles_max=256):
-    ## takes grayscale image
+def fourier_redies(img_gray, bin_size=2, cycles_min=10, cycles_max=256):
+    '''
+    Calculates the 'Fourier Slope **Redies** and the Fourier Sigma' QIPs 
+    
+    Input: 8 bit grayscale image in Pillow format
+    Output: Fourier Slope **Redies** and the Fourier Sigma
+    
+    Usage:
+    Import Image from PIL    
+
+    img_gray = np.asarray(Image.open( path_to_image_file ).convert('L')) 
+    fourier_redies(img_gray)
+    '''
+    
     
     ### center crop image
     img_gray_resized = padding_and_resizing_to_square_1024_pixel(img_gray)
@@ -150,81 +162,6 @@ def fourier_redies(img_gray, bin_size=2, cycles_min=30, cycles_max=256):
     return SIGMA, SLOPE
 
 
-################################ Peter Kovesi (used by Branka Spehar) #################################
-
-# Original Matlab Code by Peter Kovesi
-
-#% Copyright (c) Peter Kovesi
-#% www.peterkovesi.com
-#% 
-#% Permission is hereby granted, free of charge, to any person obtaining a copy
-#% of this software and associated documentation files (the "Software"), to deal
-#% in the Software without restriction, subject to the following conditions:
-#% 
-#% The above copyright notice and this permission notice shall be included in 
-#% all copies or substantial portions of the Software.
-#%
-#% The Software is provided "as is", without warranty of any kind.
-
-
-def fourier_slope_branka_Spehar_Kovesi(img_gray, nbins=100, lowcut=2):
-
-    ### power and ffshift
-    f = np.fft.fftshift(np.fft.fft2(img_gray.astype(float), axes=(0, 1))) #,  axes=(0, 1))
-
-    # Calculate magnitude spectrum
-    mag = np.abs(f)
-
-    # Generate a matrix 'radius' every element of which has a value
-    # given by its distance from the centre. This is used to index
-    # the frequency values in the spectrum.
-    rows, cols = img_gray.shape
-    x, y = np.meshgrid(np.arange(1, cols + 1), np.arange(1, rows + 1))
-
-    # The following fiddles the origin to the correct position
-    # depending on whether we have and even or odd size.  
-    # In addition the values of x and y are normalised to +- 0.5
-    if cols % 2 == 0:
-        x = (x - cols / 2 - 1) / cols
-    else:
-        x = (x - (cols + 1) / 2) / cols
-    if rows % 2 == 0:
-        y = (y - rows / 2 - 1) / rows
-    else:
-        y = (y - (rows + 1) / 2) / rows
-
-    radius = np.sqrt(x ** 2 + y ** 2)
-
-    # Quantise radius to the desired number of frequency bins
-    radius = np.round(radius / np.max(radius) * (nbins - 1)) + 1
-
-    # Preallocate memory
-    amp = np.zeros(nbins)
-    fcount = np.ones(nbins)
-
-    for i in range(1, nbins + 1):
-         indices = np.where(radius == i)
-         amp[i - 1] = np.sum(mag[indices])
-         fcount[i - 1] = len(indices[0])
-            
-    # Average the amplitude at each frequency bin. We also add 'eps'
-    # to avoid potential problems later on in taking logs.
-    amp = amp / fcount + np.finfo(float).eps
-
-    # Generate corrected frequency scale for each quantised frequency bin.
-    # Note that the maximum frequency is sqrt(0.5) corresponding to the
-    # points in the corners of the spectrum
-    f = np.arange(1, nbins + 1) / nbins * np.sqrt(0.5)
-
-    # Find first index value beyond the specified histogram cutoff
-    fst = int(nbins * lowcut / 100)
-
-    # Find line of best fit (ignoring specified fraction of low frequency values)
-    p = np.polyfit(np.log(f[fst:]), np.log(amp[fst:]), 1)
-    slope = p[0]
-
-    return slope
-
 ################################ Zoey Isherwoods & Branka Spehar #################################
 
 
@@ -241,7 +178,7 @@ def fourier_slope_branka_Spehar_Kovesi(img_gray, nbins=100, lowcut=2):
   
   Before fitting the data, outliers are removed in the linear fit (not the log-log fit) if Cook's distance > n/4. 
   This basically removes the low frequencies for most images.
- 
+
 '''
 
 
@@ -284,6 +221,18 @@ def CooksDistance_SM(X, y):
 
 
 def fourier_slope_branka_Spehar_Isherwood(img_gray):
+    '''
+    Calculates the 'Fourier Slope **Spehar**' QIP
+    
+    Input: 8 bit grayscale image in Pillow format
+    Output: Fourier Slope **Spehar**
+    
+    Usage:
+    Import Image from PIL    
+
+    img_gray = np.asarray(Image.open( path_to_image_file ).convert('L')) 
+    fourier_slope_branka_Spehar_Isherwood(img_gray)
+    '''
     
     img_gray = np.asarray(img_gray)
 
@@ -370,7 +319,18 @@ def center_crop_mather (img_rgb):
 
 
 def fourier_slope_mather(img_rgb):
-    ## NO bining; num bins == num possible frequ.
+    '''
+    Calculates the 'Fourier Slope **Mather**' QIP
+    
+    Input: 8 bit grayscale image in Pillow format
+    Output: Fourier Slope **Mather**
+    
+    Usage:
+    Import Image from PIL    
+       
+    img_gray = np.asarray(Image.open( path_to_image_file ).convert('L')) 
+    fourier_slope_mather(img_gray)
+    '''
 
     ci = center_crop_mather (img_rgb)
         
@@ -398,4 +358,3 @@ def fourier_slope_mather(img_rgb):
     slope = c[0] / 2
 
     return slope
-
