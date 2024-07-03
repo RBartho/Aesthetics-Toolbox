@@ -41,6 +41,11 @@ python -m streamlit run aesthetics_toolbox.py
 
 5. The number of images you can load into the application at one time is limited by the amount of RAM your computer (or the server) has. Also, large images require much more processing time than smaller images.
 
+# Script version of the QIP Machine
+
+The file QIP_machine_script.py is a pure script version (no GUI) of the QIP machine interface. It can be used to run multiple local instances of the QIP machine or for deployment on an HPC.
+
+
 # Privacy and security
 If you use the local installation version, all calculations and data transfers of the application take place on your local computer. The browser is used only as an interface. No data is uploaded to the Internet. The opposite is true for the Streamlit Community Cloud version.
 
