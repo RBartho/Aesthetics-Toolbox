@@ -6,7 +6,13 @@ All tests were carried out on three image datasets: the JenAesthetics dataset, a
 
 # QIP_correlations
 
-This folder contains csv-files with the spearman correlations between all QIPs for the 3 different test datasets. 
+This folder Supplemental_material/QIPcorrelations contains csv-files with the spearman correlations between all QIPs for the 3 different test datasets. 
+
+
+# Effect of resizing images
+
+The Supplemental_material/Effect of resizing images folder contains csv files with the calculated QIPs for the original version of all three test datasets and the resized version of the test datasets. In the second resized version, all images have been downscaled to 2/3 of their original resolution. The csv file QIP_Deviations_Original_vs_Resized_images.csv reports the absolute difference, the percentage difference and the Spearman correlation for all QIPs between both versions of the test datasets. With the exception of Fourier Sigma (0.6), all Spearman correlations are approximately 0.9 or higher.
+
 
 
 
