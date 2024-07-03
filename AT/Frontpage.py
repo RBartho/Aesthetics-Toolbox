@@ -6,9 +6,9 @@ def show_frontpage():
        
     
     AT_misc.build_heading(head=     'Aesthetics Toolbox',
-                          notes=    'This is a toolbox for aesthetic research. \
+                          notes=    'This is a toolbox for aesthetics research. \
                                       The features of this toolbox can be selected from the sidebar and are briefly explained below. \
-                                      The toolbox is designed as an open source project and we hereby encourage any feedback,\
+                                      The toolbox is designed as an open source project and we hereby encourage any feedback \
                                       or extensions to the toolbox (see contacts below). '
                           )
     
@@ -23,13 +23,13 @@ def show_frontpage():
         ### QIP Machine
         st.markdown('<p class="greenL">QIP Machine</p>', unsafe_allow_html=True)
         st.markdown('<p class="font1">The QIP Machine is an interface for calculating commonly \
-                    studied quantitative image properties.</p>', unsafe_allow_html=True)
+                    studied quantitative image properties (QIPs).</p>', unsafe_allow_html=True)
         
     with right:
         ### QIP Documentation
         st.markdown('<p class="greenL">QIP Documentation</p>', unsafe_allow_html=True)
-        st.markdown('<p class="font1">The QIP documentation provides the user with detailed information for each of the \
-                    quantitative image properties that can be calculated with the QIP machine.</p>', unsafe_allow_html=True)
+        st.markdown('<p class="font1">The QIP Documentation provides the user with detailed information for each of the \
+                    quantitative image properties (QIPs) that can be calculated with the QIP Machine.</p>', unsafe_allow_html=True)
         
     # st.write(' ')
     # left, cen, right = st.columns( [ 0.45, 0.1 , 0.45])  
@@ -52,11 +52,11 @@ def show_frontpage():
 
     with left:
         ### Resizing and Cropping
-        st.markdown('<p class="greenL">Resizing and Cropping</p>', unsafe_allow_html=True)
-        st.markdown('<p class="font1">This feature allows you to upload sets of images and resize and crop them. \
-                    A variety of resizing and cropping options often used in aesthetic research are implemented here, \
+        st.markdown('<p class="greenL">Image Preprocessing</p>', unsafe_allow_html=True)
+        st.markdown('<p class="font1">This feature allows you to preprocess images. \
+                    A variety of resizing, cropping, padding and other options are implemented here, \
                     including resizing to a fixed resolution, resizing to the longer side of the image, \
-                   while preserving the aspect ratio, or resizing to the number of pixels. </p>', unsafe_allow_html=True)
+                   while preserving the aspect ratio and center-cropping. </p>', unsafe_allow_html=True)
     with right:
         ### References
         st.markdown('<p class="greenL">References</p>', unsafe_allow_html=True)
@@ -67,7 +67,7 @@ def show_frontpage():
     st.markdown('<p class="font1">Contributers</p>', unsafe_allow_html=True)
     st.markdown('<p class="font1">Ralf Bartho: Toolbox concept, code development, maintenance, bugfixes</p>', unsafe_allow_html=True)
     st.markdown('<p class="font1">Christoph Redies: Toolbox concept, supervision of the project, QIP documentation </p>', unsafe_allow_html=True)
-    #st.markdown('<p class="font1">Lisa Kossmann: Maintainence list of datasets</p>', unsafe_allow_html=True)
+    st.markdown('<p class="font1">Lisa Kossmann, Johan Wagemanns: Development list of datasets</p>', unsafe_allow_html=True)
     st.markdown('<p class="font1">Branka Spehar, Ronald Hübner, George Mather: Provided code to compute image properties </p>', unsafe_allow_html=True)
 
             

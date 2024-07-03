@@ -2,6 +2,28 @@ import streamlit as st
 import numpy as np
 from PIL import Image
 
+
+
+
+def load_image(file_path):
+    ## check for RGB 16 bit
+    
+    
+    ### load images in different color spaces
+    img_plain_PIL = Image.open(upload_file[n])
+    img_plain_np = np.asarray(img_plain_PIL)
+    img_rgb = np.asarray(img_plain_PIL.convert('RGB'))
+    img_lab = color.rgb2lab(img_rgb)
+    img_hsv = color.rgb2hsv(img_rgb)
+    img_gray = np.asarray(Image.open(upload_file[n]).convert('L'))  ## color uses range [0-1], PIL uses Range [0-256] for intensity
+    
+      
+      
+      
+      
+
+
+
 def custom_round(num):
     '''
     if values are smaler than 1, round to 3 digits after the first nonzero digit,
@@ -83,3 +105,6 @@ def build_heading(head,notes):
         st.image(image1,  use_column_width=True) 
     with col3:
         st.image(image2,  use_column_width=True) 
+        
+        
+    

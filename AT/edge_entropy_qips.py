@@ -1,7 +1,7 @@
 import numpy as np
 from scipy.ndimage import convolve
 import PIL
-
+import warnings
 
 
 
@@ -151,6 +151,9 @@ def do_first_and_second_order_entropy_and_edge_density (img_gray, GABOR_BINS=24)
     first_order = entropy(first_order_bin)
     ###second order entropy
     shannon_nan = do_statistics(counts)
-    second_order = np.nanmean(np.nanmean(shannon_nan, axis=1)[20:240])
+    ## suppress "mean of empty slice warning"
+    with warnings.catch_warnings():
+        warnings.simplefilter("ignore", category=RuntimeWarning)
+        second_order = np.nanmean(np.nanmean(shannon_nan, axis=1)[20:240])
     return first_order, second_order, edge_d
 

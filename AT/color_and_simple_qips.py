@@ -91,12 +91,11 @@ def circ_stats(img_hsv):
     return circ_mean, circ_std
   
     
-### color entropy, shannon_entropy Gray, 
 def shannonentropy_channels(img):
     '''
-    Used to calculate the "Color entropy" QIP  
+    Used to calculate the "Color entropy" and "Ligtness entropy) QIPs  
     
-    Input: all image formats possivle, for Color entropy use Pillow hsv image
+    Input: single color channel, for Color entropy use Pillow hsv image, for ligthness entropy Lab image
     Output: returns shannon entropy for color channels
     
     Usage:     
@@ -107,13 +106,13 @@ def shannonentropy_channels(img):
     color_entropy = shannonentropy_channels(img_hsv[:,:,0])
     '''
     
-    ### grayscale 2 dim image
-    if img.ndim == 2:
-        return shannon_entropy(img)
-    if img.ndim == 3:
-        chan_0 = shannon_entropy(img[:,:,0])
-        chan_1 = shannon_entropy(img[:,:,1])
-        chan_2 = shannon_entropy(img[:,:,2])
-        return chan_0, chan_1, chan_2
+    # change range of values to 256 bins [0-255]
+    if np.max(img) > 0:
+        img = img / np.max(img)
+    img = img*255
+    img = np.round(img)
+
+    return shannon_entropy(img)
+   
     
 

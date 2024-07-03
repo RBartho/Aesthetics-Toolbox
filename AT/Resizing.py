@@ -117,7 +117,7 @@ def run_resizing():
            
             elif resizing_selectbox == '**Padding to square**':
                   st.markdown('<p class="font2">Parameters for padding image to square:</p>', unsafe_allow_html=True)
-                  pad_resize_to = int(st.text_input('Do you want to resize the longer image side before padding (-1 = no resizing)?:', value="-1",  help=None,  label_visibility="visible"))   
+                  pad_resize_to = int(st.text_input('Do you want to resize the longer image side before padding (-1 = no resizing, or enter the desired pixel lenght for the longer side)?:', value="-1",  help=None,  label_visibility="visible"))   
                   st.form_submit_button("**Commit resize parameter selection**", on_click=AT_misc.click_sub_params_resizing)
                   
             elif resizing_selectbox == '**Color rotaion in LAB color space**':

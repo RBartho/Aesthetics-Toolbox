@@ -7,7 +7,7 @@ Image.MAX_IMAGE_PIXELS = 1e14
 
 ### custom libraries
 
-from AT import QIPmachine, References, Documentation, Resizing, Frontpage
+from AT import QIPmachine, References, QIP_Documentation, Resizing, Frontpage
 
 st.set_page_config(layout="wide")
 
@@ -71,7 +71,7 @@ st.sidebar.header("Sidebar")
  
 # app_mode = st.sidebar.selectbox('Select mode',['Home' , 'QIP Machine',  'Aesthetics Datasets',  'Resizing and Cropping', 'Docs QIPs', 'Docs Datasets', 'References', ] ) #three pages
 
-app_mode = st.sidebar.selectbox('Select mode',['Home' , 'QIP Machine',   'Resizing and Cropping', 'Docs QIPs',  'References', ] ) #three pages
+app_mode = st.sidebar.selectbox('Select mode',['Home' , 'QIP Machine',   'Resizing and Cropping', 'Documentation QIPs',  'References', ] ) #three pages
 
 
 if app_mode == 'Home':
@@ -86,10 +86,10 @@ if app_mode == 'QIP Machine':
 if app_mode == 'Resizing and Cropping':
     Resizing.run_resizing()
     
-if app_mode == 'Docs QIPs':
-    Documentation.show_docs()
+if app_mode == 'Documentation QIPs':
+    QIP_Documentation.show_docs()
     
-# if app_mode == 'Docs Datasets':
+# if app_mode == 'Documentation Datasets':
 #     Datasets_documentation.show_data_docs()
     
 if app_mode == 'References':
