@@ -45,6 +45,9 @@ python -m streamlit run aesthetics_toolbox.py
 
 The file QIP_machine_script.py is a pure script version (no GUI) of the QIP machine interface. It can be used to run multiple local instances of the QIP machine or for deployment on an HPC.
 
+# Supplemental material
+
+Detailed information about the data provided in the supplemental material can be found [here](docs/Supplemental_material.md).
 
 # Privacy and security
 If you use the local installation version, all calculations and data transfers of the toolbox take place on your local computer. The browser is used only as an interface. No data is uploaded to the Internet. The opposite is true for the Streamlit Community Cloud version.
