@@ -56,7 +56,7 @@ If you use the local installation version, all calculations and data transfers o
 Ralf Bartho: Toolbox concept, code development, maintenance, bugfixes <br />
 Christoph Redies: Toolbox concept, supervision of the project, documentation of image properties <br />
 Gregor Hayn-Leichsenring: Advice on the development of the toolbox <br />
-Lisa Kossmann, Johan Wagemans: Development Dataset feature
+Lisa Kossmann, Johan Wagemans: Development Dataset feature <br />
 Branka Spehar: Provided code to compute image properties <br />
 Ronald Hübner: Provided code to compute image properties <br />
 George Mather: Provided code to compute image properties <br />
