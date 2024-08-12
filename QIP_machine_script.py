@@ -3,6 +3,7 @@ import numpy as np
 from  PIL import Image
 from skimage import color
 import os
+import pandas as pd
 from tqdm import tqdm
 
 ### custom import
@@ -10,79 +11,14 @@ from AT import balance_qips, CNN_qips, color_and_simple_qips, edge_entropy_qips,
 
 
 ########################################## set image paths and results.csv ##########################
+
+### set path to save the results csv files
 results_path = '/home/ralf/Documents/18_SIP_Machine/Full_Datasets_SIPs/Full_dataset_stats_new/'
 
 
-
+### each entry is a pair of the name of the csv file and the path to the image folder, you can enter several datasets/pairs
 datasets = [
-            # ## Batch 1
-            # ## 60.000
-            # ['WIKIEMO.csv'  , '/mnt/990c2e47-f0c6-45fc-a7eb-1ab6a51532ac/DATA/Aesthetic_Datasets/wii_art_emotions/WikiArt-Emotions/WikiArt-Emotions/wiki_emo_images/wiki_emo_compl'],  #3743   
-            # ['MSC.csv'  , '/mnt/990c2e47-f0c6-45fc-a7eb-1ab6a51532ac/DATA/Aesthetic_Datasets/MSC/doi_10.5061_dryad.tqjq2bw4v__v4/MSC_database/images/dataset' ], #10.000
-            # ['ArtPics.csv'  , '/mnt/990c2e47-f0c6-45fc-a7eb-1ab6a51532ac/DATA/Aesthetic_Datasets/art_pics/osfstorage-archive/art.pics stimuli'], #2.300
-            # ['AVA01.csv' , '/mnt/990c2e47-f0c6-45fc-a7eb-1ab6a51532ac/DATA/Aesthetic_Datasets/ava/AVA_dataset/images/img_01'], #25.000
-            # ['AVA02.csv' , '/mnt/990c2e47-f0c6-45fc-a7eb-1ab6a51532ac/DATA/Aesthetic_Datasets/ava/AVA_dataset/images/img_01'], #25.000
-            
-            # # Batch 2
-            # # 150.000
-            # ['EVA.csv'  , '/mnt/990c2e47-f0c6-45fc-a7eb-1ab6a51532ac/DATA/Aesthetic_Datasets/EVA/images/EVA_whole/EVA_with_raiting'], # 4000
-            # ['CB.csv'   , '/mnt/990c2e47-f0c6-45fc-a7eb-1ab6a51532ac/DATA/Aesthetic_Datasets/CrowdBeauty/images/downl_images'], # 13000
-            # ['AVA05.csv' , '/mnt/990c2e47-f0c6-45fc-a7eb-1ab6a51532ac/DATA/Aesthetic_Datasets/ava/AVA_dataset/images/img_01'], #25.000
-            # ['AVA06.csv' , '/mnt/990c2e47-f0c6-45fc-a7eb-1ab6a51532ac/DATA/Aesthetic_Datasets/ava/AVA_dataset/images/img_01'], #25.000
-            
-            
-            # # Batch 3
-            # # 140.000  
-            # ['BAID.csv'  , '/mnt/990c2e47-f0c6-45fc-a7eb-1ab6a51532ac/DATA/Aesthetic_Datasets/BAID/images'], # 60.000
-            # ['SPAQ.csv' , '/mnt/990c2e47-f0c6-45fc-a7eb-1ab6a51532ac/DATA/Aesthetic_Datasets/SPAQ/Images'], #11000
-            # ['Photo.csv' , '/mnt/990c2e47-f0c6-45fc-a7eb-1ab6a51532ac/DATA/Aesthetic_Datasets/PHOTONET/images_no_empty'], #16.231
-            # ['AVA03.csv' , '/mnt/990c2e47-f0c6-45fc-a7eb-1ab6a51532ac/DATA/Aesthetic_Datasets/ava/AVA_dataset/images/img_01'], #25.000
-            
-            # # Batch 4
-            # # 100.000
-            # ['AVA08.csv' , '/mnt/990c2e47-f0c6-45fc-a7eb-1ab6a51532ac/DATA/Aesthetic_Datasets/ava/AVA_dataset/images/img_01'], #25.000
-            # ['AVA09.csv' , '/mnt/990c2e47-f0c6-45fc-a7eb-1ab6a51532ac/DATA/Aesthetic_Datasets/ava/AVA_dataset/images/img_01'], #25.000
-            # ['AVA10.csv' , '/mnt/990c2e47-f0c6-45fc-a7eb-1ab6a51532ac/DATA/Aesthetic_Datasets/ava/AVA_dataset/images/img_01'], #25.000
-            # ['AVA07.csv' , '/mnt/990c2e47-f0c6-45fc-a7eb-1ab6a51532ac/DATA/Aesthetic_Datasets/ava/AVA_dataset/images/img_01'], #25.000
-           
-
-            # # Batch 5
-            # # 160.000
-            # ['AVA04.csv' , '/mnt/990c2e47-f0c6-45fc-a7eb-1ab6a51532ac/DATA/Aesthetic_Datasets/ava/AVA_dataset/images/img_01'], #25.000
-            # ['AVA11.csv' , '/mnt/990c2e47-f0c6-45fc-a7eb-1ab6a51532ac/DATA/Aesthetic_Datasets/ava/AVA_dataset/images/img_rest'], # 5000
-            # ['PARA.csv' , '/mnt/990c2e47-f0c6-45fc-a7eb-1ab6a51532ac/DATA/Aesthetic_Datasets/PARA/imgs/all'], #31000
-            
-            # # Batch 6
-            # # 140.000
-            # ['AADB.csv' , '/mnt/990c2e47-f0c6-45fc-a7eb-1ab6a51532ac/DATA/Aesthetic_Datasets/AADB/datasetImages_originalSize' ], #10000
-            # ['FlickrAES.csv', '/mnt/990c2e47-f0c6-45fc-a7eb-1ab6a51532ac/DATA/Aesthetic_Datasets/FLICKR-AES/FLICKR-AES-002/all'], # 32000
-            # ['TAD66K.csv'  , '/mnt/990c2e47-f0c6-45fc-a7eb-1ab6a51532ac/DATA/Aesthetic_Datasets/TAD66K/TAD66K'], #67.000
-            
-            
-            
-            # Batch 7, AROD
-            # ['AROD0.csv' , '/mnt/990c2e47-f0c6-45fc-a7eb-1ab6a51532ac/DATA/Aesthetic_Datasets/AROD/Split_part2/split0'], #80.000
-            # ['AROD3.csv' , '/mnt/990c2e47-f0c6-45fc-a7eb-1ab6a51532ac/DATA/Aesthetic_Datasets/AROD/Split_part2/split3'], #80.000
-            # ['AROD2.csv' , '/mnt/990c2e47-f0c6-45fc-a7eb-1ab6a51532ac/DATA/Aesthetic_Datasets/AROD/Split_part2/split2'], #80.000
-            # ['AROD1.csv' , '/mnt/990c2e47-f0c6-45fc-a7eb-1ab6a51532ac/DATA/Aesthetic_Datasets/AROD/Split_part2/split1'], #80.000
-            # ['AROD4.csv' , '/mnt/990c2e47-f0c6-45fc-a7eb-1ab6a51532ac/DATA/Aesthetic_Datasets/AROD/Split_part2/split4'], #80.000
-            
-            
-            
-            
-            
-            
-            
-             
-            
-            
-            
-            
-          
-            
-            
-            
-            
+            ['results.csv'  , 'path_to_images'],   
             ]
 
 ####################################### set wanted QIPs to 'True', otherwise "False"  #########################
@@ -125,7 +61,7 @@ check_dict['Variability'] = True
 
 
 #######################################################################################################
-#######################################################################################################
+##################################### run script ######################################################
 #######################################################################################################
 
 
@@ -174,34 +110,53 @@ def custom_round(num):
 for entry in datasets:
     csv_name = entry[0]
     image_path = entry[1]
+    print('##########################')
     print(csv_name)
+    print('##########################')
     
     
-    with open(results_path + csv_name, 'w') as log:
-        log.write('img_file,')
-        for key in check_dict:
-            if check_dict[key]:
-                if key in dict_of_multi_measures:
-                    
-                    for sub_key in dict_of_multi_measures[key]:
-                        log.write(sub_key + ',')
-                else:
-                    log.write(dict_full_names_QIPs.get(key,key) + ',')     
-        log.write('\n')     
+       
     
     
     ### load values for CNN kernel and bias
     [kernel,bias] = np.load(open("AT/bvlc_alexnet_conv1.npy", "rb"), encoding="latin1", allow_pickle=True)
             
     #progress_text = "Operation in progress. Please wait."
-    
-    
+
     file_names = []
     for root, dirs, files in os.walk(image_path):
         for file in files:
             file_names.append( os.path.join(root,file) )
-    
-    
+       
+    ## create new CSV file, if it does not already exists
+    if not os.path.exists(results_path + csv_name):   
+        with open(results_path + csv_name, 'w') as log:
+            log.write('img_file,')
+            for key in check_dict:
+                if check_dict[key]:
+                    if key in dict_of_multi_measures:
+                        
+                        for sub_key in dict_of_multi_measures[key]:
+                            log.write(sub_key + ',')
+                    else:
+                        log.write(dict_full_names_QIPs.get(key,key) + ',')     
+            log.write('\n')  
+            
+        file_names = []
+        for root, dirs, files in os.walk(image_path):
+            for file in files:
+                file_names.append( os.path.join(root,file) )
+                
+    else:
+        df = pd.read_csv(results_path + csv_name, sep=',')
+        exist_img_list = list(df['img_file'])
+        
+        file_names = []
+        for root, dirs, files in os.walk(image_path):
+            for file in files:
+                if file not in exist_img_list:
+                    file_names.append( os.path.join(root,file) )
+            
     for file in tqdm(file_names, total=len(file_names)):
             try:
                 # print(' ')

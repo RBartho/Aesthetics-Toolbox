@@ -71,7 +71,7 @@ st.sidebar.header("Sidebar")
  
 # app_mode = st.sidebar.selectbox('Select mode',['Home' , 'QIP Machine',  'Aesthetics Datasets',  'Resizing and Cropping', 'Docs QIPs', 'Docs Datasets', 'References', ] ) #three pages
 
-app_mode = st.sidebar.selectbox('Select mode',['Home' , 'QIP Machine',   'Resizing and Cropping', 'Documentation QIPs',  'References', ] ) #three pages
+app_mode = st.sidebar.selectbox('Select mode',['Home' , 'QIP Machine',   'Image preprocessing', 'Documentation QIPs',  'References', ] ) #three pages
 
 
 if app_mode == 'Home':
@@ -83,7 +83,7 @@ if app_mode == 'QIP Machine':
 # if app_mode == 'Aesthetics Datasets':
 #     Datasets.show_list()
 
-if app_mode == 'Resizing and Cropping':
+if app_mode == 'Image preprocessing':
     Resizing.run_resizing()
     
 if app_mode == 'Documentation QIPs':

@@ -8,7 +8,7 @@ from AT import resize_functions, AT_misc
 def run_resizing():
     
     
-    AT_misc.build_heading(head=     'Resizing, Cropping, Color rotation',
+    AT_misc.build_heading(head=     'Resizing, Cropping, Padding, Color rotation',
                           notes=    'Common options for image preprocessing in aesthetic research.'
                           )
     

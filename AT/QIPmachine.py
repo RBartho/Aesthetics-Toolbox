@@ -61,7 +61,7 @@ def run_QIP_machine():
             st.image(upload_file, width=120 )
      
         if st.session_state.get('large_files', None):
-            st.warning('Some loaded images are quite large (more than 6 MB). Consider reducing their size, as for most QIPs the calculation time increases (exponentially) with the image size.', icon="⚠️")
+            st.warning('Some loaded images are quite large (more than 6 MB). Consider reducing their size, as for most QIPs the calculation time increases (exponentially) with the image resolution.', icon="⚠️")
      
         if st.session_state.get('commas', None):
             st.warning('Commas found in image filenames. This is not recommended as commas are the delimiters in the result.csv file. Commas will be replaced with underscores in the image names in the CSV file.', icon="⚠️")
@@ -694,7 +694,7 @@ def run_QIP_machine():
           
     if enable_download:
         if st.session_state.get('color_profile', None):
-            st.warning('Some images had specific color profiles (for example Photoshop RGB, or similar) Make sure that all your images have the same color profile, as this may affect the QIP results.', icon="⚠️")
+            st.warning('Some images have specific color profiles (e.g. Photoshop RGB or similar). Make sure that all your images have the same color profile as this may affect the QIP results.', icon="⚠️")
         st.success('Calculations finished. A zip file with the calculated QIPs and used parameters is ready for download.', icon="✅")
         st.download_button('Download Results', file_name=zip_file_name, data=zip_file_bytes_io)  
         

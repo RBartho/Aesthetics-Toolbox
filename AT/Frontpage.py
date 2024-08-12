@@ -54,9 +54,7 @@ def show_frontpage():
         ### Resizing and Cropping
         st.markdown('<p class="greenL">Image Preprocessing</p>', unsafe_allow_html=True)
         st.markdown('<p class="font1">This feature allows you to preprocess images. \
-                    A variety of resizing, cropping, padding and other options are implemented here, \
-                    including resizing to a fixed resolution, resizing to the longer side of the image, \
-                   while preserving the aspect ratio and center-cropping. </p>', unsafe_allow_html=True)
+                    A variety of resizing, cropping, padding and other options are implemented here. </p>', unsafe_allow_html=True)
     with right:
         ### References
         st.markdown('<p class="greenL">References</p>', unsafe_allow_html=True)
@@ -67,7 +65,8 @@ def show_frontpage():
     st.markdown('<p class="font1">Contributers</p>', unsafe_allow_html=True)
     st.markdown('<p class="font1">Ralf Bartho: Toolbox concept, code development, maintenance, bugfixes</p>', unsafe_allow_html=True)
     st.markdown('<p class="font1">Christoph Redies: Toolbox concept, supervision of the project, QIP documentation </p>', unsafe_allow_html=True)
-    st.markdown('<p class="font1">Lisa Kossmann, Johan Wagemanns: Development dataset feature</p>', unsafe_allow_html=True)
+    st.markdown('<p class="font1">Gregor Hayn-Leichsenring: Toolbox concept </p>', unsafe_allow_html=True)
+    st.markdown('<p class="font1">Lisa Kossmann, Johan Wagemanns: Development of the dataset feature</p>', unsafe_allow_html=True)
     st.markdown('<p class="font1">Branka Spehar, Ronald Hübner, George Mather: Provided code to compute image properties </p>', unsafe_allow_html=True)
 
             
