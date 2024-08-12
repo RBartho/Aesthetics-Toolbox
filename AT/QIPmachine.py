@@ -12,7 +12,7 @@ from . import balance_qips, CNN_qips, color_and_simple_qips, edge_entropy_qips, 
 
 
 
-version = 'v0.1.2-beta'
+version = 'v1.0.0'
 
 
     
