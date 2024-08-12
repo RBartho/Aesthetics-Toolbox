@@ -1,6 +1,4 @@
-# Aesthetics Toolbox v0.1.2-beta
-
-### (This toolbox is still a beta version and should be used with caution. Bugfixes have not been completed. No warranties.)
+# Aesthetics Toolbox v1.0.0
 
 This project contains Python scripts to run the streamlit application "Aesthetics Toolbox" in your browser. The Toolbox includes an interface to compute a number of commonly studied quantitative image properties (QIPs) for aesthetic research and also contains many common methods for image preprocessing.
 
