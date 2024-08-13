@@ -5,22 +5,20 @@ from PIL import Image
 
 
 
-def load_image(file_path):
-    ## check for RGB 16 bit
+# def load_image(file_path):
+#     ## check for RGB 16 bit
     
     
-    ### load images in different color spaces
-    img_plain_PIL = Image.open(upload_file[n])
-    img_plain_np = np.asarray(img_plain_PIL)
-    img_rgb = np.asarray(img_plain_PIL.convert('RGB'))
-    img_lab = color.rgb2lab(img_rgb)
-    img_hsv = color.rgb2hsv(img_rgb)
-    img_gray = np.asarray(Image.open(upload_file[n]).convert('L'))  ## color uses range [0-1], PIL uses Range [0-256] for intensity
+#     ### load images in different color spaces
+#     img_plain_PIL = Image.open(upload_file[n])
+#     img_plain_np = np.asarray(img_plain_PIL)
+#     img_rgb = np.asarray(img_plain_PIL.convert('RGB'))
+#     img_lab = color.rgb2lab(img_rgb)
+#     img_hsv = color.rgb2hsv(img_rgb)
+#     img_gray = np.asarray(Image.open(upload_file[n]).convert('L'))  ## color uses range [0-1], PIL uses Range [0-256] for intensity
     
       
-      
-      
-      
+
 
 
 
@@ -93,6 +91,15 @@ def callback_upload_img_files():
     st.session_state.new_files_uploaded = True
     
 def build_heading(head,notes):
+    
+    st.markdown(""" <style> .font1 {
+    font-size:20px ; font-family: 'Cooper Black'; color: black;} 
+    </style> """, unsafe_allow_html=True)
+    
+    st.markdown(""" <style> .head {
+    font-size:35px ;  font-family: 'Cooper Black'; color: #FF9633;}
+    </style> """, unsafe_allow_html=True)
+
     image1 = Image.open('images/LogoDesign EAJ final.png')
     image2 = Image.open('images/GestatltReVision_Logo_mod.png')
 
