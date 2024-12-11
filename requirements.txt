@@ -1,6 +1,6 @@
 # This file may be used to create an environment using:
 # $ conda create --name <env> --file <this file>
-streamlit
+streamlit==1.34.0
 numpy
 Pillow
 scikit-image
