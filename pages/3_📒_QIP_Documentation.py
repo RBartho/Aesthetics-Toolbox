@@ -50,7 +50,7 @@ st.markdown('<p class="font1">This is the documentation for the QIP machine. Det
             Christoph Redies, Ralf Bartho, Lisa Koßmann, Branka Spehar, Ronald Hübner, Johan Wagemans, and Gregor U. Hayn-Leichsenring: \
             A toolbox for calculating objective image properties in aesthetics research. \
             The publication describes the motivation for using each QIP, the algorithm itself \
-            and related publications. </p>', unsafe_allow_html=True)
+            and related publications. (https://arxiv.org/abs/2408.10616) </p>', unsafe_allow_html=True)
 
 build_entry(
             QIP           = 'Image size' , 
@@ -59,14 +59,14 @@ build_entry(
             Range         = '[0 - inf)',
             API           = 'AT.color_and_simple_qips.image_size(img_RGB)', 
             References    = 'Datta et al., 2006', 
-            Notes         = 'Image size = image_width + image_height in pixel'
+            Notes         = 'Default: Image size = image width + image height in pixel. There are several different ways implemented to calculate this property, including the product of height and width, the diagonal, or the maximum, average, or minimum of height and width.'
             )
 
 build_entry(
             QIP           = 'Aspect ratio' , 
             Image_preproc = 'RGB image, no resizing', 
             CComplex      = 'low', 
-            Range         = '(0 - 1)',
+            Range         = '(0 - inf)',
             API           = 'AT.color_and_simple_qips.aspect_ratio(img_RGB)', 
             References    = 'Datta et al., 2006;  Li et al., 2006; Iigaya et al., 2021', 
             Notes         = 'Aspect ratio = image_width / image_height'
@@ -78,8 +78,8 @@ build_entry(
             CComplex      = 'low', 
             Range         = '[0 - 50)',
             API           = 'AT.color_and_simple_qips.std_channels(img_LAB)', 
-            References    = 'Peli, 1990; Tong et al., 2004 ; Luo & Tang, 2008; Li & Chen, 2009; Schifanella, 2015', 
-            Notes         = 'RMS contrast = standard deviation of the Lightness channel (L*a*b*)'
+            References    = 'Peli, 1990', 
+            Notes         = 'RMS contrast = standard deviation of the Lightness channel of the L*a*b* color space'
             )
 
 
@@ -91,29 +91,29 @@ build_entry(
             Range         = '[0 - 8]',
             API           = 'AT.color_and_simple_qips.shannonentropy_channels(img_LAB)', 
             References    = 'Shannon, 1948; Kersten, 1987; Mather, 2018', 
-            Notes         = 'RMS Contrast = shannon entropy of the Lightness channel (L*a*b*)'
+            Notes         = 'Ligtness entropy = shannon entropy of the Lightness channel (L*a*b*)'
             )
 
 build_entry(
-            QIP           = '(P)HOG: Anisotropy, Complexity, PHOG-Selfsimilarity' , 
-            Image_preproc = 'Converting to Matlabs L*a*b* color space, optional resizing to number of pixel possible (-1 = no resizing)', 
+            QIP           = 'HOG Anisotropy, HOG Complexity, HOG Self-similarity' , 
+            Image_preproc = 'Converting to Matlabs L*a*b* color space, optional resizing to number of pixel (-1 = no resizing)', 
             CComplex      = 'high', 
-            Range         = 'TBA',
+            Range         = '',
             API           = 'AT.PHOG_qips.PHOGfromImage(img_rgb, section, bins, angle, levels, re, sesfweight )', 
-            References    = 'Braun et al., 2013; Redies & Groß, 2013', 
+            References    = 'Braun et al., 2013; Redies and Groß, 2013; Dalal and Triggs, 2005; Bosch et al.,2007', 
             Notes         = 'By default, image resizing is disabled (parameter is set to -1). The resize function of the original \
-                            Matlab script is different from the available Python implementations. Calculating PHOG QIPs with resizing will \
-                            give different results than the original Matlab script. Without resizing, the results are the same.'
+                            Matlab script is different from the available Python implementations. Calculating HOG-derived QIPs with resizing will \
+                            give results different from the original Matlab script. Without resizing, the results are the same.'
             )
 
 build_entry(
-            QIP           = 'Edge density, 1st-order and 2nd-order Edge orientation entropy' , 
+            QIP           = 'Edge density, 1st-order and 2nd-order Edge_orientation entropy' , 
             Image_preproc = 'Converting to 8-bit grayscale image, resizing to 120.000 pixel while maintaining aspect ratio', 
             CComplex      = 'very high', 
-            Range         = 'TBA',
+            Range         = '',
             API           = 'AT.edge_entropy_qips.do_first_and_second_order_entropy_and_edge_density (img_gray)', 
             References    = 'Redies et al., 2017', 
-            Notes         = 'The 2nd-order Edge orientation entropy compares the orientation and strength of the 10,000 strongest edge pixels in pairs, \
+            Notes         = 'The 2nd-order Edge_orientation entropy compares the orientation and strength of the 10,000 strongest edge pixels in pairs, \
                             which is computationally intensive. A fast C++ implementation of this QIP can be found in the following \
                             Github repository: https://github.com/RBartho/C-version-2nd-Order-Edge-Orientation-Entropy'
             )
@@ -129,14 +129,14 @@ build_entry(
             )
 
 build_entry(
-            QIP           = 'Mean value of RGB, HSV, L*a*b* color channels' , 
+            QIP           = 'Mean value of RGB, HSV and L*a*b* color channels' , 
             Image_preproc = 'Converting to respective color spaces (RGB, HSV, L*a*b*), no resizing', 
             CComplex      = 'low', 
-            Range         = 'RGB [0 - 255] ;  HSV[0 - 1] ;  L [0-100],  a [] b []',
+            Range         = 'RGB [0 - 255] ;  HSV[0 - 1] ;  L* [0-100],  a* [] b* []',
             API           = 'AT.color_and_simple_qips.mean_channels(img)  and  AT.color_and_simple_qips.circ_stats(img_hsv)'  , 
             References    = 'Datta et al., 2006; Geller et al., 2022; Iigaya et al., 2021; Li & Chen, 2009; Li et al., 2006; \
                             Mallon et al., 2014; Nakauchi et al., 2022; Peng, 2022; Schifanella, 2015; Thieleking et al., 2020', 
-            Notes         = 'The Hue channel of the HSV colour space is a cyclic value, so the normal arithmetic mean \
+            Notes         = 'The Hue channel of the HSV colour space is a cicular value, so the normal arithmetic mean \
                             cannot be applied here. Therefore, the circular mean is calculated for the Hue channel. \
                             For all other channels, the normal arithmetic mean is used.' 
             )
@@ -145,11 +145,11 @@ build_entry(
             QIP           = 'Standard deviation of RGB, HSV, L*a*b* color channels' , 
             Image_preproc = 'Converting to respective color spaces (RGB, HSV, L*a*b*), no resizing', 
             CComplex      = 'low', 
-            Range         ='TBA',
-            API           = 'AT.color_and_simple_qips.std_channels(img)  ,  AT.color_and_simple_qips.circ_stats(img_hsv)'  , 
-            References    = 'Datta et al., 2006; Geller et al., 2022; Iigaya et al., 2021; Li & Chen, 2009; Li et al., 2006; \
-                            Mallon et al., 2014; Nakauchi et al., 2022; Peng, 2022; Schifanella, 2015; Thieleking et al., 2020', 
-            Notes         = 'The Hue channel of the HSV colour space is a cyclic value, so the normal standard deviation \
+            Range         = '',
+            API           = 'AT.color_and_simple_qips.std_channels(img),  AT.color_and_simple_qips.circ_stats(img_hsv)'  , 
+            References    = 'Datta et al., 2006; Li et al., 2006; Li & Chen, 2009; Mallon et al., 2014; Schifanella, 2015;    \
+                            Thieleking et al., 2020;  Iigaya et al., 2021; Geller et al., 2022; Nakauchi et al., 2022; Peng, 2022', 
+            Notes         = 'The Hue channel of the HSV colour space is a circular value, so the normal standard deviation \
                             cannot be applied here. Therefore, the circular standard deviation is calculated for the Hue channel. \
                             For all other channels, the normal standard deviation is used. Note that the standard deviation of \
                             the ligthness channel of L*a*b* color space is the RMS contrast.' 
@@ -159,27 +159,27 @@ build_entry(
             QIP           = 'Balance, DCM, Homogeneity' , 
             Image_preproc = 'conversion to 8-bit grayscale image, no resizing', 
             CComplex      = 'medium', 
-            Range         = 'All three of the QIPs are percentage values [0 - 100].',
-            API           = 'AT.balance_qips.Balance(img_gray)  ,  AT.balance_qips.DCM(img_gray) , AT.balance_qips.Homogeneity(img_gray)'  , 
-            References    = 'Hübner & Fillinger, 2016', 
-            Notes         = 'TBA' 
+            Range         = 'All three QIPs are percentage values [0 - 100].',
+            API           = 'AT.balance_qips.Balance(img_gray),  AT.balance_qips.DCM(img_gray), AT.balance_qips.Homogeneity(img_gray)'  , 
+            References    = 'Hübner & Fillinger, 2016 ; Wagemans, 1995; McManus et al., 2011; Wilson and Chatterjee, 2005',
+            Notes         = '' 
             )
 
 build_entry(
             QIP           = 'Mirror symmetry' , 
             Image_preproc = 'Converting to binary image, no resizing', 
             CComplex      = 'low', 
-            Range         = 'Is a percentage value [0 - 100].',
+            Range         = 'Percentage value [0 - 100].',
             API           = 'AT.balance_qips.Mirror_symmetry(img_gray)'  , 
-            References    = 'Hübner & Fillinger, 2016', 
-            Notes         = 'TBA' 
+            References    = 'Wagemans, 1995; Hübner & Fillinger, 2016', 
+            Notes         = '' 
             )
 
 build_entry(
-            QIP           = 'CNN image properties: Sparseness and Variability, CNN-feature-based symmetrys, CNN self-symmetry' , 
-            Image_preproc = 'RGB image resized to 512x512 pixel', 
+            QIP           = 'CNN-feature-based QIPs: Symmetry, Self-symmetry, Sparseness and Variability' , 
+            Image_preproc = 'RGB image resized to 512*512 pixel', 
             CComplex      = 'high', 
-            Range         = 'Empirically found values: Sparseness (0 - 0.0014] and Variability (0 - 0.0001)'  ,
+            Range         = 'Empirically found values: Sparseness (0 - 0.0014) and Variability (0 - 0.0001)'  ,
             API           = 'AT.CNN_qips', 
             References    = 'Brachmann and Redies (2016)', 
             Notes         = 'All CNN image properties are based on feature maps of the first layer of an Alex-Net (Krizhevsky et al., 2012) trained \
@@ -190,31 +190,31 @@ build_entry(
 
 build_entry(
             QIP           = 'Fourier slope and Fourier sigma' , 
-            Image_preproc = 'differs strongly between Branka, Redies, Mather, see notes below', 
+            Image_preproc = 'differs strongly between methods by Spehar, Mather and Redies, see notes below', 
             CComplex      = 'high', 
-            Range         = 'empirical ranges: Redies [0 - 5), Spehar and Mather [0-2.5]  , theoretical all [0 - inf)'  ,
+            Range         = 'empirical ranges: Redies [0 - 5), Spehar and Mather [0-2.5]  , theoretical ranges [0 - inf)'  ,
             API           = 'AT.fourier_qips', 
-            References    = 'Graham & Field, 2007; Redies et al., 2007; Graham & Redies, 2010; Koch et al., 2010; Spehar & Taylor, 2013;  Mather, 2014', 
-            Notes         = 'TBA'
+            References    = 'Graham & Field, 2007; Redies et al., 2007; Graham & Redies, 2010; Koch et al., 2010; Spehar & Taylor, 2013;  Mather, 2014; Isherwood et al., 2021', 
+            Notes         = 'Detailed information on the differences between the three methods can be found in the publication. (Table 2)'
             )
 
 build_entry(
-            QIP           = '2D Fractal dimension' , 
+            QIP           = '2d Fractal dimension' , 
             Image_preproc = 'Input 8-bit grayscale image. Converting to binary image and resizing to square image', 
             CComplex      = 'medium',
-            Range         = 'TBA',
+            Range         = '(1,2)',
             API           = 'AT.box_count_qips.box_count_2d(img_gray)', 
             References    = 'Mandelbrot, 1983; Taylor, 2002; Spehar et al., 2003; Spehar & Taylor, 2013; Viengkham & Spehar, 2018', 
-            Notes         = 'TBA'
+            Notes         = ''
             )
 
 build_entry(
-            QIP           = '3D Fractal dimension' , 
-            Image_preproc = 'Input 8-bit grayscale. Cropping to largest square with power of two', 
+            QIP           = '3d Fractal dimension' , 
+            Image_preproc = 'Input 8-bit grayscale. Crop to the largest square that has a side length with a multiple of 2.', 
             CComplex      = 'high', 
-            Range         = 'TBA',
+            Range         = '(2,3)',
             API           = 'AT.box_count_qips.custom_differential_box_count(img_gray)', 
             References    = 'Mather, 2018', 
-            Notes         = 'TBA'
+            Notes         = ''
             )
 

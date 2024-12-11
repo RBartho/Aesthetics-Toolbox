@@ -22,19 +22,44 @@ def aspect_ratio(img_rgb):
     return img_rgb.shape[1] / img_rgb.shape[0]
 
 
-def image_size(img_rgb):
+
+
+def image_size(img_rgb, kind = 'sum'):
     '''
     Calculates the "Image size" QIP 
     
     Input: Takes a rgb image in Pillow format as input. Grayscale works as well. 
+    kind: Select Type of image size, default = 'sum' ; valid alternatives are: sum, num_pixels, diagonal, average, minumum, maximum
     Output: Image size
     
     Usage:     
     Import Image from PIL    
-    img_gray = np.asarray(Image.open( path_to_image_file )) 
+    img_rgb = np.asarray(Image.open( path_to_image_file )) 
     image_size(img_rgb)
     '''
-    return img_rgb.shape[1] + img_rgb.shape[0] 
+    
+    if kind == 'sum':
+        return img_rgb.shape[1] + img_rgb.shape[0] 
+    
+    elif kind == 'num_pixel':
+        return img_rgb.shape[1] * img_rgb.shape[0] 
+    
+    elif kind == 'diagonal':
+        return int( np.linalg.norm([ img_rgb.shape[1] , img_rgb.shape[0]]) )
+    
+    elif kind == 'average':
+        return int( np.mean([ img_rgb.shape[1] , img_rgb.shape[0]]) )
+    
+    elif kind == 'minimum':
+        return  np.min([ img_rgb.shape[1] , img_rgb.shape[0]]) 
+    
+    elif kind == 'maximum':
+        return np.max([ img_rgb.shape[1] , img_rgb.shape[0]]) 
+    
+    
+    else:
+        raise NotImplementedError ('not implemented, wrong kind image size selected')
+    
 
 
 ################################# Color QIPs ################################

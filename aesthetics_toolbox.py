@@ -16,7 +16,9 @@ AT_misc.build_heading(head=     'Aesthetics Toolbox',
                       notes=    'This is a toolbox for aesthetics research. \
                                   The features of this toolbox can be selected from the sidebar and are briefly explained below. \
                                   The toolbox is designed as an open source project and we hereby encourage any feedback \
-                                  or extensions to the toolbox (see contacts below). '
+                                  or extensions to the toolbox (see contacts below). A preprint with a detailed description \
+                                  of the toolbox and the implemented image properties is available here: https://arxiv.org/abs/2408.10616. \
+                                 Christoph Redies, Ralf Bartho, Lisa Koßmann, Branka Spehar, Ronald Hübner, Johan Wagemans, and Gregor U. Hayn-Leichsenring: A toolbox for calculating objective image properties in aesthetics research.'
                       )
 
 st.divider() 

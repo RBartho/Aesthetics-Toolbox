@@ -142,8 +142,7 @@ if upload_file:
             check_dict['Edge density'] = st.checkbox('Edge density', help='Edge density = density of edges in the image (Gabor filters)'  , value=ALL_QIPS)
         with columns[1]:
             st.markdown('<p class="font2">' + 'Color' + '</p>', unsafe_allow_html=True)
-            check_dict['Color entropy'] =  st.checkbox('Color entropy', help='Color entropy = Shannon entropy of the Hue channel (HSV)' , value=ALL_QIPS)
-            st.write('**Channel means**')
+            st.write('**Channel mean**')
             check_dict['means RGB'] = st.checkbox('RGB', key='mean RGB' , help='Arithmetic mean for each color channel (RGB)', value=ALL_QIPS)
             check_dict['means Lab'] = st.checkbox('Lab', key='mean Lab' , help='Arithmetic mean for each channel (Lab)' , value=ALL_QIPS)
             check_dict['means HSV'] = st.checkbox('HSV', key='mean HSV',  help='Arithmetic mean for S and V channel. Circular mean for H channel.' , value=ALL_QIPS)
@@ -151,18 +150,20 @@ if upload_file:
             check_dict['std RGB'] = st.checkbox('RGB',  key='std RGB', help='Standard deviation for each color channel (RGB)' , value=ALL_QIPS)
             check_dict['std Lab'] = st.checkbox('Lab',  key='std LAB', help='Standard deviation for each channel (Lab)', value=ALL_QIPS)
             check_dict['std HSV'] = st.checkbox('HSV',  key='std HSV', help='Standard deviation for S and V channel. Circular standard deviation for H channel' , value=ALL_QIPS)
+            st.write('**Channel entropy**')
+            check_dict['Color entropy'] =  st.checkbox('Color entropy', help='Color entropy = Shannon entropy of the Hue channel (HSV)' , value=ALL_QIPS)
         with columns[2]:
               st.markdown('<p class="font2">' + 'Symmetry & Balance' + '</p>', unsafe_allow_html=True)
               st.write('**Pixel-based**')
               check_dict['Mirror symmetry'] = st.checkbox('Mirror symmetry' , help = 'Left-right symmetry along the vertical image axis', value=ALL_QIPS)
-              check_dict['DCM'] = st.checkbox('DCM', help = 'DCM = **D**eviation of the **C**enter of **M**ass from the image center' , value=ALL_QIPS)
               check_dict['Balance'] = st.checkbox('Balance', help = 'Average symmetry of the vertical, horizontal and diagonal image axes' , value=ALL_QIPS)
-              st.write('**CNN-feature-based**')
+              check_dict['DCM'] = st.checkbox('DCM', help = 'DCM = **D**eviation of the **C**enter of **M**ass from the image center' , value=ALL_QIPS)
+              st.write('**CNN feature-based symmetry**')
               check_dict['left-right'] = st.checkbox('left-right',  help = 'Left-right (vertical) symmetry of CNN layer feature maps', value=ALL_QIPS)
               check_dict['up-down'] = st.checkbox('up-down', help = 'Up-down (horizontal) symmetry of CNN layer feature maps.', value=ALL_QIPS)
               check_dict['left-right & up-down'] = st.checkbox('left-right & up-down', help = 'CNN symmetry between the original image and a left-right & up-down flipped image based on CNN-layer feature maps.', value=ALL_QIPS)
         with columns[3]:
-              st.markdown('<p class="font2">' + 'Fractality & Self-similarity' + '</p>', unsafe_allow_html=True)
+              st.markdown('<p class="font2">' + 'Scale invariance & Self-similarity' + '</p>', unsafe_allow_html=True)
               st.write('**Fourier spectrum**')
               check_dict['Slope'] = st.checkbox('Slope', help = 'Slope of straight line fitted to log-log plot of Fourier power vs. spatial frequency', value=ALL_QIPS)
               check_dict['Sigma'] = st.checkbox('Sigma', help = 'Deviation of Fourier spectral power curve from a straight line in log-log plot', value=ALL_QIPS)
@@ -174,11 +175,11 @@ if upload_file:
               check_dict['CNN-based'] = st.checkbox('CNN-based', help = 'Self-similarity based on low-level features of a convolutional neural network (CNN)', value=ALL_QIPS)
         with columns[4]:
               st.markdown('<p class="font2">' + 'Feature distribution & Entropy' + '</p>', unsafe_allow_html=True)
-              check_dict['Anisotropy'] = st.checkbox('Anisotropy', help ='Variance in the gradient strength across orientations (HOG method)', value=ALL_QIPS)
               check_dict['Homogeneity'] = st.checkbox('Homogeneity', help = 'Relative Shannon entropy of black pixel frequency in binary image', value=ALL_QIPS)
-              st.write('**Edge-orientation entropy**')
-              check_dict['1st-order'] = st.checkbox('1st-order', help = '1st-order Shannon entropy of the histogram of edge orientations across an image', value=ALL_QIPS)
-              check_dict['2nd-order'] = st.checkbox('2nd-order', help = '2nd-order Shannon entropy based on pairwise statistics of edge orientations across an image', value=ALL_QIPS)
+              check_dict['Anisotropy'] = st.checkbox('Anisotropy', help ='Variance in the gradient strength across orientations (HOG method)', value=ALL_QIPS)
+              st.write('**Edge-orientation entropy (EOE)**')
+              check_dict['1st-order'] = st.checkbox('1st-order EOE', help = '1st-order Shannon entropy of the histogram of edge orientations across an image', value=ALL_QIPS)
+              check_dict['2nd-order'] = st.checkbox('2nd-order EOE', help = '2nd-order Shannon entropy based on pairwise statistics of edge orientations across an image', value=ALL_QIPS)
               st.write('**CNN feature variance**')
               check_dict['Sparseness'] = st.checkbox('Sparseness', help = 'Total variance (Pa[n]) over all low-level CNN filter entries of all n ✕ n subregions of an image', value=ALL_QIPS)
               check_dict['Variability'] = st.checkbox('Variability', help = 'Median over the variance of entries for each CNN filter for all n ✕ n subregions of an image (Pf[n])', value=ALL_QIPS)
@@ -196,7 +197,7 @@ if upload_file:
 
 if st.session_state.get("commit_qips", None):
 
-    if  check_dict['Sparseness'] or check_dict['Variability'] or check_dict['Anisotropy'] or check_dict['Complexity'] or check_dict['PHOG-based'] or check_dict['Slope']:
+    if  check_dict['Sparseness'] or check_dict['Variability'] or check_dict['Anisotropy'] or check_dict['Complexity'] or check_dict['PHOG-based'] or check_dict['Slope'] or check_dict['Image size (pixels)']:
            
                 st.divider()
 
@@ -217,6 +218,24 @@ if st.session_state.get("commit_qips", None):
                         upper_bound = int(st.text_input('Enter maximal cycles/img:', value="256",  help=None,  label_visibility="visible"))
                         bins = int(st.text_input('Enter width of bins:', value="2",  help=None,  label_visibility="visible"))
                     
+                st.divider()
+                    
+                if check_dict['Image size (pixels)']:
+                    st.markdown('<p class="font2">Select Type of Image size. Default is the sum of image height and width:</p>', unsafe_allow_html=True)
+                    img_size_selectbox = st.radio(
+                        "img_size_selectbox",
+                        label_visibility="collapsed",
+                        options=[ 'Sum of height and width', 
+                                  'Product of height and width (number of pixels)', 
+                                  'Image diagonal',
+                                  'Average of height and width',
+                                  'Minimum of height and width',
+                                  'Maximum of height and width'],
+                        
+                        horizontal=True
+                    )
+
+                st.divider()
 
                 if check_dict['Sparseness'] or check_dict['Variability']:
                     st.markdown('<p class="font2">Parameters for Sparseness and Variability:</p>', unsafe_allow_html=True)
@@ -227,6 +246,7 @@ if st.session_state.get("commit_qips", None):
                 if check_dict['Variability']:
                     p12_Variability = int(st.text_input('Enter Configuration for Variability Measure. How many image Partitions should be used?', value="12",  help=None,  label_visibility="visible"))
                 
+                st.divider()
 
                 if check_dict['Anisotropy'] or check_dict['Complexity'] or check_dict['PHOG-based']:
                     st.markdown('<p class="font2">Parameters for PHOG Measures (Complexity, Anisotropy or PHOG-based Self-similarity):</p>', unsafe_allow_html=True)
@@ -445,11 +465,33 @@ if st.session_state.get("params_submitted", None):
                                     res = color_and_simple_qips.shannonentropy_channels(img_lab[:,:,0])
                                     result_csv += str(AT_misc.custom_round(res)) + sep
                                     
+
                                 elif (key == 'Image size (pixels)') and check_dict[key]:
-                                    res = color_and_simple_qips.image_size(img_rgb)
-                                    result_csv += str(AT_misc.custom_round(res)) + sep
-    
-                                    
+                                                                        
+                                    if img_size_selectbox == 'Sum of height and width':
+                                        res = color_and_simple_qips.image_size(img_rgb, kind = 'sum')
+                                        result_csv += str(AT_misc.custom_round(res)) + sep
+                                        
+                                    elif img_size_selectbox == 'Product of height and width (number of pixels)':
+                                        res = color_and_simple_qips.image_size(img_rgb, kind = 'num_pixel')
+                                        result_csv += str(AT_misc.custom_round(res)) + sep
+                                        
+                                    elif img_size_selectbox == 'Image diagonal':
+                                        res = color_and_simple_qips.image_size(img_rgb, kind = 'diagonal')
+                                        result_csv += str(AT_misc.custom_round(res)) + sep
+                                        
+                                    elif img_size_selectbox == 'Average of height and width':
+                                        res = color_and_simple_qips.image_size(img_rgb, kind = 'average')
+                                        result_csv += str(AT_misc.custom_round(res)) + sep 
+                                        
+                                    elif img_size_selectbox == 'Minimum of height and width':
+                                        res = color_and_simple_qips.image_size(img_rgb, kind = 'minimum')
+                                        result_csv += str(AT_misc.custom_round(res)) + sep 
+                                        
+                                    elif img_size_selectbox == 'Maximum of height and width':
+                                        res = color_and_simple_qips.image_size(img_rgb, kind = 'maximum')
+                                        result_csv += str(AT_misc.custom_round(res)) + sep 
+
                                 elif (key == 'Aspect ratio') and check_dict[key]:
                                     res = color_and_simple_qips.aspect_ratio(img_rgb)
                                     result_csv += str(AT_misc.custom_round(res)) + sep
@@ -692,6 +734,8 @@ if run and upload_file and (counter_checked_keys>0):
         params_vers_csv += 'Parameter for PHOG: Weight Level 1:' + sep + str(weigths1) + '\n' 
         params_vers_csv += 'Parameter for PHOG: Weight Level 2:' + sep + str(weigths2) + '\n' 
         params_vers_csv += 'Parameter for PHOG: Weight Level 3:' + sep + str(weigths3) + '\n' 
+    if check_dict['Image size (pixels)']:
+        params_vers_csv += 'Type of Image size:'  + sep + str(img_size_selectbox) + '\n'
         
     
     zip_file_bytes_io = io.BytesIO()
