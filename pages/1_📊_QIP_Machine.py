@@ -13,7 +13,7 @@ from AT import balance_qips, CNN_qips, color_and_simple_qips, edge_entropy_qips,
 st.set_page_config(layout="wide")
 
 
-version = 'v1.0.0'
+version = 'v1.0.2'
 
 
 AT_misc.build_heading(head=     'QIP Machine',
