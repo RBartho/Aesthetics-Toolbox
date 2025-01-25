@@ -56,19 +56,19 @@ if upload_file:
                   '**Resize to fit display**',
                   '**Resize to number of pixel**',
                   '**Resize to fixed resolution**',
-                  '**Resize to Image size**',
+                  '**Resize to image size**',
                   '**Padding to square**',
                   '**Center crop to square**',
                   '**Center crop to power of two**',
-                  '**Color rotaion in LAB color space**'],
-        captions = ["Resize longer side  \n while maintaining  \n aspekt ratio.",    ### use two spaces for "\n" to get a line brake
+                  '**Color rotation in Lab color space**'],
+        captions = ["Resize longer side  \n while maintaining  \n aspect ratio.",    ### use two spaces for "\n" to get a line brake
                     "Resize shorter side  \n while maintaining  \n aspect ratio.", 
                     "Resize width  \n while maintaining  \n aspect ratio.",
                     "Resize height  \n while maintaining  \n aspect ratio.",
                     "Fit image to resolution  \n on the given display while  \n maintaining aspect ratio.", 
                     "Resize image to a given number  \n of pixels while maintaining  \n aspect ratio.",
                     "Resize image to the given resolution  \n  **not** maintaining the  \n aspect ratio.",
-                    "Resize image to the given  \n Image size (width+heigth) maintaining the  \n aspect ratio.",
+                    "Resize image to the given  \n image size (width+height) maintaining the  \n aspect ratio.",
                     'Pad image to square using  \n the mean gray values or the  \n mean RGB values, resizing optional.',
                     "Center crop image to  \n largest possible square  \n image.", 
                     'Center crop image to  \n largest square with side  \n length of power of two.',
@@ -103,8 +103,8 @@ if resizing_selectbox:
                   
         elif resizing_selectbox == '**Resize to fit display**':
               st.markdown('<p class="font2">Parameters for resizing to fit display:</p>', unsafe_allow_html=True)
-              disp_width = int(st.text_input('Whats the width of the display you want to fit?:', value="1920",  help=None,  label_visibility="visible"))   
-              disp_height = int(st.text_input('Whats the height of the display you want to fit?:', value="1080",  help=None,  label_visibility="visible"))  
+              disp_width = int(st.text_input('Whats is the width of the display you want to fit?:', value="1920",  help=None,  label_visibility="visible"))   
+              disp_height = int(st.text_input('Whats is the height of the display you want to fit?:', value="1080",  help=None,  label_visibility="visible"))  
               st.form_submit_button("**Commit resize parameter selection**", on_click=AT_misc.click_sub_params_resizing)
               
         elif resizing_selectbox == '**Resize to number of pixel**':
@@ -114,13 +114,13 @@ if resizing_selectbox:
 
         elif resizing_selectbox == '**Resize to fixed resolution**':
               st.markdown('<p class="font2">Parameters for resizing to fixed resolution:</p>', unsafe_allow_html=True)
-              img_width = int(st.text_input('To what width you want to resize the images?:', value="1024",  help=None,  label_visibility="visible"))   
-              img_height = int(st.text_input('To what height you want to resize the images?:', value="1024",  help=None,  label_visibility="visible"))   
+              img_width = int(st.text_input('To what width do you want to resize the images?:', value="1024",  help=None,  label_visibility="visible"))   
+              img_height = int(st.text_input('To what height do you want to resize the images?:', value="1024",  help=None,  label_visibility="visible"))   
               st.form_submit_button("**Commit resize parameter selection**", on_click=AT_misc.click_sub_params_resizing)
               
         elif resizing_selectbox == '**Resize to Image size**':
-              st.markdown('<p class="font2">Parameters for resizing to Image size:</p>', unsafe_allow_html=True)
-              des_img_size = int(st.text_input('To what Image size you want to resize the images?:', value="1024",  help=None,  label_visibility="visible"))   
+              st.markdown('<p class="font2">Parameters for resizing to image size:</p>', unsafe_allow_html=True)
+              des_img_size = int(st.text_input('To what image size do you want to resize the images?:', value="1024",  help=None,  label_visibility="visible"))   
               st.form_submit_button("**Commit resize parameter selection**", on_click=AT_misc.click_sub_params_resizing)
        
         elif resizing_selectbox == '**Padding to square**':
@@ -130,7 +130,7 @@ if resizing_selectbox:
               
         elif resizing_selectbox == '**Color rotaion in LAB color space**':
               st.markdown('<p class="font2">Parameters for color space rotation:</p>', unsafe_allow_html=True)
-              rotaion_degree = int(st.text_input('How many degrees do you want the images to be rotated?:', value="45",  help=None,  label_visibility="visible"))   
+              rotaion_degree = int(st.text_input('How many degrees do you want to rotate the images?:', value="45",  help=None,  label_visibility="visible"))   
               st.form_submit_button("**Commit parameter selection**", on_click=AT_misc.click_sub_params_resizing)
                   
         elif resizing_selectbox == '**Center crop to square**':

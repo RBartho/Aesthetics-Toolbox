@@ -58,8 +58,8 @@ with left:
     
 with right:
     ### QIP Documentation
-    st.markdown('<p class="greenL">QIP Documentation</p>', unsafe_allow_html=True)
-    st.markdown('<p class="font1">The QIP Documentation provides the user with detailed information for each of the \
+    st.markdown('<p class="greenL">QIP documentation</p>', unsafe_allow_html=True)
+    st.markdown('<p class="font1">The QIP documentation provides the user with detailed information for each of the \
                 quantitative image properties (QIPs) that can be calculated with the QIP Machine.</p>', unsafe_allow_html=True)
     st.page_link("pages/3_📒_QIP_Documentation.py", label='Go to the QIP Documentation', icon="▶️")
     
@@ -111,105 +111,6 @@ st.markdown('<p class="contr">Contact and GitHub</p>', unsafe_allow_html=True)
 st.markdown('Questions, suggestions, bugs: ralf.bartho@gmail.com', unsafe_allow_html=True)
 st.markdown('GitHub repository: https://github.com/RBartho/Aesthetics-Toolbox', unsafe_allow_html=True)
 
-
-# st.markdown('<p class="contr">check out this [link](%s)/p>' % url, unsafe_allow_html=True)
-
-# st.markdown('<p class="contr">check out this [link](%s) </p>' % url, unsafe_allow_html=True)
-
-# ### Define custom markdowns
-# st.markdown(""" <style> .font0 {
-# font-size:28px ; font-family: 'Cooper Black'; color: black;} 
-# </style> """, unsafe_allow_html=True)
-
-# st.markdown(""" <style> .font1 {
-# font-size:20px ; font-family: 'Cooper Black'; color: black;} 
-# </style> """, unsafe_allow_html=True)
-
-# st.markdown(""" <style> .head {
-# font-size:35px ;  font-family: 'Cooper Black'; color: #FF9633;}
-# </style> """, unsafe_allow_html=True)
-
-# st.markdown(""" <style> .subhead {
-# font-size:28px ;  font-family: 'Cooper Black'; color: #FF9633;}
-# </style> """, unsafe_allow_html=True)
-
-
-# st.markdown(""" <style> .font2 {
-# font-size:20px ; font-family: 'Cooper Black'; color: green;} 
-# </style> """, unsafe_allow_html=True)
-
-# st.markdown(""" <style> .greenL {
-# font-size:28px ; font-family: 'Cooper Black'; color: green;} 
-# </style> """, unsafe_allow_html=True)
-
-# st.markdown(""" <style> .font3 {
-# font-size:18px ; font-family: 'Cooper Black'; color: black;} 
-# </style> """, unsafe_allow_html=True)
-
-# st.markdown(""" <style> .font4 {
-# font-size:16px ; font-family: 'Cooper Black'; color: black;} 
-# </style> """, unsafe_allow_html=True)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# ############################################################
-# ################ define sidebar ############################
-# ############################################################
-
-# ### set width of the sidebar
-# st.markdown(
-#     """
-#     <style>
-#         section[data-testid="stSidebar"] {
-#             width: 100px !important; # Set the width to your desired value
-#         }
-#     </style>
-#     """,
-#     unsafe_allow_html=True,
-# )
-
-# st.sidebar.header("Sidebar")
-
-# ### define order and names of sidebar menu
- 
-# # app_mode = st.sidebar.selectbox('Select mode',['Home' , 'QIP Machine',  'Aesthetics Datasets',  'Resizing and Cropping', 'Docs QIPs', 'Docs Datasets', 'References', ] ) #three pages
-
-# app_mode = st.sidebar.selectbox('Select mode',['Home' , 'QIP Machine',   'Image preprocessing', 'Documentation QIPs',  'References', ] ) #three pages
-
-
-# if app_mode == 'Home':
-#     Frontpage.show_frontpage()
-
-# if app_mode == 'QIP Machine':
-#     QIPmachine.run_QIP_machine()
- 
-# # if app_mode == 'Aesthetics Datasets':
-# #     Datasets.show_list()
-
-# if app_mode == 'Image preprocessing':
-#     Resizing.run_resizing()
-    
-# if app_mode == 'Documentation QIPs':
-#     QIP_Documentation.show_docs()
-    
-# # if app_mode == 'Documentation Datasets':
-# #     Datasets_documentation.show_data_docs()
-    
-# if app_mode == 'References':
-#     References.show_references()
-    
 
 
     

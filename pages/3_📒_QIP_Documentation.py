@@ -176,12 +176,12 @@ build_entry(
             )
 
 build_entry(
-            QIP           = 'CNN-feature-based QIPs: Symmetry, Self-symmetry, Sparseness and Variability' , 
+            QIP           = 'CNN-feature-based QIPs: Symmetry, Self-similarity, Sparseness and Variability' , 
             Image_preproc = 'RGB image resized to 512*512 pixel', 
             CComplex      = 'high', 
             Range         = 'Empirically found values: Sparseness (0 - 0.0014) and Variability (0 - 0.0001)'  ,
             API           = 'AT.CNN_qips', 
-            References    = 'Brachmann and Redies (2016)', 
+            References    = 'Brachmann & Redies (2016); Brachmann & Redies 2017; Brachmann et al. (2017)', 
             Notes         = 'All CNN image properties are based on feature maps of the first layer of an Alex-Net (Krizhevsky et al., 2012) trained \
                             on Image Net from the Caffe module, which is no longer maintained. Weights of this Caffe module have been extracted \
                               and the folding and max-pooling operation has been reimplemented with Numpy to keep the  \
