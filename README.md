@@ -2,10 +2,9 @@
 
 This project contains Python scripts to run the streamlit application "Aesthetics Toolbox" in your browser. The Toolbox includes an interface to compute a number of commonly studied quantitative image properties (QIPs) for aesthetic research and also contains many common methods for image preprocessing.
 
+#  Scientific paper
 
-#  Preprint available on arxiv.org
-
-A preprint with a detailed description of the toolbox and the implemented image properties is available here: https://arxiv.org/abs/2408.10616. If you use the toolbox in your work, please consider mentioning it and citing the preprint or the paper that will hopefully be published soon :-).
+A detailed description of the toolbox and the implemented image properties is available here: https://doi.org/10.3758/s13428-025-02632-3. If you use the Aesthetics Toolbox in your work, please consider citing the published paper.
 
 # Cloud version with limited resources (but no installation)
 
