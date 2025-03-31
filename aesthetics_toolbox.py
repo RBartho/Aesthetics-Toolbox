@@ -17,9 +17,9 @@ AT_misc.build_heading(head=     'Aesthetics Toolbox',
                                   The features of this toolbox can be selected from the sidebar and are briefly explained below. \
                                   The toolbox is designed as an open source project and we hereby encourage any feedback \
                                   or extensions to the toolbox (see contacts below). A detailed description of the toolbox \
-                                  and the implemented image properties is available here: at https://doi.org/10.3758/s13428-025-02632-3”. \
-                                  If you use the Aesthetics Toolbox in your work, please consider citing the published paper. \
-                                 Christoph Redies, Ralf Bartho, Lisa Koßmann, Branka Spehar, Ronald Hübner, Johan Wagemans, and Gregor U. Hayn-Leichsenring: A toolbox for calculating objective image properties in aesthetics research.'
+                                  and the implemented image properties is available here: https://doi.org/10.3758/s13428-025-02632-3”. \
+                                  If you use the Aesthetics Toolbox in your work, please consider citing the published paper.'
+                        
                       )
 
 st.divider() 
@@ -111,7 +111,7 @@ st.write('')
 st.markdown('<p class="contr">Contact and GitHub</p>', unsafe_allow_html=True)
 st.markdown('Questions, suggestions, bugs: ralf.bartho@gmail.com', unsafe_allow_html=True)
 st.markdown('GitHub repository: https://github.com/RBartho/Aesthetics-Toolbox', unsafe_allow_html=True)
-
+st.markdown('GitHub repository: https://github.com/RBartho/Aesthetics-Toolbox', unsafe_allow_html=True)
 
 
     
