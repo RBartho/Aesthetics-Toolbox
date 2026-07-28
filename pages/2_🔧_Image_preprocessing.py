@@ -5,7 +5,7 @@ from zipfile import ZipFile
 
 from AT import resize_functions, AT_misc
 
-st.set_page_config(layout="wide")
+
 
 AT_misc.build_heading(head=     'Resizing, Cropping, Padding, Color rotation',
                       notes=    'Common options for image preprocessing in aesthetic research.'
@@ -15,14 +15,6 @@ AT_misc.build_heading(head=     'Resizing, Cropping, Padding, Color rotation',
 upload_file = st.file_uploader('Load image files', type=['jpg','png','jpeg','tif'], accept_multiple_files=True, label_visibility="collapsed" )# Check to see if a  file has been uploaded
 
 
-
-st.markdown(""" <style> .font2 {
-font-size:20px ; font-family: 'Cooper Black'; color: green;} 
-</style> """, unsafe_allow_html=True)
-
-st.markdown(""" <style> .subhead {
-font-size:28px ;  font-family: 'Cooper Black'; color: #FF9633;}
-</style> """, unsafe_allow_html=True)
 
 if upload_file:
     st.write('Examples of loaded images:')       
@@ -38,12 +30,6 @@ st.divider()
 resizing_selectbox   = st.session_state.get( "resizing_selectbox", None)  
 if upload_file:
 
-    st.markdown("""       
-    <style>
-    div.stTitle {
-    font-size:40px;
-    }
-    </style>""",unsafe_allow_html=True)
     st.markdown('<p class="font2">Select the type of resizing:</p>', unsafe_allow_html=True)
             
     resizing_selectbox = st.radio(

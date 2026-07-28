@@ -4,23 +4,92 @@ from PIL import Image
 
 
 
-
-# def load_image(file_path):
-#     ## check for RGB 16 bit
+def inject_custom_styles():
+    ## to define custom styles for all app pages identical
+    ## this function is called at the start of each app page
+    st.markdown("""
+        <style> 
+            .head {
+                font-size: 32px !important;
+                font-family: 'Cooper Black', sans-serif;
+                color: #FF9633;
+            }
+            .desc {
+                font-size: 18px !important;
+                font-family: sans-serif;
+                color: black;
+            }
+            .font1 {
+                font-size: 20px !important;
+                font-family: sans-serif;
+                color: black;
+            }
+            .font2 {
+                font-size:18px !important; 
+                font-family: 'sans-serif'; 
+                color: green;
+            } 
+            .contr {
+                font-size: 16px !important;
+                font-family: sans-serif;
+                color: black;
+            }
+            .greenL {
+                font-size: 20px !important;
+                font-family: sans-serif;
+                color: green;
+            }
+            .subhead {
+                font-size: 26px !important;
+                font-family: 'Cooper Black',sans-serif;
+                color: #FF9633;
+            }
+            .stButton > button {
+            color: black;
+            background: white;
+            width: auto;
+            height: auto;
+            }
+        </style>
+    """, unsafe_allow_html=True)
     
     
-#     ### load images in different color spaces
-#     img_plain_PIL = Image.open(upload_file[n])
-#     img_plain_np = np.asarray(img_plain_PIL)
-#     img_rgb = np.asarray(img_plain_PIL.convert('RGB'))
-#     img_lab = color.rgb2lab(img_rgb)
-#     img_hsv = color.rgb2hsv(img_rgb)
-#     img_gray = np.asarray(Image.open(upload_file[n]).convert('L'))  ## color uses range [0-1], PIL uses Range [0-256] for intensity
+
+def build_heading(head,notes, DODA=False):
     
-      
+    Image.MAX_IMAGE_PIXELS = 1e14
+    st.set_page_config(layout="wide")
+    inject_custom_styles()
 
+    image1 = Image.open('images/LogoDesign EAJ final.png')
+    image2 = Image.open('images/GestatltReVision_Logo_mod.png')
+    image3 = Image.open('images/DODA.png')
 
-
+    if not DODA:
+        #Create columns with different width
+        col1, space, col2, col3 = st.columns( [0.10, 0.02, 0.68, 0.2])
+        with col2:               # To display the header text using css style
+            st.markdown('<div class="head">' + head + '</div>', unsafe_allow_html=True)
+            st.markdown('<div class="desc">' + notes + '</div>', unsafe_allow_html=True)
+        with col1:
+            st.image(image1,  use_container_width=True) 
+        with col3:
+            st.image(image2,  use_container_width=True) 
+            
+    elif DODA:
+        #Create columns with different width
+        col1, space, col2, col3, col4 = st.columns( [0.15, 0.02, 0.53, 0.1, 0.2])
+        with col2:               # To display the header text using css style
+            st.markdown('<div class="head">' + head + '</div>', unsafe_allow_html=True)
+            st.markdown('<div class="desc">' + notes + '</div>', unsafe_allow_html=True)
+        with col1:
+            st.image(image3,  use_container_width=True) 
+        with col3:
+            st.image(image1,  use_container_width=True) 
+        with col4:
+            st.image(image2,  use_container_width=True) 
+    else:
+        raise "Invalid value for DODA"
 
 def custom_round(num):
     '''
@@ -90,28 +159,10 @@ def check_upscaling_img(img_PIL, res_type, PHOG_Pixel = -1):
 def callback_upload_img_files():
     st.session_state.new_files_uploaded = True
     
-def build_heading(head,notes):
-    
-    st.markdown(""" <style> .font1 {
-    font-size:20px ; font-family: 'Cooper Black'; color: black;} 
-    </style> """, unsafe_allow_html=True)
-    
-    st.markdown(""" <style> .head {
-    font-size:35px ;  font-family: 'Cooper Black'; color: #FF9633;}
-    </style> """, unsafe_allow_html=True)
 
-    image1 = Image.open('images/LogoDesign EAJ final.png')
-    image2 = Image.open('images/GestatltReVision_Logo_mod.png')
 
-    #Create two columns with different width
-    col1, col2, col3 = st.columns( [0.10, 0.7, 0.2])
-    with col2:               # To display the header text using css style
-        st.markdown('<p class="head">' + head + '</p>', unsafe_allow_html=True)
-        st.markdown('<p class="font1">' + notes + '</p>', unsafe_allow_html=True)
-    with col1:
-        st.image(image1,  use_column_width=True) 
-    with col3:
-        st.image(image2,  use_column_width=True) 
         
         
+        
+    
     

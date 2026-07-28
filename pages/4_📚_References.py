@@ -1,12 +1,10 @@
 import streamlit as st
+from AT import AT_misc
 
-st.set_page_config(layout="wide")
 
-st.markdown(""" <style> .head {
-font-size:35px ;  font-family: 'Cooper Black'; color: #FF9633;}
-</style> """, unsafe_allow_html=True)
-
-st.markdown('<p class="head">References</p>', unsafe_allow_html=True)
+AT_misc.build_heading(head=     'References',
+                      notes=    'This page lists relevant references for QIPs used in the toolbox. A complete list of references can be found in our paper: https://doi.org/10.3758/s13428-025-02632-3.'
+                      )
 
 st.write(
 

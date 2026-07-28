@@ -1,18 +1,18 @@
 import streamlit as st
+from AT import AT_misc
 
-st.set_page_config(layout="wide")
 
-st.markdown(""" <style> .font1 {
-font-size:20px ; font-family: 'Cooper Black'; color: black;} 
-</style> """, unsafe_allow_html=True)
 
-st.markdown(""" <style> .head {
-font-size:35px ;  font-family: 'Cooper Black'; color: #FF9633;}
-</style> """, unsafe_allow_html=True)
+AT_misc.build_heading(head=     'QIP Documentation',
+                      notes=    'This is the documentation for the QIP machine. Detailed information on the individual QIPs can be found in the publication: \
+                                  Christoph Redies, Ralf Bartho, Lisa Koßmann, Branka Spehar, Ronald Hübner, Johan Wagemans, and Gregor U. Hayn-Leichsenring: \
+                                  A toolbox for calculating objective image properties in aesthetics research. \
+                                  The publication describes the motivation for using each QIP, the algorithm itself \
+                                  and related publications.'
+                      )
+    
 
-st.markdown(""" <style> .greenL {
-font-size:28px ; font-family: 'Cooper Black'; color: green;} 
-</style> """, unsafe_allow_html=True)
+
 
 def build_entry(QIP , Image_preproc, CComplex, Range, API, References, Notes):
     
@@ -44,13 +44,6 @@ def build_entry(QIP , Image_preproc, CComplex, Range, API, References, Notes):
             st.markdown('<p class="font1"> ' + References    + '  </p>', unsafe_allow_html=True)
             st.markdown('<p class="font1"> ' + Notes         + '  </p>', unsafe_allow_html=True)
 
-
-st.markdown('<p class="head">QIP Documentation</p>', unsafe_allow_html=True)
-st.markdown('<p class="font1">This is the documentation for the QIP machine. Detailed information on the individual QIPs can be found in the publication: \
-            Christoph Redies, Ralf Bartho, Lisa Koßmann, Branka Spehar, Ronald Hübner, Johan Wagemans, and Gregor U. Hayn-Leichsenring: \
-            A toolbox for calculating objective image properties in aesthetics research. \
-            The publication describes the motivation for using each QIP, the algorithm itself \
-            and related publications. (https://arxiv.org/abs/2408.10616) </p>', unsafe_allow_html=True)
 
 build_entry(
             QIP           = 'Image size' , 

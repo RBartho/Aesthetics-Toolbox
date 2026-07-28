@@ -13,7 +13,7 @@ from AT import balance_qips, CNN_qips, color_and_simple_qips, edge_entropy_qips,
 ########################################## set image paths and results.csv ##########################
 
 ### set path to save the results csv files
-results_path = '/home/ralf/Documents/18_SIP_Machine/Full_Datasets_SIPs/Full_dataset_stats_new/'
+results_path = '...'
 
 
 ### each entry is a pair of the name of the csv file and the path to the image folder, you can enter several datasets/pairs

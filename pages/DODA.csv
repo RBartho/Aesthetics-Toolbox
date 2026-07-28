@@ -1,0 +1,605 @@
+Name,Year,Author,Size in Images,Number of Classes/ Sem. Categories,Style of images,Overall content,Number of Annotators/ Participants/ Captions,Minimum Votes/Clicks per image,Data Available,Data Format,Data Category,Task,Data Description,Scale of Annotations,How are scores obtained?,Image Source,Source Category,Field of most common use,Resolution (avg) (hxw),Link,Citation
+Eisenman & Grove Polygon Preference and Creativity Study ,1972,"Eisenman, R., & Grove, M. S.",12,3,stimuli,polygons,68,68,"complexity, simplicity, symmetry, preference, creativity",rating,Mixed Annotations,predicting/ understanding aesthetics,"ratings of complexity, simplicity, symmetry , choice of 3 most and least preferred polygons, subjective creativity judgement","7-point bipolar scale, choice","participants were asked to choose their three most preferred and three least preferred polygons., rated each polygon on a 1-to-7 scale for three dimensions: beautiful-ugly, strong-weak, and fast-slow. subjects rated themselves on a 1-to-7 scale in response to the question ""How creative are you,""). they were asked to list all the things they had done that were creative. Finally, subjects were questioned about their ratings and asked to introspect on the basis of their creativity ratings.", 9 random shapes taken from Vanderplas and Garvin (1959) and 3 symmetrical shapes taken from Birkhoff (1933),Custom/Experimental Stimuli,,,no access provided in publication/ contact authors,"Eisenman, R., & Grove, M. S. (1972). Self-Ratings of creativity, semantic differential ratings, and preferences for polygons varying in complexity, simplicity, and symmetry. The Journal of Psychology, 81(1), 63–67. https://doi.org/10.1080/00223980.1972.9923789"
+Complexity and Structure in Visual Patterns,1977,"Chipman, S. F",45,3,stimuli,abstract geometric patterns,32,8,"complexity, simplicity",rating,Compositional Annotations,predicting/ understanding aesthetics,"geometric mean of complexity, selection frequencies, rank ordering",score,"assigned a number to represent complexity, were told to rank,  selected the ""more complex"" pattern",created by author,Custom/Experimental Stimuli,empirical aesthetics,,no access provided in publication/ contact authors,"Chipman, S. F. (1977). Complexity and structure in visual patterns. Journal of Experimental Psychology: General, 106(3), 269-301."
+Influence of Six Types of Visual Structure on Complexity Judgments in Children and Adults,1979,"Chipman, S. F., & Mendelson, M. J.",38,7,stimuli,"Abstract black-and-white grid patterns(6x6), 1 Unstructured + 6 structured types: Double symmetry, Vertical symmetry, Horizontal symmetry, Diagonal, symmetry, Checkerboard organization, Rotational organization",149,,complexity ,choice,Compositional Annotations,predicting/ understanding aesthetics,"choice for simpler stimulus, corresponding complexity score",forced choice response,"pairs were presented in booklets on printed pages. Kindergarteners were tested individually by an experimenter, older children and adults were tested in classroom groups.",created by author,Custom/Experimental Stimuli,,,,"Chipman, S. F., & Mendelson, M. J. (1979). Influence of six types of visual structure on complexity judgments in children and adults. Journal of Experimental Psychology: Human Perception and Performance, 5(2), 365–378."
+Web Gallery of Art,1996,"Krén, E., & Marx, D.",51867,,paintings,"Early Christian Art (3rd–10th centuries), Pre-Romanesque Art (3rd–10th centuries), Medieval Art, Renaissance Art (14th–16th centuries; the original core focus of the site), Mannerism , 
+Baroque,  Rococo, 
+19th-Century Art ( Neoclassicism, Romanticism, Impressionism, and Realism, though grouped under the 19th-century umbrella)",,,"artist, period, school, material, title, collection, time-frame, form",semantic annotations,Semantic Annotations & Content ,classification,"form (painting, sculpture etc.),
+time-frame (between 201 and 1900)
+school (Italian, Flemish etc.)
+subject (religious, mythological, portrait etc.)
+collections (major museums, church and private collections etc.)",,,,Other Non-Aesthetic/Miscellaneous,,,,"Krén, E., & Marx, D. (1996). Web Gallery of Art. https://www.wga.hu/index_welcome.html"
+Novel Graphic Patterns Dataset,2002,"Jacobsen, T., & Höfel, L.",252,,stimuli,"a solid black circle showing a centered, quadratic, rhombic cut-out and an arrangement of 86 to 88 small black triangles positioned inside the rhombus, half of the resulting patterns is symmetric",55,55,beauty,labels,Aesthetic Score & Preference,predicting/ understanding aesthetics,beauty rating,3 bins,"binnig exercise: ""[…] instructed to create  three bins: one of at least 75 ""beautiful"" patterns, one of at least 75 ""not   beautiful"" patterns, and a  third possible  category of ""indifferent""   pictures.  This  last bin  could  form the largest one (up to 102 stimuli) but could also  contain no elements, if that was preferred.""",experimenter generated,Custom/Experimental Stimuli,empirical aesthetics,,"The sets of stimuli and tabled means are on file in Document APD2002-017. For a copy, re- mit $15.00 to the Archive of Psychological Data, P.O. Box 7922, Missoula, MT 59807-7922. ","Jacobsen, T., & Höfel, L. (2002). Aesthetic judgments of novel graphic patterns: Analyses of individual judgments. Perceptual and motor skills, 95(3), 755-766."
+APB Dataset,2005,"Wilson, A. & Chatterjee, A.",216,,stimuli,white square containing seven geometric black elements of varying sizes,10,10,"balance, preference",rating,Mixed Annotations,predicting/ understanding aesthetics,ratings balance and preference,5 point scale,,experimenter generated,Custom/Experimental Stimuli,empirical aesthetics,750x750,no access provided in publication/ contact authors,"Wilson, A., & Chatterjee, A. (2005). The Assessment of preference for balance: Introducing a new test. Empirical Studies of the Arts, 23(2), 165-180. https://doi.org/10.2190/B1LR-MVF3-F36X-XR64"
+Photo.net,2006,"Datta, R., Joshi, D., Li, J., & Wang, J. Z. ",20278,,photographs,,,,"overall aesthetic score, originality, views, ratings",rating,Aesthetic Score & Preference,predicting/ understanding aesthetics," (1) average aesthetics
+score between 1.0 and 7.0, (2) average originality score between 1.0 and 7.0, (3)
+number of times viewed by members, and (4) number of peer ratings.",,,photo.net,Online Art and Photography Communities,,,https://ritendra.weebly.com/aesthetics-datasets.html,"Datta, R., Joshi, D., Li, J., & Wang, J. Z. (2006). Studying aesthetics in photographic images using a computational approach. In Lecture notes in computer science (pp. 288–301). https://doi.org/10.1007/11744078_23"
+DPChallenge.com Dataset,2008,"Datta,R., Li, J., &Wang, J. Z.",3581,,photographs,,,,overall aesthetic score,rating,Aesthetic Score & Preference,predicting/ understanding aesthetics,human rated aesthetic scores,,,DPChallenge,Online Art and Photography Communities,,,https://ritendra.weebly.com/aesthetics-datasets.html,"R. Datta, J. Li, and J. Z. Wang, Algorithmic inferencing of aesthetics and emotion in natural Images: An exposition, Proc. IEEE ICIP, Special Session on Image Aesthetics, Mood and Emotion, San Diego, CA, 2008"
+MIRFLICKR,2008,"Huiskes, M. J., & Lew, M. S.",25000,,"photographs,  paintings","photographs, possibly paintings",,,content,labels,Semantic Annotations & Content ,predicting/ understanding aesthetics,accuracy of image tags,,,FLICKR,Online Art and Photography Communities,,,https://press.liacs.nl/mirflickr/mirdownload.html,"Huiskes, M. J., & Lew, M. S. (2008, October). The mir flickr retrieval evaluation. In Proceedings of the 1st ACM international conference on Multimedia information retrieval (pp. 39-43)."
+Van Gogh and Kröller-Müller Museums Dataset,2008,"Johnson, C. R., Hendriks, Ella, Berezhnoy, I. J., Brevdo, E., Hughes, S. M., Daubechies, I., Li, J., Postma, E., & Wang, J. Z.",101,,paintings,101 high-resolution gray-scale scans of paintings,,,artist,semantic annotations,Semantic Annotations & Content ,classification,,,,"Van Gogh and Kröller-Müller Museums, The Netherlands","Museums, Books & Curated Collections",,,no access provided in publication/ contact authors,"Johnson, C. R., Hendriks, Ella, Berezhnoy, I. J., Brevdo, E., Hughes, S. M., Daubechies, I., Li, J., Postma, E., & Wang, J. Z. (2008). Image processing for artist identification. IEEE Signal Processing Magazine, 25(4), 37–48. https://doi.org/10.1109/MSP.2008.923513"
+Classifying paintings by artistic genre: An analysis of features & classifiers,2009,"Zujovic, J., Gandy, L., Friedman, S., Pardo, B., & Pappas, T. N.",353,5,paintings,"Abstract Impressionism, Cubism, Impressionism, Pop Art and Realism",,,genre,semantic annotations,Semantic Annotations & Content ,classification,,,,"Artlex Google, CARLI Digital Collections","Wikiart, Google Art & Other Online Collections",,,,"Zujovic, J., Gandy, L., Friedman, S., Pardo, B., & Pappas, T. N. (2009). Classifying paintings by artistic genre: An analysis of features & classifiers. In 2009 IEEE International Workshop on Multimedia Signal Processing (pp. 1–5). IEEE. https://doi.org/10.1109/MMSP.2009.5293271"
+Combining multiple kernels for efficient image classification,2009,"Siddiquie, B., Vitaladevuni, S. N., & Davis, L. S.",498,5,paintings,"Abstract Expressionist, Baroque, Cubist, Graffiti, Impressionist and Renaissance",,,genre,semantic annotations,Semantic Annotations & Content ,classification,,,,internet search,General Web Search,,,no access provided in publication/ contact authors,"Siddiquie, B., Vitaladevuni, S. N., & Davis, L. S. (2009). Combining multiple kernels for efficient image classification. In 2009 Workshop on Applications of Computer Vision (WACV) (pp. 1–8). IEEE. https://doi.org/10.1109/WACV.2009.5403040"
+Stochastic modeling western paintings for effective classification,2009,"Shen, J.",1080,25,paintings,western canon,,,artist,semantic annotations,Semantic Annotations & Content ,classification,,,,,Other Non-Aesthetic/Miscellaneous,,,no access provided in publication/ contact authors,"Shen, J. (2009). Stochastic modeling western paintings for effective classification. Pattern Recognition, 42(2), 293–301. https://doi.org/10.1016/j.patcog.2008.04.016"
+AAA: Assessment of Art Attributes,2010,"Chatterjee, A., Widick, P., Sternschein, R., Smith, W. B., & Bromberger, B.",24,,paintings,western canon,90,90,"color temperature, saturation, style, depth, balance, complexity, representationality, abstractness, realism, animacy, symbolism, emotionality ",rating,Mixed Annotations,predicting/ understanding aesthetics,formal-perceptual attributes and conceptual-representational attributes,5-point Likert Scale,"""[...] six   formal-perceptual   attributes   and   six   conceptual-representational  attributes  of  a  work  of  art.  The  formal  attributes  were:  Color temperature (warm-cold), Color saturation (calm-vibrant), Stroke style (controlled-loose), Depth (flat-deep), Balance (low-high), and Complexity (simple-complex).The conceptual attributes were: Representational accuracy (less-more), Abstract-ness  (less-more),  Realism (less-more),  Animacy (less-more),  Symbolism (less-more), and Emotionality (less-more).""",not stated,Other Non-Aesthetic/Miscellaneous,empirical aesthetics,,no access provided in publication/ contact authors,"Chatterjee, A., Widick, P., Sternschein, R., Smith, W. B., & Bromberger, B. (2010). The assessment of art attributes. Empirical Studies of the Arts, 28(2), 207-222."
+"Impressionism, Expressionism, Surrealism:
+Automated Recognition of Painters and Schools of Art",2010,"Shamir, L., Macura, T., Orlov, N., Eckley, D. M., and Goldberg, I. ",513,9,paintings,"impressionism, abstract expressionism, surrealism, represented by Vincent Van Gogh, Claude Monet  Pierre-Auguste Renoir, Mark Rothko, Jackson Pollock,  Wassily Kandinsky, Salvador
+Dali, Max Ernst, Giorgio de Chirico",,,"artist, style",semantic annotations,Semantic Annotations & Content ,classification,,,,internet search,General Web Search,,,no access provided in publication/ contact authors,"Shamir, L., Macura, T., Orlov, N., Eckley, D. M., & Goldberg, I. G. (2010). Impressionism, expressionism, surrealism: Automated recognition of painters and schools of art. ACM Transactions on Applied Perception, 7(2), Article 8. https://doi.org/10.1145/1670671.1670672"
+CUHK-PQ:  Content-Based Photo Quality Assessment,2011,"X. Tang, W. Luo and X. Wang",17673,7,photographs,natural scenes,10,10,quality,labels,Miscellaneous/ Data not available,predicting/ understanding aesthetics,high or low quality label,,"""...labeled by ten independent
+reviewers into three classes: high quality, low quality, and un-
+certain about quality. A photo is classified as high or low quality
+only if eight out of the ten reviewers agree on its assessment.
+Other photos, on which the reviewers have more diversified
+opinions, are not included in the benchmark dataset. Finally the
+benchmark dataset has 17,673 photos for evaluation.""",professional and amateur photography websites,Other Non-Aesthetic/Miscellaneous,,,http://mmlab.ie.cuhk.edu.hk/CUHKPQ/Dataset.htm,"Luo, W., Wang, X., & Tang, X. (2011, November). Content-based photo quality assessment. In 2011 international conference on computer vision (pp. 2206-2213). IEEE."
+AVA: A large-scale database for aesthetic visual analysis,2012,"Murray, N., Marchesotti, L., & Perronnin, F.",250000,14,photographs,,,78,"content, overall aesthetic score, style",semantic annotations,Mixed Annotations,predicting/ understanding aesthetics,"semantic annotations, aesthetic annotations, photography styles",,"66 textual tags, 14 photographic styles",dpchallenge.com,Online Art and Photography Communities,,549x618,https://github.com/ylogx/aesthetics/tree/master/data/ava,"Murray, N., Marchesotti, L., & Perronnin, F. (2012). AVA: A large-scale database for aesthetic visual analysis. Computer Vision and Pattern Recognition. https://doi.org/10.1109/cvpr.2012.6247954"
+MART: Museum of Modern and Contemporary Art of Trento and Rovereto ,2012,"Yanulevskaya, V., Uijlings, J., Bruni, E., Sartori, A., Zamboni, E., Bacci, F., ... & Sebe, N. ",500,,paintings,abstract paintings,100,20,emotion,rating,"Emotion, Affect & Valence",predicting/ understanding aesthetics,pos or neg emotion,7-point Likert Scale,"“You are asked to judge all the paintings that will be pre-sented.  Let your instinct guide you and follow your first impression of the painting.”  ""[..] explicitly instructed to score the paintings as fast as possible [..] to encourage the rise of very instinctive emotions, and to prevent that previous knowledge about the artworks could come into play. On average, people spent about 9 seconds per painting [..].[..]images of the paintings were randomly divided into five groups, 100 works each, and only yone group was presented to a single subject.  Therefore, each subject rated 100 paintings and each artwork received20 judgments from 20 different subjects. We presented the paintings on a gray background, because gray is usually con-sidered to be a neutral color, with no impact to the other colors (and with coming emotions). After every ten images, a gray slide was presented in order to give participants the opportunity to rest.""   ",Museum of Modern and Contemporary Art of Trento and Rovereto,"Museums, Books & Curated Collections",,,Link deprecated   http://disi.unitn.it/?yanulevskaya/mart.html,"Yanulevskaya, V., Uijlings, J., Bruni, E., Sartori, A., Zamboni, E., Bacci, F.,
+Melcher, D., Sebe, N.: In the eye of the beholder: employing statistical analy-
+sis and eye tracking for analyzing abstract paintings. In: Proceedings of the 20th
+ACM International Conference on Multimedia, pp. 349–358. ACM (2012)"
+Computer Analysis of Art,2012,"Shamir, L., & Tarakhovsky, J. A.",994,34,paintings,,,,"artist, style",semantic annotations,Semantic Annotations & Content ,classification,,,,internet search,General Web Search,,,no access provided in publication/ contact authors,"Shamir, L., & Tarakhovsky, J. A. (2012). Computer analysis of art. Journal on Computing and Cultural Heritage, 5(2), Article 7. https://doi.org/10.1145/2307723.2307726"
+PRINTART,2012,"Carneiro, G., da Silva, N. P., Del Bue, A., & Costeira, J. P.",988,75,paintings,monochromatic ,,,"composition, pose, visual classes",semantic annotations,Compositional Annotations,classification,"lobal
+semantic annotation, a local compositional annotation, and a pose an-
+notation of human subjects and animal types.",,algorithmic annotations,,Other Non-Aesthetic/Miscellaneous,,,no access provided in publication/ contact authors,"Carneiro, G., da Silva, N. P., Del Bue, A., & Costeira, J. P. (2012). Artistic image classification: An analysis on the PRINTART database. In A. Fitzgibbon, S. Lazebnik, P. Perona, Y. Sato, & C. Schmid (Eds.), Computer Vision – ECCV 2012 (pp. 143–157). Springer. https://doi.org/10.1007/978-3-642-33765-9_11"
+Accounting for taste: Individual differences in preference for harmony,2013,"Palmer, S. E., & Griscom, W. S.",113,4,stimuli,"Abstract and geometric stimuli,  vary across four domains (color, shape, spatial location, and music)",90,90,"preference, harmony, fit",rating,Mixed Annotations,predicting/ understanding aesthetics,"Preference (liking) and Harmony judgments(""harmonious"" label for color/music, ""good fit"" label for frames and ""simple"" for dot patterns.",continuous scale(-100 to +100),"For each stimulus, participants clicked on a 400-pixel continuous rating scale. The vertical mark at the center represented a neutral point. The recorded score was the nearest integer x-coordinate (from -100 to +100) of the click location. Participants rated all stimuli for preference first, and then rated them for harmony in a second phase. ","Color pairs: Constructed from the Berkeley Color Project colors.
+Dot patterns:  from Garner's (1974) patterns to represent symmetry subgroups.
+Frames: From Palmer & Guidi (2011).
+",Custom/Experimental Stimuli,empirical aesthetics,,no access provided in publication/ contact authors,"Palmer, S. E., Griscom, W. S. (2013). Accounting for taste: Individual differences in preference for harmony. Psychonomic Bulletin & Review, 20, 453–461. https://doi.org/10.3758/s13423-012-0355-2"
+Contour-Architecture Dataset,2013,"Vartanian, O., Navarrete, G., Chatterjee, A., Fich, L. B., Leder, H., Modroño, C., Nadal, M., Rostrup, N., & Skov, M.",200,,photographs,"photographs of architectural spaces, rectilinear and curvilinear",18,,"interaction, pleasure, beauty, fMRI",rating,Aesthetic Score & Preference,predicting/ understanding aesthetics,"approach-avoidance, fMRI data, pleasantness and beauty ratings","forced choice response (beautiful or non-beautiful, enter or exit) and 5-point scale with extremes","""[…] it began with a fixation point “X” presented for 1,000 ms, followed by a stimulus presented for 3,000 ms (during which a response was collected), followed by variable intertrial interval (ITI).""","""[…] larger architectural image databases available to L.B.F. at the Department of Architecture, Design, and Media Technology in University of Aalborg, Denmark, and to N.R. at The Royal Danish Academy of Fine Arts, Schools of Architecture, Design and Conservation, School of Architecture.""",Mixed Sources,empirical aesthetics,,no access provided in publication/ contact authors,"Vartanian, O., Navarrete, G., Chatterjee, A., Fich, L. B., Leder, H., Modroño, C., Nadal, M., Rostrup, N., & Skov, M. (2013). Impact of contour on aesthetic judgments and approach-avoidance decisions in architecture. Proceedings of the National Academy of Sciences, 110(supplement_2), 10446–10453. https://doi.org/10.1073/pnas.1301227110"
+JenAesthetics ?,2013,"Amirshahi, S.A., Hayn-Leichsenring, G.U., Denzler, J., Redies, C.",281,,paintings,,49,49,beauty,labels,Aesthetic Score & Preference,predicting/ understanding aesthetics,beauty,"The subjective scoring in this dataset
+has been done based on a scale of 1-4","""[...]resized to 2048 pixels on the longest side and no image
+enhancement algorithms were applied. In the experiment, images were shown separately
+and in a random way on a calibrated black screen (EIZO Color Edge CG241W). The size
+of the images on the screen was 165×165 mm. A chin rest assured a uniform viewing
+distance of 90 cm. The experiment was performed using MATLAB R2008A. Prior to showing
+each picture, a question mark was presented (500 ms), followed by the image itself (600
+ms) and a black screen (1900 ms). In that last phase, the participants were asked to respond
+by pressing one of four labelled keys.""",Wikimedia Commons,"Wikiart, Google Art & Other Online Collections",,,no access provided in publication/ contact authors,"Amirshahi, S.A., Hayn-Leichsenring, G.U., Denzler, J., Redies, C.: Color: A crucial
+factor for aesthetic quality assessment in a subjective database of paintings. In:
+12th Congress of the International Colour Association (AIC). Newcastle, UK (July
+2013)"
+The small step toward asymmetry: Aesthetic judgment of broken symmetries,2013,"Gartus, A., & Leder, H.",240,5,stimuli,Abstract black-and-white patterns composed of black triangular elements,21,21," liking, complexity",rating,Mixed Annotations,predicting/ understanding aesthetics,ratings of linking and complexity,7-point bipolar scale ratings,complexity ratings were obtained in a pre study on a 5 point scale,created by author,Custom/Experimental Stimuli,,,no access provided in publication/ contact authors,"Gartus, A., & Leder, H. (2013). The small step toward asymmetry: Aesthetic judgment of broken symmetries. I-Perception, 4(5), 361–364. https://doi.org/10.1068/i0588sas"
+Beauty in abstract paintings,2014,"Mallon, B., Redies, C. & Hayn-Leichsenring, G. U.",150,1,paintings,abstract artworks,42,,"beauty, quantitative image properties (PHOG Self-Similarity, Complexity, Aspect Ratio, Color measures, and Anisotropy)",rating,Mixed Annotations,predicting/ understanding aesthetics,ratings on beauty,4 step bipolar scale,,art books,"Museums, Books & Curated Collections",,?x1024,no access provided in publication/ contact authors,"Mallon, B., Redies, C., & Hayn-Leichsenring, G. U. (2014). Beauty in abstract paintings: Perceptual contrast and statistical properties. Frontiers in Human Neuroscience, 8. https://doi.org/10.3389/fnhum.2014.00161"
+FLICKR- Style,2014,"Karayev, S., Hertzmann, A., Trentacoste, M., Han, H., Winnemoeller, H., Agarwala, A., & Darrell, T. ",80000,,photographs,,,,style,semantic annotations,Semantic Annotations & Content ,classification,"Optical techniques: Macro, Bokeh, Depth-of-Field, Long Exposure, HDR
+• Atmosphere: Hazy, Sunny
+• Mood: Serene, Melancholy, Ethereal
+• Composition styles: Minimal, Geometric, Detailed, Texture
+• Color: Pastel, Bright
+• Genre: Noir, Vintage, Romantic, Horror",,,FLICKR,Online Art and Photography Communities,,,https://sergeykarayev.com/recognizing-image-style/,"Karayev, S., Hertzmann, A., Trentacoste, M., Han, H., Winnemoeller, H., Agarwala, A., & Darrell, T. (2014). Recognizing image style. In Proceedings of the British Machine Vision Conference 2014 (pp. 122.1–122.11). British Machine Vision Association. https://doi.org/10.5244/c.28.122"
+Painting-91,2014,"Khan, F. S., Beigpour, S., van de Weijer, J., & Felsberg, M.",4266,91,paintings,,,,"artist, style",semantic annotations,Semantic Annotations & Content ,classification,,,,internet search,General Web Search,,,http://www.cat.uab.cat/~joost/painting91.html,"Khan, F. S., Beigpour, S., van de Weijer, J., & Felsberg, M. (2014). Painting-91: A large scale database for computational painting categorization. Machine Vision and Applications, 25(6), 1385–1397. https://doi.org/10.1007/s00138-014-0621-6"
+Rijksmuseum dataset,2014,"Mensink, T., & van Gemert, J.",112039,,paintings,"paintings, drawings, sculptures, photographic reproductions of the artworks ex-
+hibited in the Rijksmuseum ",,,"artist, art type, material, creation year",semantic annotations,Semantic Annotations & Content ,classification,,,,Rijksmuseum Amsterdam Netherlands,"Museums, Books & Curated Collections",,,https://figshare.com/articles/dataset/Rijksmuseum_Challenge_2014/5660617,"Mensink, T., & van Gemert, J. (2014). The Rijksmuseum challenge: Museum-centered visual recognition. In Proceedings of the 2014 International Conference on Multimedia Retrieval (pp. 451–454). Association for Computing Machinery. https://doi.org/10.1145/2578726.2578791"
+Wikipaintings,2014,"Karayev, S., Hertzmann, A., Trentacoste, M., Han, H., Winnemoeller, H., Agarwala, A., & Darrell, T. ",85000,,paintings,,,,style,semantic annotations,Semantic Annotations & Content ,classification,"Abstract Art, Abstract Expressionism, Art Informel, Art Nouveau (Modern), Baroque, Color Field Painting, Cubism, Early Renaissance, Expressionism, High Renaissance, Impressionism, Magic Realism, Mannerism (Late Renaissance), Minimalism, Naive Art (Primitivism), Neoclassicism, Northern Renaissance, Pop Art, Post-Impressionism, Realism, Rococo, Romanticism, Surrealism, Symbolism, Ukiyo-e",,,wikipaintings.org,"Wikiart, Google Art & Other Online Collections",,,https://sergeykarayev.com/recognizing-image-style/,"Karayev, S., Hertzmann, A., Trentacoste, M., Han, H., Winnemoeller, H., Agarwala, A., & Darrell, T. (2014). Recognizing image style. In Proceedings of the British Machine Vision Conference 2014 (pp. 122.1–122.11). British Machine Vision Association. https://doi.org/10.5244/c.28.122"
+CrowdBeauty / Hidden Beauty,2015,"Schifanella, R., Redi, M., & Aiello, L. M.",15000,,photographs,,,,overall aesthetic score,rating,Aesthetic Score & Preference,predicting/ understanding aesthetics,aesthetic scores by annotators,,,FLICKR,Online Art and Photography Communities,computational aesthetics,480x568,http://www.di.unito.it/~schifane/dataset/beauty-icwsm15/#dataset,"Schifanella, R., Redi, M., & Aiello, L. M. (2015). An image is worth more than a thousand favorites: Surfacing the hidden beauty of flickr pictures. In Proceedings of the international AAAI conference on web and social media (Vol. 9, No. 1, pp. 397-406)."
+deviantArt (devart) Database,2015,"Sartori, A., Yanulevskaya, V., Salah, A. A., Uijlings, J., Bruni, E., & Sebe, N. ",500,,paintings,Amateurs Abstract Artworks,60,,positivity,"choice, labels",Miscellaneous/ Data not available,predicting/ understanding aesthetics,emotional judgements,,"Relative Scale Annotation Prompt: “Which painting in the pair looks more positive to you? Let your instinct guide you and follow your first impression of the paintings. You will see two abstract paintings next to each other, please, choose the one which evokes more positive emotions. Notice that the task is not about ‘liking’ one image more than another. Sometimes a very beautiful painting might be very sad and even fearful, in this case the painting should be still considered as negative.”
+
+Annotation Process: Conducted online,       Participants could join multiple sessions with no time limit, Each participant annotated ""2 to 436 pairs of paintings,"" averaging ""63 paintings."", Participants were anonymous and volunteered without reward, Used ""Microsoft TrueSkill algorithm"" to generate pairs of paintings. Each painting compared with ""15 other paintings.""
+",deviantart.com,Online Art and Photography Communities,,,http://disi.unitn.it/~sartori/datasets/,"Sartori, A., Yanulevskaya, V., Salah, A. A., Uijlings, J., Bruni, E., & Sebe, N. (2015). Affective analysis of professional and amateur abstract paintings using statistical analysis and art theory. ACM Transactions on Interactive Intelligent Systems (TiiS), 5(2), 1-27."
+IAD: image aesthetics dataset,2015,"Lu, X., Lin, Z., Jin, H., Yang, J., & Wang, J. Z. ",15000000,,photographs,,original datasets,original datasets,overall aesthetic score,rating,Aesthetic Score & Preference,predicting/ understanding aesthetics,from original datasets,original datasets,"PHOTO.NET (1 - 7), DPChallenge (1 - 10)","dpchallenge.com, Photo.net",Online Art and Photography Communities,computational aesthetics,,no access provided in publication/ contact authors,"Lu, X., Lin, Z., Jin, H., Yang, J., & Wang, J. Z. (2015). Rating image aesthetics using deep learning. IEEE Transactions on Multimedia, 17(11), 2021–2034. https://doi.org/10.1109/tmm.2015.2477040"
+JenAesthetics Subjective Dataset,2015,"Amirshahi, S. A., Hayn-Leichsenring, G. U., Denzler, J., & Redies, C. ",1628,16,paintings,,134,19,"quality, beauty, liking, color, content, composition, familiarity",rating,Mixed Annotations,predicting/ understanding aesthetics,"Aesthetic Quality, Beauty, Liking of color, Liking of Content, Liking of Composition, Knowing the artist. Familiarity with the Painting","Slider bar with two extremes. Internally, the sliding
+bar was binned into 100 equal intervals. Accordingly, the ratings obtained (see
+Figures 3-8) ranged from 0 to 100 ","""[...]longer side of the image
+was 800 pixels on the screen. The images were placed in the middle of the screen
+on a black background (see Figure 1). Images were presented with a size of 20.5
+cm (longest side) on the computer screen, corresponding to about 19.4 degrees
+of visual angle (at a viewing distance about 60 cm).""",Google Art Project,"Wikiart, Google Art & Other Online Collections",,4434x4581,,"Amirshahi, S. A., Hayn-Leichsenring, G. U., Denzler, J., & Redies, C. (2015). Jenaesthetics subjective dataset: analyzing paintings by subjective scores. In Computer Vision-ECCV 2014 Workshops: Zurich, Switzerland, September 6-7 and 12, 2014, Proceedings, Part I 13 (pp. 3-19). Springer International Publishing."
+WikiArt,2015,"Saleh, B., & Elgammal, A. ",81449,3,paintings,"Abstract Expressionism; Action Painting; Analytical Cubism; Art Nouveau-
+Modern Art; Baroque; Color Field Painting; Contemporary Realism;
+Cubism; Early Renaissance; Expressionism; Fauvism; High
+Renaissance; Impressionism; Mannerism-Late-Renaissance;
+Minimalism; Primitivism-Naive Art; New Realism; Northern
+Renaissance; Pointillism; Pop Art; Post Impressionism; Realism;
+Rococo; Romanticism; Symbolism; Synthetic Cubism; Ukiyo-e",,,"style, artist, genre",semantic annotations,Semantic Annotations & Content ,classification,"genre annotations, style annotations, artist annotations taken over from wikiart.org",,,wikiart.org,"Wikiart, Google Art & Other Online Collections",,,no access provided in publication/ contact authors,"Saleh, B., & Elgammal, A. (2015). Large-scale classification of fine-art paintings: Learning the right metric on the right feature. arXiv preprint arXiv:1505.00855."
+AADB : Aesthetics with Attributes Database,2016,"Kong, S., Shen, X., Lin, Z., Mech, R., & Fowlkes, C. C.",10000,10,photographs,natural indoor and outdoor scenes ,5,5,"balance, color harmony, depth, lighting, blur, emphasis, rule of thirds, vividness, repetition, symmetry",rating,Compositional Annotations,predicting/ understanding aesthetics,"aesthetic quality ratings (avg score) and 11 attribute assignments (pos or neg) for “balancing element”, content”,  “color harmony” , “depth of field”, “lighting”, “motion blur”, “object emphasis”, “rule of thirds”, “vivid color”, “repetition” ,“symmetry”",,,FLICKR,Online Art and Photography Communities,,771x958,https://www.ics.uci.edu/~skong2/aesthetics.html,"Kong, S., Shen, X., Lin, Z., Mech, R., & Fowlkes, C. C. (2016). Photo aesthetics ranking network with attributes and content adaptation. Lecture Notes in Computer Science, 662–679. https://doi.org/10.1007/978-3-319-46448-0_40"
+Aesthetic Responses to Exact Fractals Driven by Physical Complexity,2016,"Bies, A. J., Blanc-Goldhammer, D. R., Boydston, C. R., Taylor, R. P., & Sereno, M. E.",63,5,stimuli,"fractals, binary black-and-white, exact fractals, line/shape fractals, images varying in physical complexity (fractal dimension D), recursion depth, and symmetry",42,,preference,rating,Aesthetic Score & Preference,predicting/ understanding aesthetics,,7-point bipolar scale,"rate the ""visual appeal"" of each image",created by author,Custom/Experimental Stimuli,,1024x768,no access provided in publication/ contact authors,"Bies, A. J., Blanc-Goldhammer, D. R., Boydston, C. R., Taylor, R. P., & Sereno, M. E. (2016). Aesthetic responses to exact fractals driven by physical complexity. Frontiers in Human Neuroscience, 10. https://doi.org/10.3389/fnhum.2016.00210"
+Curvature or angularity,2016,"Bertamini, M., Palumbo, L., Gheorghes, T. N., & Galatsidas, M.",492,4,stimuli,"polygons, white shapes on outdoor scenes,  colored lines on black background",14,,"preference, complexity, approach/avoidance behavior",rating,Mixed Annotations,predicting/ understanding aesthetics,ratings,"0-100, 1-7, 0-100, upward/downward key",Exp1: rating on preference & complexity in counterbalanced blocks. Exp2: Rating if the object is reachable(Y/N) then preference. Exp3: viewing patterns through circular/square aperture and then rating preference.  Exp4: manikin task: moving stick figure towards or away from shape(response times were measured),created by author,Custom/Experimental Stimuli,empirical aesthetics,400x400,no access provided in publication/ contact authors,"Bertamini, M., Palumbo, L., Gheorghes, T. N., & Galatsidas, M. (2016). Do observers like curvature or do they dislike angularity?. British journal of psychology (London, England : 1953), 107(1), 154–178. https://doi.org/10.1111/bjop.12132"
+Evaluating Abstract Art,2016,"Nathalie Lyssenko, Christoph Redies and Gregor U. Hayn-Leichsenring",79,1,paintings,abstract artworks,42,,"structure, complexity, pleasure, interest, semantic annotations",rating,Mixed Annotations,predicting/ understanding aesthetics,bipolar scales,0-100 visual analogue scalw,,Beauty in abstract paintings,Other Non-Aesthetic/Miscellaneous,,?x1024,no access provided in publication/ contact authors,"Lyssenko N, Redies C and Hayn-Leichsenring GU (2016) Evaluating abstract art: Relation between term usage, subjective ratings, image properties and personality traits. Front. Psychol. 7:973. https://doi.org/10.3389/fpsyg.2016.00973"
+Liking versus Complexity: Decomposing the Inverted U-curve,2016,"Güçlütürk, Y., Jacobs, R. H. A. H., & van Lier, R.",144,4,stimuli,"grayscale statistical geometric patterns (SGPs), Abstract geometric patterns built by filling a square surface with non-overlapping elements of a single shape type",30,30,"liking,  complexity, and objective complexity measures",rating,Mixed Annotations,predicting/ understanding aesthetics,"liking ratings, perceived complexity ratings, and response times, objective complexity",9-point bipolar scale," liking:  1 meant ""I do not like it at all"" and 9 meant ""I like it a lot"";  complexity, 1 meant ""very simple"" and 9 meant ""very complex""",created by the authors using algorithm developed by Shier(2011),Custom/Experimental Stimuli,,,no access provided in publication/ contact authors,"Güçlütürk, Y., Jacobs, R. H. A. H., & van Lier, R. (2016). Liking versus complexity: Decomposing the inverted U-curve. Frontiers in Human Neuroscience, 10, 112. https://doi.org/10.3389/fnhum.2016.00112."
+Princeton Adobe Photo Triage,2016,"Chang, H., Yu, F., Wang, J., Ashley, D., & Finkelstein, A.",15545,5953,photographs,series of nearly redundant photographs,,,preference,choice,Aesthetic Score & Preference,predicting/ understanding aesthetics,"preference of image versions, semantic annotations","2AFC, justifications",,photo contest,Online Art and Photography Communities,,754x865,https://www.kaggle.com/datasets/ericwolter/triage,"Chang, H., Yu, F., Wang, J., Ashley, D., & Finkelstein, A. (2016). Automatic triage for a photo series. ACM Transactions on Graphics, 35(4), 1–10. https://doi.org/10.1145/2897824.2925908"
+Taxonomy of Individual Variations in Aesthetic Responses to Fractal Patterns,2016,"Spehar, B., Walker, N., & Taylor, R. P",306,,stimuli,"Synthetic noise patterns with fractal-like scalin, types: Grayscale, Thresholded, Edge, Mountain, and Terrain",310,32,"preference, complexity",choice,Mixed Annotations,predicting/ understanding aesthetics,choice for preferrence  and  complexity  ,forced choice response,"2-AFC: Participants sat 60 cm from a monitor with their head in a chinrest. They viewed pairs of images  and were told to indicate via key press which they ""visually prefer"" or which ""appears more complex""",created by the authors,Custom/Experimental Stimuli,,512x512,no access provided in publication/ contact authors,"Spehar, B., Walker, N., & Taylor, R. P. (2016). Taxonomy of individual variations in aesthetic responses to fractal patterns. Frontiers in Human Neuroscience, 10, 350 . https://doi.org/10.3389/fnhum.2016.00350"
+Painter by numbers,2016,"Nichol, K. [small yellow duck], & Kan, W.",103352,,paintings,,,,"artist, title, year, style, genre, resolution",semantic annotations,Semantic Annotations & Content ,classification,"artist
+date
+genre
+pixelsx
+pixelsy
+size_bytes
+source
+style
+title
+artist_group
+in_train
+new_filename",,,wikiart.org,"Wikiart, Google Art & Other Online Collections",,,https://www.kaggle.com/competitions/painter-by-numbers/overview,"Nichol, K. [small yellow duck], & Kan, W. (2016). Painter by numbers [Dataset]. Kaggle. https://kaggle.com/competitions/painter-by-numbers"
+Pandora,2016,"Florea, C., Condorovici, R., Vertan, C., Boia, R., Florea, L., & Vranceanu, R.",7724,12,paintings,"old Greek pottery, iconoclasm, high renaissance, baroque,
+rococo, romanticism, impressionism, realism, cubism, fauvism, abstract-expressionism and
+surrealism",,,art movement,semantic annotations,Semantic Annotations & Content ,classification,,,,Paintings-91 dataset,Other Non-Aesthetic/Miscellaneous,,,http://imag.pub.ro/pandora/pandora_download.html,"Florea, C., Condorovici, R., Vertan, C., Boia, R., Florea, L., & Vranceanu, R. (2016). Pandora: Description of a painting database for art movement recognition with baselines and perspectives. In 2016 24th European Signal Processing Conference (EUSIPCO) (pp. 918–922). IEEE. https://doi.org/10.1109/EUSIPCO.2016.7760382"
+FACD: Filter Aesthetic Comparison Dataset,2017,"Wei-Tse Sun, Ting-Hsuan Chao, Yin-Hsi Kuo, Winston H. Hsu",28169,8,photographs,1280 unfiltered and 28169 images with filter,,,"preference, overall aesthetic score",choice,Aesthetic Score & Preference,predicting/ understanding aesthetics,"preference data, corresponding aesthetic score",,,"AVA, experimenter generated",Mixed Sources,,535x602,https://wtwilsonsun.github.io/FACD/,"Sun, W.-T., Chao, T.-H., Kuo, Y.-H., & Hsu, W. H. (2017). Photo filter recommendation by category-aware aesthetic learning. IEEE Transactions on Multimedia, 19(8), 1870–1880. IEEE Transactions on Multimedia. https://doi.org/10.1109/TMM.2017.2688929"
+Flickr cropping dataset(2017),2017,"Chen, Y., Huang, T., Chang, K., Tsai, Y., Chen, H., & Chen, B",3414,,"photographs, possibly paintings",,,,cropping,choice,Compositional Annotations,predicting/ understanding aesthetics,"cropping annotation, ranking annotation",,,FLICKR,Online Art and Photography Communities,,715x858,https://github.com/yiling-chen/flickr-cropping-dataset,"Chen, Y., Huang, T., Chang, K., Tsai, Y., Chen, H., & Chen, B. (2017). Quantative analysis of automatic image cropping algorithms: A dataset and comparative study. IEEE Winter Conference on Applications of Computer Vision (pp. 226-234). Santa Rosa, CA."
+FLICKR_AES,2017," Ren, J., Shen, X., Lin, Z. L., Mech, R., & Foran, D. J.",40000,,"photographs, possibly paintings",,,1,overall aesthetic score,rating,Aesthetic Score & Preference,predicting/ understanding aesthetics,aesthetic score,,,FLICKR,Online Art and Photography Communities,,451x545,https://drive.google.com/drive/folders/1XLlPu_lgHqRstF7DBmXQ2QPSK9KPx1Yu,"Ren, J., Shen, X., Lin, Z. L., Mech, R., & Foran, D. J. (2017). Personalized image aesthetics. In IEEE International Conference on Computer Vision (pp. 638-647). doi:10.1109/ICCV.2017.76"
+MSC: Minimum Semantic Content (MSC) image dataset,2017,"Parraga, C. A., Muñoz Gonzalez, M., Penacchio, O., Raducanu, B., & Otazu, X.",10426,,photographs,,> 10000,100,beauty,rating,Aesthetic Score & Preference,predicting/ understanding aesthetics,"""beautified"" and ""uglified""",5-point Likert Scale,,"FLICKR, Good Free Photos, Photos Public Domain,PdPhoto, Morguefile Connors,BurningWell, ",Online Art and Photography Communities,,,https://datadryad.org/stash/share/MO6usjsd2LKkFmb3QAaaPHD-KMpUZ4cpCkwd8xCRc2k,"Parraga, C. A., Muñoz Gonzalez, M., Penacchio, O., Raducanu, B., & Otazu, X. (2017). Aesthetics without semantics. Available at SSRN 4817083."
+PCCD: Photo Critique Captioning Dataset,2017,"Kuang-Yu Chang, K. -H. Lu and C. -S. Chen",4235,,photographs,,60000,,"overall aesthetic score, composition, perspective, color, light, content, depth, focus, camera, exposure, speed",rating,Mixed Annotations,predicting/ understanding aesthetics,"captions, rating, general impression, composition and perspective, color and lighting, subject of photo, depth of field, focus, and use of camera, exposure and speed. For those aspects that have comments for a given photo, a paragraph containing one or more sentences are presented",10-point-scale,,https://gurushots.com/,Online Art and Photography Communities,computational aesthetics,,https://github.com/kunghunglu/DeepPhotoCritic-ICCV17,"Kuang-Yu Chang, K. -H. Lu and C. -S. Chen, ""Aesthetic Critiques Generation for Photos,"" 2017 IEEE International Conference on Computer Vision (ICCV), Venice, Italy, 2017, pp. 3534-3543, doi: 10.1109/ICCV.2017.380. keywords: {Feature extraction; Image color analysis; Training data;Visualization;Data models; Analytical models},
+"
+PsychoFlickr,2017,"
+C. Segalin, A. Perina, M. Cristani, A. Vinciarelli",60000,,"photographs, paintings",,,,faves,counts,Aesthetic Score & Preference,predicting/ understanding aesthetics,"images were selected as favorited by 300 viewers, self report and assessed Big 5 personality traits available for some users",,,FLICKR,Online Art and Photography Communities,,480x568,http://vips.sci.univr.it/dataset/psychoflickr/,"Segalin, C., Perina, A., Cristani, M., & Vinciarelli, A. (2017). The pictures we like are our image: Continuous mapping of favorite pictures into self-assessed and attributed personality traits. IEEE Transactions on Affective Computing, 8(2), 268–285. https://doi.org/10.1109/taffc.2016.2516994"
+REAL-CUR,2017,"J. Ren, X. Shen, Z. Lin, R. Mech and D. J. Foran",5828,14,photographs,,,,overall aesthetic score,rating,Aesthetic Score & Preference,predicting/ understanding aesthetics,"14 personal albums (all
+from different people) and corresponding aesthetic ratings
+provided by the owners of the albums (owners rate their own albums and go through them multiple times).",,,FLICKR,Online Art and Photography Communities,computational aesthetics,256x256,https://drive.google.com/drive/folders/1LR6trJhN4XbgTtqZo1zfe272cAkXqA7e,"Ren, J., Shen, X., Lin, Z., Mech, R., & Foran, D. J. (2017). Personalized image aesthetics. In 2017 IEEE International Conference on Computer Vision (ICCV) (pp. 638–647). IEEE. https://doi.org/10.1109/ICCV.2017.76"
+Waterloo IAA ,2017,"Liu, W., & Wang, Z.",1000,5,photographs,"five image content types, namely Animals (A), Architectures/City Scenes (C), Humans (H), Natural Scenes (N), and Still Object (S)",33,,beauty,rating,Aesthetic Score & Preference,predicting/ understanding aesthetics,"ratings, semantic annotations",slider 0-100,,Photo.net,Online Art and Photography Communities,,,no access provided in publication/ contact authors,"Liu, W., & Wang, Z. (2017). A database for perceptual evaluation of image aesthetics. 2022 IEEE International Conference on Image Processing (ICIP), 1317–1321. https://doi.org/10.1109/icip.2017.8296495"
+ART500K / DeepArt,2017,"Mao, H., Cheung, M., & She, J.",554198,10,paintings,visual arts,,,"origin, artist, art movement, genre, media, technique,
+school and three uncommon classes: event, place and history figure",semantic annotations,Semantic Annotations & Content ,classification,,,,"WikiArt, Web Gallery of Art, Rijks Museum and Google Arts & Culture, Google Search Engine",Mixed Sources,,,http://deepart.ece.ust.hk/,"Mao, H., Cheung, M., & She, J. (2017). DeepArt: Learning joint representations of visual arts. In Proceedings of the 25th ACM International Conference on Multimedia (pp. 1183–1191). Association for Computing Machinery. https://doi.org/10.1145/3123266.3123405"
+BAM! Behance Artistic Media Dataset,2017,"Wilber, M. J., Fang, C., Jin, H., Hertzmann, A., Collomosse, J., & Belongie, S",65000000,,paintings,"artistic media inlc paintings, photographs and digital artworks",,,emotions,labels,"Emotion, Affect & Valence",predicting/ understanding aesthetics,"media labels (e.g. 3D com-
+puter graphics, comics, oil painting, pen ink, pencil
+sketches, vector art, and watercolor.), emotion labels (calm/peaceful, happy/cheerful,
+sad/gloomy, and scary/fearful), object category attributes (bicycles, birds, buildings, cars, cats,
+dogs, flowers, people, and trees)",,hybrid human-in-the-loop strategy,Behance.net,Online Art and Photography Communities,,,no access provided in publication/ contact authors,"Wilber, M. J., Fang, C., Jin, H., Hertzmann, A., Collomosse, J., & Belongie, S. (2017). BAM! The Behance Artistic Media Dataset for recognition beyond photography. In Proceedings of the IEEE International Conference on Computer Vision (ICCV) (pp. 1211–1220). IEEE. https://doi.org/10.1109/ICCV.2017.136"
+"AROD: Aesthetic Ratings from
+Online Data ",2018,"Schwarz, K., Wieschollek, P., & Lensch, H. P. ",380000,,photographs,,,6868,"views, comments, faves and metadata ",counts,Aesthetic Score & Preference,predicting/ understanding aesthetics,"views, comments, faves and metadata ",counts of clicks,"""(...] crawl around 380K photos
+from Flickr including meta data such as their number of views, comments, favorite list containing this photo, title of the image and their description from the Flickr website. Our collection contains images which were published and uploaded between January 2004 and November 2016.""",FLICKR,Online Art and Photography Communities,,1926x2344,https://github.com/cgtuebingen/will-people-like-your-image/tree/master,"Schwarz, K., Wieschollek, P., & Lensch, H. P. (2018, March). Will people like your image? learning the aesthetic space. In 2018 IEEE winter conference on applications of computer vision (WACV) (pp. 2048-2057). IEEE."
+GDP: Gourmet Photography Dataset,2018,"Sheng, K., Dong, W., Huang, H., Ma, C., & Hu, B. G.",12000,,photographs,,25,,positivity,labels,Miscellaneous/ Data not available,predicting/ understanding aesthetics,aesthetically negative or positive,,,"social media, food categorization datasets",Other Non-Aesthetic/Miscellaneous,,,no access provided in publication/ contact authors,"Sheng, K., Dong, W., Huang, H., Ma, C., & Hu, B. G. (2018). Gourmet photography dataset for aesthetic assessment of food images. In SIGGRAPH Asia 2018 technical briefs (pp. 1-4)."
+WikiArt Emotions,2018,"Mohammad, S., & Kiritchenko, S. ",200,22,paintings,"Minimalism, Impressionism, Expressionism, Post-Impressionism, Surrealism, Abstract Expressionism, Cubism, Pop Art, Abstract Art, Art Informed, Color Field Painting, Neo-Expressionism, Magic Realism, Lyrical Abstraction, Realism, Romanticism, Baroque, Neoclassicism, Rococo, Nothern Renaissance, High Renaissance, Early Renaissance",,,"style, style category, emotions",semantic annotations,Mixed Annotations,classification,"style annotations, emotion annotations",,,wikiart.org,"Wikiart, Google Art & Other Online Collections",,921x904,https://saifmohammad.com/WebPages/wikiartemotions.html,"Mohammad, S., & Kiritchenko, S. (2018). WikiArt Emotions: an annotated dataset of emotions evoked by art. In Proceedings of the 11th Edition of the Language Resources and Evaluation Conference (LREC-2018)."
+MultitaskPainting100k,2018,"Bianco, S., Mazzini, D., Napoletano, P., & Schettini, R.",100000,,paintings,,,,"artist, style, genre",semantic annotations,Semantic Annotations & Content ,classification,,,,wikiart.org,"Wikiart, Google Art & Other Online Collections",,,https://drive.google.com/drive/folders/1M0qClDYCBAM1XzlYZiBZnNaBuPUL04e7,"Bianco, S., Mazzini, D., Napoletano, P., & Schettini, R. (2019). Multitask painting categorization by deep multibranch neural network. Expert Systems with Applications, 135, 90–101. https://doi.org/10.1016/j.eswa.2019.05.036"
+AVA-Captions,2019,"Ghosal, K., Rana, A., & Smolic, A.",230000,,photographs,,1500000,5,user comments,semantic annotations,Demographic Annotations,predicting/ understanding aesthetics,user comments,,,AVA therefore dpchallenge.com,Online Art and Photography Communities,computational aesthetics,549x618,https://github.com/V-Sense/Aesthetic-Image-Captioning-ICCVW-2019,"Ghosal, K., Rana, A., & Smolic, A. (2019). Aesthetic image captioning from weakly-labelled photographs. In Proceedings of the IEEE/CVF International Conference on Computer Vision Workshops (pp. 0-0)."
+AVA-PD (Photographer Demographic),2019,"Kairanbay, M., See, J., & Wong, L. ",250000,14,photographs,,,78,"style, demographics, content",semantic annotations,Mixed Annotations,classification,"semantic annotations, aesthetic annotations, photography styles +  age, gender, location attributes",,,https://www.dpchallenge.com/,Online Art and Photography Communities,,549x618,https://github.com/mkairanbay/AVA-PD,"Kairanbay, M., See, J., & Wong, L. (2019). Beauty is in the eye of the beholder. ACM Transactions on Multimedia Computing Communications and Applications, 15(2s), 1–21. https://doi.org/10.1145/3328993"
+AVA-review dataset,2019,"Wang, W., Yang, S., Zhang, W., & Zhang, J.",52118,,photographs,,,78,"style, demographics, content",semantic annotations,Mixed Annotations,classification,"semantic annotations, aesthetic annotations, photography styles + 6 user comments per image",,,AVA so dpchallenge.com,Online Art and Photography Communities,,,no access provided in publication/ contact authors,"Wang, W., Yang, S., Zhang, W., & Zhang, J. (2019). Neural aesthetic image reviewer. IET Computer Vision, 13(8), 749–758. https://doi.org/10.1049/iet-cvi.2019.0361"
+DPC-Captions,2019,"Jin, X., Wu, L., Zhao, G., Zhang, X., Ge, S., Zou, D., Zhou, B., & Zhou, X.",154384,,photographs,,,1,captions,semantic annotations,Miscellaneous/ Data not available,predicting/ understanding aesthetics,2427483 comments on the images,,,DPChallenge,Online Art and Photography Communities,,,https://github.com/BestiVictory/DPC-Captions,"Jin, X., Wu, L., Zhao, G., Zhang, X., Ge, S., Zou, D., Zhou, B., & Zhou, X. (2019). Aesthetic attributes assessment of images. arXiv. https://doi.org/10.1145/3343031.3350970"
+IEA: Images with Aesthetics and Emotions (also UEA: Unified Aesthetic and Emotional Dataset),2019,"Yu, J., Cui, C., Geng, L., Ma, Y., & Yin, Y.",22086,,photographs,"eight emotion categories, i.e., amusement, anger, awe, contentment, disgust, excitement, fear, and sadness",10,10,"emotions, quality",labels,"Emotion, Affect & Valence",predicting/ understanding aesthetics,"aesthetic labels, emotion labels",4 quality labels,"four quality levels: Excellent (score 10), Good (score 7) , Fair (score 4) and Bad (score 1)","flickr, Instagram",Online Art and Photography Communities,computational aesthetics,418x474,https://github.com/junfish/IEA-dataset,"Yu, J., Cui, C., Geng, L., Ma, Y., & Yin, Y. (2019). Towards unified aesthetics and emotion prediction in images. 2022 IEEE International Conference on Image Processing (ICIP), 2526–2530. https://doi.org/10.1109/icip.2019.8803388"
+OASIS-Beauty,2019,"Brielmann, A. A., & Pelli, D. G.",900,4,photographs,all images from OASIS dataset,757,104,"intensity, beauty, emotion",rating,Mixed Annotations,predicting/ understanding aesthetics,"intensity of the feeling of beauty, mood",,TEPS and PHQ-9,OASIS Dataset,Other Non-Aesthetic/Miscellaneous,empirical aesthetics,500 × 400,https://github.com/aenneb/OASIS-beauty,"Brielmann, A. A., & Pelli, D. G. (2019). Intense beauty requires intense pleasure. Frontiers in Psychology, 10. https://doi.org/10.3389/fpsyg.2019.02420"
+"Preference for Randomized Visual
+Patterns",2019,"Friedenberg, J.",200,10,stimuli,"checkerboards, abtract arrays of vertical lines",71(exp1: 32 exp2: 39),circa 128 and 156,"aesthetic preference, reaction time, BF personality scores",rating,Aesthetic Score & Preference,predicting/ understanding aesthetics,"ratings, scores",7-point bipolar scale,"Exp1: it starts with a structured checkerboard Exp2:unique line orientation patterns BOTH exp:  progressively randomizes (from 10 to 100%).4 randomized blocks of 100 trials, total 400. every pattern was rated 4 times. They had to rate the patterns on beauty. They completed the Big-Five personality test",created by author,Custom/Experimental Stimuli,,10cmx10cm,no access provided in publication/ contact authors,"Friedenberg, J. (2019). Beauty in the eye of the beholder: Individual differences in preference for randomized visual patterns. Experimental Psychology. https://doi.org/10.1027/1618-3169/a000432."
+WikiArt Refined,2019,"Tan, W. R., Chan, C. S., Aguirre, H. E., & Tanaka, K.",80000,3,paintings,,,,"style, artist, genre",semantic annotations,Semantic Annotations & Content ,classification,"genre annotations, style annotations, artist annotations taken over from wikiart.org",,,wikiart.org,"Wikiart, Google Art & Other Online Collections",,921x904,https://github.com/cs-chan/ArtGAN/tree/master/WikiArt%20Dataset,"Tan, W. R., Chan, C. S., Aguirre, H. E., & Tanaka, K. (2019). Improved ArtGAN for conditional synthesis of natural image and artwork. IEEE Transactions on Image Processing, 28(1), 394–409. https://doi.org/10.1109/tip.2018.2866698"
+art.pics,2020,"Thieleking, R., Medawar, E., Disch, L., & Witte, A. V. ",2332,3,stimuli,"images of animal,s objects and plants in different art styles",1296,64," liking, wanting, recognizability, arousal, valence, style, content demographics, art interest, art knowledge",ratings,Mixed Annotations,predicting/ understanding aesthetics,"ratings on liking, wanting, recognizability, arousal, valence, style annotations, semantic annotations",1-8 Likert Scale,"Ratings were acquired using the questions (1) liking (How much do you like the picture?/Wie sehr mögen Sie das Bild?) (2) wanting [How much would you like to have it now (e.g., as a poster)?/Wie sehr hätten Sie das Bild jetzt gerne (bspw. als Poster)?] (3) recognizability (How recognizable is the object in the picture?/Wie erkennbar ist das Objekt auf dem Bild?) (4) arousal (How exciting do you find the picture?/Wie aufregend finden Sie das Bild?) (5) valence (How negative or positive is this picture for you?/Wie negativ oder positiv ist das Bild für Sie?) Valence was collected on a ???? to ++++ scale","FRIDa, Food-pics, Food-Pics_Extended, OASIS ",Other Non-Aesthetic/Miscellaneous,,,https://osf.io/btwnq/files/osfstorage,"Thieleking, R., Medawar, E., Disch, L., & Witte, A. V. (2020). art.pics database: An open access database for art stimuli for experimental research. Frontiers in Psychology, 11, Article 576580. https://doi.org/10.3389/fpsyg.2020.576580"
+EVA: Explainable Visual Aesthetics quality assessment Dataset,2020,"Kang, Valenzise, Dufaux",4070,6,photographs,natural indoor and outdoor scenes ,,30,"overall aesthetic score, confidence, composition, quality, content, RT ",rating,Mixed Annotations,predicting/ understanding aesthetics,"degree of difficulty in assessing the aesthetic score, rating for 4 complementary aesthetic attributes, as well as the relative importance of each attribute to form aesthetic opinions",,,"AVA,  DPChallenge",Online Art and Photography Communities,,640x480,https://github.com/kang-gnak/eva-dataset,"Kang, C., Valenzise, G., & Dufaux, F. (2020). EVA: An Explainable Visual Aesthetics Dataset. HAL (Le Centre Pour La Communication Scientifique Directe). https://doi.org/10.1145/3423268.3423590"
+KonIQ-10k,2020,"Hosu, V., Lin, H., Sziranyi, T., & Saupe, D.",10073,,photographs,,,,quality,rating,Miscellaneous/ Data not available,predicting/ understanding aesthetics,quality scores,,, YFCC100m ,Other Non-Aesthetic/Miscellaneous,,1024x786,http://database.mmsp-kn.de/koniq-10k-database.html,"Hosu, V., Lin, H., Szirányi, T., & Saupe, D. (2020). KONIQ-10K: An ecologically valid database for deep learning of blind image quality assessment. IEEE Transactions on Image Processing, 29, 4041–4056. https://doi.org/10.1109/tip.2020.2967829"
+Unsplash Lite Dataset 1.2.2,2020,Unsplash Team,25000,,photographs,nature-themed photographs,,,"demographics, scenes, collections",counts,Demographic Annotations,predicting/ understanding aesthetics,"keyword-image conversions in search results community and AI generated keywords EXIF, location, and landmarks,
+image categories and subcategories, user generated collections and groupings of images, image views and downloads stats",,,contributing photogtraphers,Other Non-Aesthetic/Miscellaneous,,,https://github.com/unsplash/datasets,"Unsplash Dataset | The world’s largest open library dataset. (n.d.). Retrieved June 27, 2024, from https://unsplash.com/data"
+contempArt,2020,"Huckle, N., Garcia, Noa, & Nakashima, Y. ",14398,442,paintings,"paintings and drawings contemporaty are 20218-2020, German art schools",,,"artist, artist demographics, image statistics, upload statistics",semantic annotations,Mixed Annotations,classification,"artist_id,
+full_name,
+school,
+east_german,
+professor_class,
+gender,
+country_iso3,
+continent,
+region,
+instagram_handle,
+follower_count,
+following_count,
+posts_count,
+img_count,
+avg_likes,
+avg_comments,
+avg_file_size,
+avg_width,
+avg_height,
+avg_aspect_ratio",,,instagram and artist websites,Online Art and Photography Communities,,,https://github.com/georgeblck/contempart,"Huckle, N., Garcia, Noa, & Nakashima, Y. (2020). Demographic influences on contemporary art with unsupervised style embeddings. In L. Leal-Taixé & S. Roth (Eds.), Computer Vision – ECCV 2020 Workshops (pp. 126–142). Springer. https://doi.org/10.1007/978-3-030-66096-3_10"
+ArtEmis: Affective Language for Visual Art,2021,"Achlioptas, P., Ovsjanikov, M., Haydarov, K., Elhoseiny, M., & Guibas",80000,,paintings,,6377,5,emotions,semantic annotations,"Emotion, Affect & Valence",predicting/ understanding aesthetics,human emotion attributions and explanations,,,WikiArt,"Wikiart, Google Art & Other Online Collections",computational aesthetics,461x600,https://www.artemisdataset.org/,"Achlioptas, P., Ovsjanikov, M., Haydarov, K., Elhoseiny, M., & Guibas, L. J. (2021). Artemis: Affective language for visual art. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (pp. 11569-11579)."
+CADB: Image Composition Assessment Dataset,2021,"Zhang, B., Niu, L., & Zhang, L. ",9497,,photographs,,5,5,composition,rating,Compositional Annotations,predicting/ understanding aesthetics,rating,1 to 5 bipolar scale,,AADB,Online Art and Photography Communities,,,https://github.com/bcmi/Image-Composition-Assessment-Dataset-CADB,"Zhang, B., Niu, L., & Zhang, L. (2021). Image composition assessment with saliency-augmented multi-pattern pooling (arXiv:2104.03133). arXiv. https://doi.org/10.48550/arXiv.2104.03133"
+IUAV image dataset,2021,"
+Bertamini, M., & Sinico, M. ",772,,stimuli,seven everyday objects with new shapes drawn by designers,174,,"beauty, light, complexity, heaviness, age, danger, symmetry",rating,Mixed Annotations,predicting/ understanding aesthetics,"ratings ugly/beautiful, dark/light, complex/simple, heavy/light, old/modern, dangerous/safe, and asymmetrical/symmetrical",,"""Please judge this image""",generated by 56 expert designers (studying at the IUAV),Mixed Sources,empirical aesthetics,600x600,https://osf.io/cx62j/,"Bertamini, M., & Sinico, M. (2021). A study of objects with smooth or sharp features created as line drawings by individuals trained in design. Empirical Studies of the Arts, 39(1), 61-77. https://doi.org/10.1177/0276237419897048"
+NeatlyOrganized1,2021,"Van Geert, E., & Wagemans, J. ",184,1,photographs,neatly organized compositions,84,84,"order, complexity, soothingness, fascination",rating,Compositional Annotations,predicting/ understanding aesthetics,"ratings for order, complexity, soothingness, and fascination",7-point Likert scale,"Participants were asked to rate each image separately on four characteristics (i.e., ordered, complex, soothing, and fascinating) using a 7-point scale ranging from 1 (not at all) to 7 (extremely). The order of the four characteristics was randomized across participants but stayed constant for each individual participant. ",internet search,General Web Search,empirical aesthetics,presentation size max. 580x600; image sizes and aspect ratios variable,https://doi.org/10.17605/OSF.IO/KSA7R,"Van Geert, E., & Wagemans, J. (2021). Order, complexity, and aesthetic preferences for neatly organized compositions. Psychology of Aesthetics, Creativity, and the Arts, 15(3), 484–504. https://doi.org/10.1037/aca0000276"
+ArtDL,2021,"Milani, F., & Fraternali, P.",42479,19,paintings," artworks portraying Christian saints, divided into 10 classes:
+Saint Dominic, Saint Francis of Assisi, Saint Jerome , Saint John the Baptist, Saint Anthony of Padua, Saint Mary Magdalene , Saint
+Paul , Saint Peter, Saint Sebastian ,
+and Virgin Mary",,,saints,semantic annotations,Miscellaneous/ Data not available,classification," high-level annotations specifying which iconog-
+raphy classes appear in them (from a minimum of one class to a maximum of seven classes)",,,"Catalogo Generale dei Beni Culturali, Gallerix, Museo Nacional del Prado, National Gallery of Art, Pharos, Rijksmuseum, The Metropolitan Museum of Art, Web Gallery of Art, Wikiart, Wikidata",Mixed Sources,,,https://artdl.org/,"Milani, F., & Fraternali, P. (2021). A dataset and a convolutional model for iconography classification in paintings. Journal on Computing and Cultural Heritage, 14(4), Article 46. https://doi.org/10.1145/3458885"
+ArtBrench-10,2022,"Liao, P., Li, X., Liu, X. and Keutzer, K.",60000,10,"paintings, murals, sculptures",,,,"artworks, style annotations",semantic annotations,Semantic Annotations & Content ,classification,"artworks, style annotations",,,"Ukiyo-e, WikiArt, Surrealisum (Website), Metropolitan Museum of Art (MET), Museum of Fine Arts (MFA), Minneapolis Institute of Arts (MIA) and Fine Arts Museums of San
+Francisco (FAMSF)",Mixed Sources,,"three versions of the dataset with different image resolutions: 32×32, 256×256, and original
+image sizes",https://github.com/liaopeiyuan/artbench,"Liao, P., Li, X., Liu, X. and Keutzer, K., (2022). The ArtBench dataset: Benchmarking generative models with artworks [online]. arXiv. [Preprint]. [Viewed 12 July 2023]. Available from: doi: 10.48550/arXiv.2206.11404 "
+ArtEmis v2,2022,"Mohamed, Y., Khan, F. F., Haydarov, K., & Elhoseiny, M. ",53000,,paintings,,,,emotions,semantic annotations,"Emotion, Affect & Valence",classification,human emotion attributions and explanations,,,"wikiart.org, ArtEmis","Wikiart, Google Art & Other Online Collections",,461x600,https://docs.google.com/forms/d/e/1FAIpQLSf1p8lgw3aLiLPUb9EikZoD9WFvxlk4qqy54c9Iryp8jcsRWw/viewform,"Mohamed, Y., Khan, F. F., Haydarov, K., & Elhoseiny, M. (2022). It is okay to not be okay: Overcoming emotional bias in affective image captioning by contrastive data collection. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (pp. 21263-21272)."
+Beautiful on the inside: Aesthetic preferences and the skeletal complexity of shapes.,2022,"Sun, Z., & Firestone, C.",300,5,stimuli,"Algorithmically generated polygons that vary from simple ""blobs"" to intricate, crenulated objects based on internal skeletal ""blueprints""",693,,preference,choice,Aesthetic Score & Preference,predicting/ understanding aesthetics,"The measure of preference was the probability of a stimulus being chosen over its alternatives, aesthetic preference and its relationship to objective skeletal complexity",forced choice response,2-AFC: Participants performed a Hang a Painting task. They were presented with a virtual gallery room containing an empty canvas and two candidate shapes. ,created by the authors,Custom/Experimental Stimuli,,540x540,https://osf.io/vzxdy/,"Sun, Z., & Firestone, C. (2022). Beautiful on the inside: Aesthetic preferences and the skeletal complexity of shapes. Perception, 51(12), 904–918. https://doi.org/10.1177/03010066221124872"
+DPC2022,2022,"Zhong, Z., Zhou, F., & Qiu, G",350000,,photographs,,,,,,Miscellaneous/ Data not available,,,,,dpchallenge.org,Online Art and Photography Communities,,,https://drive.google.com/drive/folders/1KqZZCwdA3hw09jkavmJYjID_qeibRXwM,"Zhong, Z., Zhou, F., & Qiu, G. (2022). Aesthetically relevant image captioning (arXiv:2211.15378). arXiv. https://doi.org/10.48550/arXiv.2211.15378"
+DPC-CaptionsV2,2022,"Zhou, X., Jin, X., Lv, J., Huang, H., Mao, M., & Cui, S.",92006,,photographs,,,,captions,semantic annotations,Miscellaneous/ Data not available,predicting/ understanding aesthetics," 392,625 comments",,,dpchallenge.com,Online Art and Photography Communities,computational aesthetics,,no access provided in publication/ contact authors,"Zhou, X., Jin, X., Lv, J., Huang, H., Mao, M., & Cui, S. (2022). Aesthetic attributes assessment of Images with AMANv2 and DPC-CaptionsV2. arXiv preprint arXiv:2208.04522."
+DRAM:  Diverse Realism in Art Movements dataset,2022,"Cohen, N., Newman, Y., & Shamir, A.",6260,12,paintings,"Realism, Impressionism, Post-Impressionism, Expressionism",,,"style, artist",semantic annotations,Semantic Annotations & Content ,classification,"style annotations, artist annotations",,,"wikiart.org, wikimedia.org, wikioo.org","Wikiart, Google Art & Other Online Collections",,,https://nadavc220.github.io/ssiap/,"Cohen, N., Newman, Y., & Shamir, A. (2022). Semantic segmentation in art paintings (arXiv:2203.03238). arXiv. https://doi.org/10.48550/arXiv.2203.03238"
+LAION-Aesthetics,2022,Large-scale Artificial Intelligence Open Network,120000000,,"photographs, paintings",,,,liking,rating,Aesthetic Score & Preference,predicting/ understanding aesthetics,liking,10-point-scale,"""To create LAION-Aesthetics we trained several lightweight models that predict the rating people gave when they were asked “How much do you like this image on a scale from 1 to 10?”.""",Common Crawl,General Web Search,,,https://github.com/LAION-AI/laion-datasets/blob/main/laion-aesthetic.md,"LAION-Aesthetics | LAION. (n.d.). Laion.ai. Retrieved September 17, 2025, from https://laion.ai/blog/laion-aesthetics/"
+MPAAD: Portrait attribute dataset,2022,"Huang, H., Jin, X., Li, X., Cui, S., & Xiao, C.",3077,,photographs,portrait,original datasets, original datasets,"overall aesthetic score, light, color, composition",rating,Mixed Annotations,predicting/ understanding aesthetics,"overall scores, light scores, color scores, and composition scores, sourced from original datasets",,,"AADB, EVA, PADB, PCCD",Online Art and Photography Communities,computational aesthetics,,no access provided in publication/ contact authors,"Huang, H., Jin, X., Li, X., Cui, S., & Xiao, C. (2022). Aesthetic evaluation of Asian and Caucasian photos with overall and attribute scores. Computers and Electrical Engineering, 103, 108341."
+PARA: Personalized Image Aesthetics Assessment With Rich Attributes,2022,"Yang, Y., Xu, L., Li, L., Qie, N., Li, Y., Zhang, P., & Guo, Y. ",31220,13,photographs,natural scenes,,26,"composition, light,
+color, depth, emphasis, content, emotion, difficulty, sharing, scene, overall aesthetic score, quality",rating,Mixed Annotations,predicting/ understanding aesthetics,each image is annotated with 13 labels (together with subject information),,, CC search,General Web Search,,varying,https://drive.google.com/file/d/1ZKNceBy5eLn2XgPd2fsEQEosKfUkMdGO/view,"Yang, Y., Xu, L., Li, L., Qie, N., Li, Y., Zhang, P., & Guo, Y. (2022). Personalized image aesthetics assessment with rich attributes. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (pp. 19861-19869). https://arxiv.org/abs/2203.16754"
+RPCD: Reddit Photo Critique Dataset,2022,"Nieto, D. V., Celona, L., & Fernandez-Labrador, C.",74000,,photographs,,,7,"captions, overall aesthetic score",semantic annotations,Aesthetic Score & Preference,predicting/ understanding aesthetics,"photo critique, 7 attribute, and aesthetic scores by annotators",,,reddit,General Web Search,,2993×2716,https://github.com/mediatechnologycenter/aestheval,"Vera Nieto, D. V., Celona, L., & Fernandez-Labrador, C. (2022). Understanding aesthetics with language: A photo critique dataset for aesthetic assessment (arXiv:2206.08614). arXiv. https://doi.org/10.48550/arXiv.2206.08614"
+Simulacra Aesthetic Caption,2022,"Pressman, J. D., Crowson, K., & Simulacra Captions Contributors.",238000,,artificially generated images,,,,overall aesthetic score,rating,Aesthetic Score & Preference,predicting/ understanding aesthetics,,10-point-scale,,CompVis latent GLIDE and Stable Diffusion,AI Generated,,,https://github.com/JD-P/simulacra-aesthetic-captions,"Pressman, J. D., Crowson, K., & Simulacra Captions Contributors. (2022). Simulacra aesthetic captions (Version 1.0) [Technical report]. Stability AI. https://github.com/JD-P/simulacra-aesthetic-captions"
+"TAD66K: Rethinking Image Aesthetics Assessment: Models, Datasets and Benchmarks",2022,"He, S., Zhang, Y., Xie, R., Jiang, D., & Ming, A.",66000,47,"photographs, paintings",,,1200,"overall aesthetic score, content, scene",rating,Mixed Annotations,predicting/ understanding aesthetics,Theme categories and aesthetic scores by annotators,10-point-scale,,FLICKR,Online Art and Photography Communities,,574x771,https://drive.google.com/drive/folders/1b2D9LeeG5XZzhEa8ldnIZjGh0IHadHhU?usp=sharing,"He, S., Zhang, Y., Xie, R., Jiang, D., & Ming, A. (2022). Rethinking image aesthetics assessment: Models, datasets and benchmarks. In Proceeding of the Thirty-First International Joint Conference on Artificial Intelligence."
+VAPS: Vienna Art Picture System,2022,"Fekete, A., Pelowski, M., Specker, E., Brieber, D., Rosenberg, R., & Leder, H.",999,5,paintings,"Main categories: Scenes, Portraits, Landscapes, Still lifes, Toward abstraction, Sub-Categories: Renaissance and Mannerism, Baroque and Rococo, Idealistic tendencies,
+Realistic tendencies of the 19th century, Impressionistic tendencies, Postimpressionistic tendencies, Expressionistic tendencies, Cubistic tendencies, Constructivist tendencies, Realistic tendencies of the 20th century,
+Surrealistic tendencies, Informel tendencies, Abstract expressionist tendencies",120,20,"liking, emotions, valence, complexity, familiarity",rating,Mixed Annotations,predicting/ understanding aesthetics,"style annotations, ratings on liking, emotional valence, emotional arousal, visual complexity, and familiarity",7-point Likert Scale,"a subset of 55 images was rated by all participants, each participant rated 210 images",online search,General Web Search,,1687x1794,https://osf.io/a7xcr/,"Fekete, A., Pelowski, M., Specker, E., Brieber, D., Rosenberg, R., & Leder, H. (2022). The Vienna Art Picture System (VAPS): A data set of 999 paintings and subjective ratings for art and aesthetics research. Psychology of Aesthetics, Creativity, and the Arts. https://doi.org/10.1037/aca0000460"
+WikiArt Vectors,2022,"Srinivasa Desikan, B.,
+Shimao, H., Miton, H.
+",68094,,vectors,color and style vectors for paintings,,,"style, artist, genre, color",vectors,Semantic Annotations & Content ,predicting/ understanding aesthetics,,,,wikiart.org,"Wikiart, Google Art & Other Online Collections",,,https://github.com/bhargavvader/WikiArtVectors,"Desikan, B. S., Shimao, H., & Miton, H. (2022). WikiArtVectors: Style and color representations of artworks for cultural analysis via information theoretic measures. Entropy, 24(9), 1175. https://doi.org/10.3390/e24091175"
+ArtELingo,2022,"Mohamed, Y., Abdelfattah, M., Alhuwaider, S., Li, F., Zhang, X., Church, K., & Elhoseiny, M.",80000,,paintings,,1200000,15.3,emotions,labels,"Emotion, Affect & Valence",predicting/ understanding aesthetics,"emption labels (Contentment, Awe, Amusement, Excitement, Sadness, Fear, Disgust, Anger, Other), in 3 languages (rabic, Chinese and English)",9 labels,,WikiArt,"Wikiart, Google Art & Other Online Collections",,,https://www.artelingo.org/,"Mohamed, Y., Abdelfattah, M., Alhuwaider, S., Li, F., Zhang, X., Church, K., & Elhoseiny, M. (2022). ArtELingo: A million emotion annotations of WikiArt with emphasis on diversity over language and culture. In Y. Goldberg, Z. Kozareva, & Y. Zhang (Eds.), Proceedings of the 2022 Conference on Empirical Methods in Natural Language Processing (pp. 8770–8785). Association for Computational Linguistics. https://doi.org/10.18653/v1/2022.emnlp-main.600"
+DEArt: Dataset of European Art,2022,"Reshetnikov, A., Marinescu, M.-C., Lopez, J. M., Mendoza, S., Freire, N., Marrero, M., Tsoupra, E., & Isaac, A. ",15000,69,paintings,iconic and non-iconic paintings from between the 12th and the 18th centuries,,,object classes and poses of human objects,semantic annotations,Compositional Annotations,classification,,,,"Europeana Collections, Wikimedia Commons, British Museum, Rijksmuseum, Wikipedia, The Clark Museum, The Cleveland Museum of Art, Harvard Art Museum, Los Angeles County Museum of Art, The Leiden Collection, Paul Mellon Centre, Philadelphia Museum of Art, National Gallery of Scotland, Museo Nacional Thyssen-Bornemisza, Victoria and Albert Museum, National Museum in Warsaw, Yale University Art Gallery, The Metropolitan Museum of Art, National Gallery of Denmark, The National Gallery of Art, The Art Institute of Chicago, WikiArt, PHAROS: The International Consortium of Photo Archives",Mixed Sources,,,https://zenodo.org/records/6984525,"Reshetnikov, A., Marinescu, M.-C., & Lopez, J. M. (2023). DEArt: Dataset of European art. In European Conference on Computer Vision (pp. 218–233). Springer. https://doi.org/10.1007/978-3-031-25056-9_15 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- Reshetnikov, A., Marinescu, M.-C., Lopez, J. M., Mendoza, S., Freire, N., Marrero, M., Tsoupra, E., & Isaac, A. (2025). DEArt: Building and evaluating a dataset for object detection and pose classification for European art. Journal of Cultural Heritage, 75, 258–266. https://doi.org/10.1016/j.culher.2025.07.022  "
+DELAUNAY (Dataset for Experiments on Learning with Abstract and non-figurative art for Neural networks and Artificial intelligence),2022,"Gontier, C., Jordan, J., & Petrovici, M. A.",11503,53,paintings,abstract and non-figurative artworks,,,artist,semantic annotations,Semantic Annotations & Content ,classification,,,,"online museum collections (Solomon R.
+Guggenheim Museum in New-York, the MET, the
+Bibliothèque Nationale de France (BNF) through its open-
+access online tool Gallica, 
+Library of Congress,  Réunion des Musées
+Nationaux - Grand Palais (Rmn-GP), Institut National d’Histoire de l’Art (INHA), the
+Bridgeman Art Library,  National Portrait Gallery,
+Alamy and Getty Images photo libraries ","Museums, Books & Curated Collections",,,https://github.com/camillegontier/DELAUNAY_dataset,"Gontier, C., Jordan, J., & Petrovici, M. A. (2022). DELAUNAY: A dataset of abstract art for psychophysical and machine learning research. arXiv. https://doi.org/10.48550/arXiv.2201.12123"
+Materials In Paintings (MIP),2022,"van Zuijlen, M. J. P., Lin, H., Bala, K., Pont, S. C., & Wijntjes, M. W. A.",19000,,paintings,,3233,5,"artist, title, gallery, material, year",semantic annotations,Semantic Annotations & Content ,classification,"bounding box annotaions with material annotations, 15 material categories: animal, ceramic, fabric, sky, stone, flora, food, gem,
+wood, skin, glass, ground, liquid, paper, and metal",,,"The Rijksmuseum,
+The Metropolitan Museum of Art USA,
+Nationalmuseum Sweden,
+Cleveland Museum of Art,
+National Gallery of Art USA, 
+Museo Nacional del Prado Spain,
+The Art Institute of Chicago,
+Mauritshuis, 
+J. Paul Getty Museum ","Museums, Books & Curated Collections",,,https://materialsinpaintings.tudelft.nl/download/,"van Zuijlen, M. J. P., Lin, H., Bala, K., Pont, S. C., & Wijntjes, M. W. A. (2020). Materials In Paintings (MIP): An interdisciplinary dataset for perception, art history, and computer vision. arXiv. https://doi.org/10.48550/arXiv.2012.02996"
+StyleBabel,2022,"Ruta, D., Gilbert, A., Aggarwal, P., Marri, N., Kale, A., Briggs, J., Speed, C., Jin, H., Faieta, B., Filipkowski, A., Lin, Z., & Collomosse, J.",135000,,paintings,digital artworks,,,labels,labels,Semantic Annotations & Content ,classification,"labels, semantic annotations, stroke/colouring type, lighting, shading, patterns, shapes, composition, medium,
+layout, theme ",,moodboards,BAM! So Behance.net,Online Art and Photography Communities,,,no access provided in publication/ contact authors,"Ruta, D., Gilbert, A., Aggarwal, P., Marri, N., Kale, A., Briggs, J., Speed, C., Jin, H., Faieta, B., Filipkowski, A., Lin, Z., & Collomosse, J. (2022). StyleBabel: Artistic style tagging and captioning. In S. Avidan, G. Brostow, M. Cissé, G. M. Farinella, & T. Hassner (Eds.), Computer Vision – ECCV 2022 (pp. 219–236). Springer. https://doi.org/10.1007/978-3-031-20074-8_13"
+AGIQA-1K,2023,"Zhang, Z., Li, C., Sun, W., Liu, X., Min, X., & Zhai, G. ",1080,2,artificially generated images,,22,22,quality,rating,Miscellaneous/ Data not available,predicting/ understanding aesthetics,quality ratings,"quality scale that ranges from 0 to 5, with a minimum
+interval of 0.1","The AGIs are presented in random order on an iMac monitor with a resolution of up to 4096 × 2304, using an interface designed with Python Tkinter, as shown in Fig. 5. The interface allows
+viewers to browse the previous and next AGIs and rate them using a quality scale that ranges from 0 to 5, with a minimum interval of 0.1. A total of 22 graduate students (10 males and
+12 females) participate in the experiment, and they are seated at a distance of around 1.5 times the screen height (45cm) in a laboratory with normal indoor lighting. To limit the experiment time for each session to less than half an hour, the experiment is split into 5 sessions, each of which includes the subjective quality evaluation for about 200 AGIs. This results in more than 22×1,080=23,760 quality ratings.","stable-
+inpainting-v1 and stable-diffusion-v2 ",AI Generated,computational aesthetics,512x512,https://drive.google.com/file/d/158uTLMnxGlzYA11r5jOtXFAWAG_4sjia/view,"Zhang, Z., Li, C., Sun, W., Liu, X., Min, X., & Zhai, G. (2023). A perceptual quality assessment exploration for AIGC Images. ArXiv.org. https://arxiv.org/abs/2303.12618"
+AGIQA-3K,2023,"Li, C., Zhang, Z., Wu, H., Sun, W., Min, X., Liu, X., Zhai, G., & Lin, W. ?",2982,6,artificially generated images,,21,21,quality,rating,Miscellaneous/ Data not available,predicting/ understanding aesthetics,quality ratings,"quality scale and alignment scale that ranges from 0 to 5, with a minimum
+interval of 0.1","To obtain the subjective quality score of AGIQA-3K, we conducted a one-month subjective experiment in the SJTU Multimedia Laboratory. Complying with the ITU-R BT.500-13 standard, we set up the environment as a normal indoor home setting, with normal lighting levels, presented
+AGIs on the screen in random order on the iMac monitor with a resolution of up to 4096 × 2304 interface, and score them at Perception and Alignment level through two sliders. The perception score is an overall score of technical issues, AI artifacts, deepfake, and aesthetic aspects.","GLIDE, Stable Diffusion V-1.5,  Stable Diffusion
+XL-2.2, Midjourney,  AttnGAN, DALLE2, ",AI Generated,computational aesthetics,512x512,https://drive.google.com/file/d/1ObuOZ6YZqZuxe4oRlaf3kdOBlTRg2GE4/view,"Li, C., Zhang, Z., Wu, H., Sun, W., Min, X., Liu, X., Zhai, G., & Lin, W. (2023). AGIQA-3K: An open Database for AI-Generated Image Quality Assessment. ArXiv.org. https://arxiv.org/abs/2306.04717"
+AIGCIQA2023,2023,"Wang, J., Duan, H., Liu, J., Chen, S., Min, X., & Zhai, G. ",2400,6,artificially generated images,,28,,"quality, authenticity, correspondence",rating,Semantic Annotations & Content ,predicting/ understanding aesthetics,"quality, authenticity, correspondence","quality, authenticity, correspondence scores of 2400 AIGIs (4 images × 6 models × 100 prompts)","2000 images based on 6 state-of-the-art text-to-image generation models using 100 prompts. Based on these images, a well-organized subjective experiment is conducted to assess the human visual preferences for each image from three perspectives including quality, authenticity and correspondence","Glide, Lafite, DALLE, Stable-diffusion, Unidiffuser, Controlnet, prompts generated from diverse texts from the PartiPrompts website",AI Generated,computational aesthetics,512x512,https://www.terabox.com/sharing/link?surl=DtV-A9XiuQQDvVPXn6rYvg,"Wang, J., Duan, H., Liu, J., Chen, S., Min, X., & Zhai, G. (2024). AIGCIQA2023: A Large-Scale Image Quality Assessment Database for AI generated images: from the perspectives of quality, authenticity and correspondence. In Lecture notes in computer science (pp. 46–57). https://doi.org/10.1007/978-981-99-9119-8_5"
+AMD-A: Aesthetic Mixed Dataset With Attributes,2023,"Jin, X., Li, X., Lou, H., Fan, C., Deng, Q., Xiao, C., ... & Singh, A. K",16924,,photographs,,sourced from original datasets,sourced from original datasets," light, color, composition, overall score",labels,Mixed Annotations,predicting/ understanding aesthetics,"labels for light, color, composition and overall",,"2 sets (One set(11166 images) is applied to aesthetic
+overall score regression, another set(16924 images) is applied to aesthetic attribute score
+classification and regression.)","EVA, AADB, PCCD, PADB, and HADB, DPCallenge.com,
+SCUI-FBP5500, Photo.net, SPAQ",Online Art and Photography Communities,computational aesthetics,,no access provided in publication/ contact authors,"?Jin, X., Li, X., Lou, H., Fan, C., Deng, Q., Xiao, C., Cui, S., & Singh, A. K. (2022). Aesthetic attribute assessment of images numerically on mixed multi-attribute datasets. ACM Transactions on Multimedia Computing Communications and Applications, 18(3s), 1–16. https://doi.org/10.1145/3547144"
+BAID: Boldbrush Artistic Image Dataset,2023,"Yi, R., Tian, H., Gu, Z., Lai, Y. K., & Rosin, P. L.",60337,,paintings,,,1,overall aesthetic score,counts,Aesthetic Score & Preference,predicting/ understanding aesthetics,"aesthetic score, votes transformed to score",online votes,,Boldbrush Art Contest and Exhibit,Online Art and Photography Communities,computational aesthetics,816x865,https://github.com/Dreemurr-T/BAID,"Yi, R., Tian, H., Gu, Z., Lai, Y. K., & Rosin, P. L. (2023). Towards artistic image aesthetics assessment: a large-scale dataset and a new method. arXiv preprint arXiv:2303.15166."
+D-ViSA: A Dataset for Detecting Visual Sentiment from Art Images,2023,"Kim, S., An, C., Cha, J., Kim, D., & Park, E.",2782,,paintings,"abstract
+expressionist art images",3,,emotions,labels,"Emotion, Affect & Valence",predicting/ understanding aesthetics,"categorical emotion labels, dimensional emotion labels",0 to 1 scale,"Online Annotation Process: Art images presented with textual information (author, title, year). Annotators entered categorical emotion labels and rated VAD levels through input boxes. Annotators received instructions and eight basic emotion categories: excitement, amusement, contentment, awe, sadness, anger, disgust, and fear. Task: Select one or more emotional labels based on feelings evoked by each image.
+
+Dimensional Emotion Labels: Provided NRC-VAD Lexicon and Mikel’s emotion wheel for reference. Task: Rate Valence-Arousal-Dominance (VAD) levels for each image on a scale from 0 to 1.
+
+Online Annotation Process
+
+    Art images presented with textual information (author, title, year).
+    Annotators entered categorical emotion labels and rated VAD levels through input boxes.",WikiArt,"Wikiart, Google Art & Other Online Collections",,627x629,https://github.com/dxlabskku/D-ViSA/tree/main,"Kim, S., An, C., Cha, J., Kim, D., & Park, E. (2023). D-visa: a dataset for detecting visual sentiment from art images. In Proceedings of the IEEE/CVF international conference on computer vision (pp. 3051-3059)."
+ICAA17K,2023,"He, S., Ming, A., Li, Y., Sun, J., Zheng, S., & Ma, H.",17000,,photographs,,,1500,"color, overall aesthetic score",rating,Aesthetic Score & Preference,predicting/ understanding aesthetics,"30 popular color combinations, 80 devices and 50 scene",,,FLICKR,Online Art and Photography Communities,,597x756,https://drive.google.com/file/d/18PDtXiQNqHe8NUFK9jpuAjBp2MxRjRGM/view?pli=1,"He, S., Ming, A., Li, Y., Sun, J., Zheng, S., & Ma, H. (2023). Thinking image color aesthetics assessment: Models, datasets and benchmarks. In Proceedings of the IEEE/CVF International Conference on Computer Vision (pp. 21838-21847)."
+Impressions,2023,"Kruk, J., Ziems, C., & Yang, D. ",1440,,"photographs, possibly paintings",,,,"overall aesthetic score, semantic annotations, descriptons",rating,Aesthetic Score & Preference,predicting/ understanding aesthetics,"image description, viewers’ impression of the image, and (3) aesthetic image evaluation grounded in the viewers’ impression, aesthetic impact scores (in a range of 1 to 4) ",,,"New York Times, Google search",Mixed Sources,,924x1248,https://github.com/SALT-NLP/Impressions,"Kruk, J., Ziems, C., & Yang, D. (2023). Impressions: Understanding Visual Semiotics and Aesthetic Impact. arXiv preprint arXiv:2310.17887."
+Pick-a-Pic Dataset,2023,"Kirstain, Y., Polyak, A., Singer, U., Matiana, S., Penna, J., & Levy, O. ",1000000,,artificially generated images,,6394,,preference,choice,Aesthetic Score & Preference,predicting/ understanding aesthetics,preference score of two image versions generated with the same prompt,2AFC,,Pick-a-Pic Web App,Other Non-Aesthetic/Miscellaneous,,,https://huggingface.co/datasets/yuvalkirstain/pickapic_v1,"Kirstain, Y., Polyak, A., Singer, U., Matiana, S., Penna, J., & Levy, O. (2023). Pick-a-pic: An open dataset of user preferences for text-to-image generation. Advances in Neural Information Processing Systems, 36, 36652-36663."
+Symm2020,2023,"Damiano, C., Wilder, J., Zhou, E. Y., Walther, D. B., & Wagemans, J. ",720,12,photographs,"natural outdoor landscapes (alp. Beach, canyon, cave, desert, field, forest, lake mountain, park, swamp, water), though sometimes include people or human-made object",142,49,"complexity, pleasure, interest",rating,Mixed Annotations,predicting/ understanding aesthetics,"ratings on complexity, pleasure and interest",5-point Likert scale,"""[…] a trial began with a blank white screen for 500ms. Then, each image was displayed in the center of the screen on a white background for 500 ms before the first rating scale would appear below the image. Participants then had to respond on a 5-point Likert scale, using their computer mouse, [...]""",Google image searches,General Web Search,empirical aesthetics,500x3375,https://osf.io/zge9r/#!,"Damiano, C., Wilder, J., Zhou, E. Y., Walther, D. B., & Wagemans, J. (2021). The role of local and global symmetry in pleasure, interest, and complexity judgments of natural scenes. Psychology of Aesthetics, Creativity, and the Arts."
+ViCo: Visual Contour Stimulus Set,2023,"Clemente, A., Penacchio, O., Vila-Vidal, M., Pepperell, R., & Ruta, N. ",88,,stimuli,black contours (closed lines) on white background varying systematically,87,87,"angularity, liking",rating,Mixed Annotations,predicting/ understanding aesthetics,"ratings, hedonic and perceptual",21-point Likert Scale,liking and curved-angular rating,experimenter generated,Custom/Experimental Stimuli,empirical aesthetics,910x911,https://osf.io/kv38d/,"Clemente, A., Penacchio, O., Vila-Vidal, M., Pepperell, R., & Ruta, N. (2023). Explaining the curvature effect: Perceptual and hedonic evaluations of visual contour. Psychology of Aesthetics, Creativity, and the Arts."
+AesFeedback,2024,"Huang, Y., Sheng, X., Yang, Z., Yuan, Q., Duan, Z., Chen, P., Li, L., Lin, W., & Shi, G. ",21904,,"photographs, paitings, artificial images","natural images, artistic images, artificially generated images",48,,"aesthetic grades, explantions aesthetic appeal, description of emotional factors",semantic annotations,Mixed Annotations,predicting/ understanding aesthetics,"verbal coarse-grained aesthetic evaluation, Fine-grained reasoning and explanation, Finer-grained description on aesthetic feeling ",,progressive questioning,"AADB, PARA, TAD66k, LITE, Impressions, SPAQ, KonIQ-10k, BAID, CAD, Artemis, DiffusionDB, AGIQA-3K, AGIQA-1K ",Mixed Sources,,,https://github.com/yipoh/AesExpert,"Huang, Y., Sheng, X., Yang, Z., Yuan, Q., Duan, Z., Chen, P., Li, L., Lin, W., & Shi, G. (2024). AesExpert: Towards multi-modality foundation model for image aesthetics perception (arXiv:2404.09624). arXiv. https://doi.org/10.48550/arXiv.2404.09624"
+AesMMIT,2024,"Huang, Y., Sheng, X., Yang, Z., Yuan, Q., Duan, Z., Chen, P., Li, L., Lin, W., & Shi, G. ",21904,,"photographs, paitings, artificial images","natural images, artistic images, artificially generated images",48,,"aesthetic grades, explantions aesthetic appeal, description of emotional factors",semantic annotations,Mixed Annotations,predicting/ understanding aesthetics,"GPT-4 transformed original human critiques into: Open-ended questions, Yes/No questions, Multiple-choice questions, 
+Includes correct answers and distractor options",,,AesFeedback,Online Art and Photography Communities,,,https://github.com/yipoh/AesExpert,"Huang, Y., Sheng, X., Yang, Z., Yuan, Q., Duan, Z., Chen, P., Li, L., Lin, W., & Shi, G. (2024). AesExpert: Towards multi-modality foundation model for image aesthetics perception (arXiv:2404.09624). arXiv. https://doi.org/10.48550/arXiv.2404.09624"
+APDD: Aesthetics of Paintings and Drawings Dataset ,2024,"Jin, X., Qiao, Q., Lu, Y., Gao, S., Huang, H., & Li, G",4985,24,paintings,"oil painting, sketch-
+ing, and traditional Chinese painting,  symbol-
+ism, classicism, romanticism, meticulous, and freehand, and
+landscapes, still life, portraiture, floral and
+avian, mountains and water",51,,"overall aesthetic score, Order, Creativity, Layout, Composition, Space, Perspective, Light, Shadow, Color, Theme, Logic, Texture",rating,Mixed Annotations,predicting/ understanding aesthetics,"overall aesthetic score, Theme and Logic, Creativity, Layout and composition, Space and Perspective, Sense of Order, Light and Shadow, Color Details and Texture ","0-100 bi-polar scale, 10 point bi-polar scale,","online scoring system, first phase involved 27 professional artists from the oil painting, sketching, and Chinese painting groups. Their task was to lay the foundation for the entire scoring activity. ... they collaboratively established scoring criteria for each image category and aesthetic attribute, presenting them in the form of benchmark im-
+ages. Based on the selected benchmark images, the scoring team developed a consistent and objective scoring system, ensuring subsequent scoring work could adhere to unified standards. The second phase involved 24 students with high academic qualifications from the oil painting, sketching, and Chinese painting groups. "," ConceptArt, DeviantArt, WikiArt , the China Artists Association, and the
+National Art Museum of China, art student assignments",Mixed Sources,,,no access provided in publication/ contact authors,"Jin, X., Qiao, Q., Lu, Y., Gao, S., Huang, H., & Li, G. (2024). Paintings and drawings aesthetics assessment with rich attributes for various artistic categories (arXiv:2405.02982). arXiv. https://doi.org/10.48550/arXiv.2405.02982"
+APDDv2: Aesthetics of Paintings and Drawings Dataset with Artist Labeled Scores and Comments,2024,"Jin, X., Qiao, Q., Lu, Y., Wang, H., Huang, H., Gao, S., Liu, J., & Li, R",10023,24,paintings,"oil painting, sketch-
+ing, and traditional Chinese painting,  symbol-
+ism, classicism, romanticism, meticulous, and freehand, and
+landscapes, still life, portraiture, floral and
+avian, mountains and water",37,6,"overall aesthetic score, Order, Creativity, Layout, Composition, Space, Perspective, Light, Shadow, Color, Theme, Logic, Texture",rating,Mixed Annotations,predicting/ understanding aesthetics,"overall aesthetic score, Theme and Logic, Creativity, Layout and composition, Space and Perspective, Sense of Order, Light and Shadow, Color Details and Texture ","0-100 bi-polar scale, 10 point bi-polar scale,",," ConceptArt, DeviantArt, WikiArt , the China Artists Association, and the
+National Art Museum of China, art student assignments from the  Affiliated Middle School of the Central Academy of Fine Arts, supplemented by
+submissions from mobile applications like ""MeiYuanBang"" and ""XiaoHongShu",Mixed Sources,,,https://github.com/BestiVictory/APDDv2,"Jin, X., Qiao, Q., Lu, Y., Wang, H., Huang, H., Gao, S., Liu, J., & Li, R. (2024). APDDv2: Aesthetics of paintings and drawings dataset with artist labeled scores and comments. In A. Globerson, L. Mackey, D. Belgrave, A. Fan, U. Paquet, J. Tomczak, & C. Zhang (Eds.), Advances in Neural Information Processing Systems (Vol. 37, pp. 103064–103075). Curran Associates, Inc. https://doi.org/10.52202/079017-3274"
+EAPD: Expert-labeled Aesthetics Perception Database,2024,"Huang, Y., Yuan, Q., Sheng, X., Yang, Z., Wu, H., Chen, P., ... & Lin, W.",2800,,"photographs, paintings, artificially generated images",,32,,"quality, color, light, composition, content",semantic annotations,Mixed Annotations,predicting/ understanding aesthetics,"technical quality, color and light, composition, content",,,"AADB [Kong et al., 2016], PARA [Yang et al., 2022] and TAD66K [He et al., 2022], BAID [Yi et al., 2023], CAD [Li et al., 2018] and ArtEmis [Achlioptas et al., 2021]), Diffu-
+sionDB [Wang et al., 2023], AGIQA-1K [Li et al., 2023b]
+and AGIQA-3K [Zhang et al., 2023a]).",Mixed Sources,,1166x1267,https://huggingface.co/datasets/qyuan/EAPD_release,"Huang, Y., Yuan, Q., Sheng, X., Yang, Z., Wu, H., Chen, P., ... & Lin, W. (2024). AesBench: An expert benchmark for multimodal large language models on image aesthetics perception. arXiv preprint arXiv:2401.08276."
+LODB: Layout Object Database PAPER WITHDRAWN by author,2024,"Zhao, Z., Lu, P., Peng, X., & Guo, W.",6029,,,,,,,,Miscellaneous/ Data not available,,,,,"PARA, AADB, AVA-test, ADE20k, COCO2017, FLICKR-AES, TAD66k, VOC2007, and VOC2012",Mixed Sources,,,https://github.com/CV-xueba/Image-Layout-Learning,"Zhao, Z., Lu, P., Peng, X., & Guo, W. (2024). Self-supervised photographic image layout representation learning (arXiv:2403.03740). arXiv. https://doi.org/10.48550/arXiv.2403.03740"
+"Relating Objective Complexity, Subjective Complexity and Beauty in Binary Pixel Patterns",2024,"Nath, S. Brändle, F., Schulz, E., Dayan, P., & Brielmann, A.",216,,stimuli,"2D black-and-white pixel patterns, varied in density, symmetry, shape, style",78,,"beauty, complexity, VAIAK",rating,Mixed Annotations,predicting/ understanding aesthetics,ratings,visual analogue scale 0-100,Participants were shown 12 example patterns. for each trial a pattern was displayed with 2 sliders(low/high complexity and low/high beauty). no definitions of beauty or complexity were provided. then  demographic data and VAIAK questionnaire was recorded. open ended questions were used to record what strategies they use for rating.,created by author,Custom/Experimental Stimuli,,300x300 ,https://github.com/surabhisnath/Relating_ObjectiveComplexity_SubjectiveComplexity_Beauty_BinaryPixelPatterns,"Nath, S. S., Brändle, F., Schulz, E., Dayan, P., & Brielmann, A. (2024). Relating objective complexity, subjective complexity, and beauty in binary pixel patterns. Psychology of Aesthetics, Creativity, and the Arts. Advance online publication. https://doi.org/10.1037/aca0000657"
+Symmetry and Meaningfulness in the Spotlight of Expertness,2024,"Palko-Arndt, B., Bali, C., & Illes, A.",32,3,stimuli,"Simple black-and-white geometric images, non-art, Geometric forms constructed from the same elements, varying in whether they depict a recognizable object or an abstract form ",182,182,"preference for symmetry, for  meaning and for prototypicality",choice,Aesthetic Score & Preference,predicting/ understanding aesthetics,number of preference choices transformed into Preference Indexes and raw count of preference,forced choice response,"AFC:  Participants completed an online Google Forms task consisting of 5 blocks without a time limit. Blocks 1–4 : Participants were shown two images at a time (randomized pairs) and forced to choose the one they preferred. These blocks isolated specific variables
+Block 5 (Set Choice): Participants viewed a whole set of 4 images simultaneously (Meaningful/Symmetric, Meaningful/Asymmetric, Meaningless/Symmetric, Meaningless/Asymmetric) and chose the single most preferred image",Made by the authors with graphic designer Ferenc Forrai,Custom/Experimental Stimuli,,,https://osf.io/zw2xt/overview,"Palko-Arndt, B., Bali, C., & Illes, A. (2024). Symmetry and meaningfulness in the spotlight of expertness. Empirical Studies of the Arts, 0(0), 1–22. https://doi.org/10.1177/02762374241291012."
+ArtELingo-28,2024,"Mohamed, Y., Li, R., Ahmad, I. S., Haydarov, K., Torr, P., Church, K., & Elhoseiny, M.",2000,8,paintings,,220,140,emotions,labels,"Emotion, Affect & Valence",predicting/ understanding aesthetics,"emotion labels (Contentment, Awe, Excitement, Amusement, Sadness, Anger, Fear, Disgust, Other), explanation why label was chosen, , in 28 langages",9 labels,,WikiArt,"Wikiart, Google Art & Other Online Collections",computational aesthetics,,https://www.artelingo.org/,"Mohamed, Y., Li, R., Ahmad, I. S., Haydarov, K., Torr, P., Church, K., & Elhoseiny, M. (2024, November). No culture left behind: ArtELingo-28, a benchmark of WikiArt with captions in 28 languages. In Y. Al-Onaizan, M. Bansal, & Y.-N. Chen (Eds.), Proceedings of the 2024 Conference on Empirical Methods in Natural Language Processing (pp. 20939–20962). Association for Computational Linguistics. https://doi.org/10.18653/v1/2024.emnlp-main.1165"
+Stylebreeder,2024,"Zheng, M., Simsar, E., Yesiltepe, H., Tombari, F., Simon, J., & Yanardag, P.",6818217,,artificially generated images,artificially generated images,95479,1,semantic annotations,semantic annotations,Miscellaneous/ Data not available,classification,"prompts used, creation metadata, safety classification",,,www.artbreeder.com,Online Art and Photography Communities,,,https://huggingface.co/datasets/stylebreeder/stylebreeder,"Zheng, M., Simsar, E., Yesiltepe, H., Tombari, F., Simon, J., & Yanardag, P. (2024). Stylebreeder: Exploring and democratizing artistic styles through text-to-image models. NeurIPS Proceedings. https://openreview.net/forum?id=EvgyfFsv0w"
+Aesthetic Preferences Among Spatial Patterns,2025,"Huang, L.",80000,,stimuli,"patterns varying in regularity, symmetry, spatial arrangement",1060,1042.9,"preference, response times, pattern configurations",choice,Mixed Annotations,predicting/ understanding aesthetics,preference data,,"game embedded within social media app Wechat, mostly chinese speakers with no artistic background",created by author,Custom/Experimental Stimuli,,,https://osf.io/s9y32/ ,"Huang, L. (2025). Aesthetic preferences among spatial patterns: Large-scale experiment, comprehensive exploration, and a three-component regularity-based model. Psychology of Aesthetics, Creativity, and the Arts. https://dx.doi.org/10.1037/aca0000774"
+ArtiMuse-10k,2025,"Cao, S., Ma, N., Li, J., Li, X., Shao, L., Zhu, K., ... & Liu, Y.",10000,5,"paintings, photographs","Photographs, Painting, Calligraphy, artificially generated images, 3D Design, Graphic Design",,,"overall aesthetic score, semantic annotations",rating,Aesthetic Score & Preference,predicting/ understanding aesthetics,"overall aesthetic score, semantic annotations",0-100,,"academic settings, including student assignments and competition, Stable Diffusion series, Dreamlike
+Photoreal 2.0, FLUX",AI Generated,,922.21 x 841.46,https://thunderbolt215.github.io/ArtiMuse-project/,"Cao, S., Ma, N., Li, J., Li, X., Shao, L., Zhu, K., ... & Liu, Y. (2025). Artimuse: Fine-grained image aesthetics assessment with joint scoring and expert-level understanding. arXiv preprint arXiv:2507.14533."
+CVD Preference Database,2025,"Chen, L., Zhu, Z., Chen, X., Go, K., & Mao, X.",800,,photographs,photographs,11,,preference,rating,Aesthetic Score & Preference,predicting/ understanding aesthetics,overall preference score,1-5 bipolar scale,,"FLICKR-AES, author generated ",Mixed Sources,,,no accsess provided in publication / contact authors ,"Chen, L., Zhu, Z., Chen, X., Go, K., & Mao, X. (2025, June). Personalized image preference assessment for individuals with color vision deficiency. In 2025 Nicograph International (NICOInt) (pp. 52-58). IEEE."
+LAPIS:  Leuven Art Personalized Image Set,2025,"Maerten, A.-S., Chen, L.-W., Winter, S. D., Bossens, C., & Wagemans, J.",11723,27,paintings,"Early Renaissance (91) Impressionism (499) Abstract Expressionism (1839) Minimalism (541)
+High Renaissance (146) Post-Impressionism (418) Action Painting (92)
+Northern Renaissance (557) Pointillism (281) Color Field Painting (1274)
+Mannerism (Late Renaissance) (212) Fauvism (442)
+Baroque (409) Cubism (427)
+Rococo (435) Synthetic Cubism (203)
+Romanticism (438) Analytical Cubism (79)
+Realism (531)
+Art Nouveau (412)
+Symbolism (489)
+Pop Art (357)
+New Realism (152)
+Contemporary Realism (301)
+Na¨?ve Art / Primitivism (602)",552,24,"obverall aesthetics score, style, artist, genre, content",rating,Mixed Annotations,predicting/ understanding aesthetics,"hierachical style annotations, 7 genres, content lables",visual analogue scale 0-100,,wikiart.org,"Wikiart, Google Art & Other Online Collections",,,https://github.com/Anne-SofieMaerten/LAPIS,"Maerten, A.-S., Chen, L.-W., Winter, S. D., Bossens, C., & Wagemans, J. (2025). LAPIS: A novel dataset for personalized image aesthetic assessment. Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) Workshops, 6302–6311. https://doi.org/10.48550/arXiv.2504.07670"
+LOAD: Leuven Orthogonalized Art Data Set ,2025,"Lin, Y., Op de Beeck, H., & Wagemans, J.",343,,paintings,"representational, figurative, abstract paintings",301,50,"artist, style, pleasure, interest, liking, fluency, emotional valence, familiartity",rating,Mixed Annotations,predicting/ understanding aesthetics,"ratings on leasure, interest, liking, fluency, emotional valence,  and statement of familiarity, style annotations, artist annotations",7-point-Likert and 0-100 visual analogoue scale,,"wikiart.org, VAPS","Wikiart, Google Art & Other Online Collections",,,https://osf.io/cufnj/overview,"Lin, Y., Op de Beeck, H., & Wagemans, J. (2025). Leuven Orthogonalized Art Data Set (LOAD): A multidimensional art image set for aesthetic appreciation research. Psychology of Aesthetics, Creativity, and the Arts. https://doi.org/10.1037/aca0000791"
+PICD: Photographic Image Composition Dataset,2025,"Zhao, Z., Lu, P., Zhang, A., Li, P., Li, X., Liu, X., Hu, Y., Chen, S., Wang, L., & Guo, W. ",49123,24,photographs,,18,5,composition arrangements,labels,Compositional Annotations,predicting/ understanding aesthetics,"composition elements type
+and arrangement",agreement with label,"5 experts for all images (does label fit? agreement of 3 needed to remain in dtaatset) and 18 laypeople (out of 4 - including the ""correct"" label- labels which label fits best?) for a subsample of 150 images"," Unsplash,
+Pexels, Flickr, AADB, AVA, OpenImage,
+PARA,COCO2017 , TAD66k, VOC2007,
+VOC2012",Mixed Sources,,,https://github.com/CV-xueba/PICD_ImageComposition,"Zhao, Z., Lu, P., Zhang, A., Li, P., Li, X., Liu, X., Hu, Y., Chen, S., Wang, L., & Guo, W. (2025). Can machines understand composition? Dataset and benchmark for photographic image composition embedding and understanding. Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 14411–14421."
+The Penn Center for Neuroaesthetics Artwork Repository ,2025,"Estrada Gonzalez, V., Bobrow, I., Cardillo, E. R., Kim, O., Meletaki, V., & Chatterjee, A.",320,6,"paintings, engravings, textiles, murals, photographs, mosaics","Mexican/Central and South American Art, African Art, Middle Eastern and South Asian Art, Euro-American Modern, American-Public Art, and Euro-American-Religious Art, multiple art forms: paintings, engravings, textiles, murals, photographs, mosaics, photograohs of performances",814,81,"angry, calm, compas-
+sionate, challenged, edified, enraptured, enlightened, interested,
+inspired, pleasure, and upset",rating,Mixed Annotations,predicting/ understanding aesthetics,"ratings, angry, calm, compas-
+sionate, challenged, edified, enraptured, enlightened, interested,
+inspired, pleasure, and upset records of beauty, personal liking, and familiarity",1-5 bipolar scale,"The evaluation procedure involved dividing the total corpus of images into 10 subsets, each comprising 32 randomly selected paintings. This randomization ensured that each participant saw a unique, varied collection. Artwork presentations included standard identifications (artist, title, and year of creation) along with a brief description of the artwork’s content. Participants rated each image on a scale from 1 to 5 across the specified 11 aesthetic impact dimensions: angry, calm, compassionate, challenged, edified, enraptured, enlightened, interested,nspired, pleasure, and upset. Additional evaluations included beauty, personal liking, and familiarity. Familiarity-related questions were: “Is this artist familiar to you?” and “Is this image familiar to you?”To conclude, participants completed a series of questionnaires aimed at capturing their overall aesthetic experience. They also responded to an Openness to Experience questionnaire","Curated by six domain experts, then crowdsourced to be normed on aesthetic impacts and conventional aesthetic evalutions","Museums, Books & Curated Collections",,,https://vicenteestradagonzalez.shinyapps.io/CfNdatabase/ ,"Estrada Gonzalez, V., Bobrow, I., Cardillo, E. R., Kim, O., Meletaki, V., & Chatterjee, A. (2025). A normed art database that incorporates diverse cultures and genres: The Penn Center for Neuroaesthetics artwork repository. Psychology of Aesthetics, Creativity, and the Arts.."
+The Photographer Eye: Teaching Multimodal Large Language Models to Understand Image Aesthetics like Photographers,2025,"Qi, D., Zhao, H., Shi, J., Jenni, S., Fan, Y., Dernoncourt, F., Cohen, S., & Li, S.",450000,,photographs,,,,,,Miscellaneous/ Data not available,,,,,dpchallenge,Online Art and Photography Communities,,,https://github.com/daiqing98/The-Photographers-Eye,"Qi, D., Zhao, H., Shi, J., Jenni, S., Fan, Y., Dernoncourt, F., Cohen, S., & Li, S. (2025). The Photographer Eye: Teaching multimodal large language models to understand image aesthetics like photographers (arXiv:2509.18582). arXiv. https://doi.org/10.48550/arXiv.2509.18582"
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,

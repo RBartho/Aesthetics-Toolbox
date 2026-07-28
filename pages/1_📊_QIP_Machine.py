@@ -10,8 +10,6 @@ from zipfile import ZipFile
 
 from AT import balance_qips, CNN_qips, color_and_simple_qips, edge_entropy_qips, fourier_qips, fractal_dimension_qips, PHOG_qips, AT_misc
 
-st.set_page_config(layout="wide")
-
 
 version = 'v1.0.2'
 
@@ -21,28 +19,7 @@ AT_misc.build_heading(head=     'QIP Machine',
                       )
 
 
-st.markdown(""" <style> .font2 {
-font-size:20px ; font-family: 'Cooper Black'; color: green;} 
-</style> """, unsafe_allow_html=True)
 
-st.markdown(""" <style> .subhead {
-font-size:28px ;  font-family: 'Cooper Black'; color: #FF9633;}
-</style> """, unsafe_allow_html=True)
-
-
-st.markdown(
-    """
-<style>
-.stButton > button {
-color: black;
-background: white;
-width: auto;
-height: auto;
-}
-</style>
-""",
-    unsafe_allow_html=True,
-)
 
 upload_file = st.file_uploader('Load image files', type=['jpg','jpeg','png','tif'], accept_multiple_files=True, label_visibility="collapsed", on_change=AT_misc.callback_upload_img_files )# Check to see if a  file has been uploaded
 
@@ -117,12 +94,6 @@ if upload_file:
     
     with st.form('QIP Selection'):
         
-        st.markdown("""       
-        <style>
-        div.stTitle {
-        font-size:40px;
-        }
-        </style>""",unsafe_allow_html=True)
         st.markdown('<p class="subhead">Choose QIPs to calculate:</p>', unsafe_allow_html=True)
     
         
@@ -143,13 +114,13 @@ if upload_file:
         with columns[1]:
             st.markdown('<p class="font2">' + 'Color' + '</p>', unsafe_allow_html=True)
             st.write('**Channel mean**')
-            check_dict['means RGB'] = st.checkbox('RGB', key='mean RGB' , help='Arithmetic mean for each color channel (RGB)', value=ALL_QIPS)
-            check_dict['means Lab'] = st.checkbox('Lab', key='mean Lab' , help='Arithmetic mean for each channel (Lab)' , value=ALL_QIPS)
-            check_dict['means HSV'] = st.checkbox('HSV', key='mean HSV',  help='Arithmetic mean for S and V channel. Circular mean for H channel.' , value=ALL_QIPS)
+            check_dict['means RGB'] = st.checkbox('RGB', key='mean RGB'+str(ALL_QIPS) , help='Arithmetic mean for each color channel (RGB)', value=ALL_QIPS)
+            check_dict['means Lab'] = st.checkbox('Lab', key='mean Lab'+str(ALL_QIPS)  , help='Arithmetic mean for each channel (Lab)' , value=ALL_QIPS)
+            check_dict['means HSV'] = st.checkbox('HSV', key='mean HSV'+str(ALL_QIPS) ,  help='Arithmetic mean for S and V channel. Circular mean for H channel.' , value=ALL_QIPS)
             st.write('**Channel standard deviation**')
-            check_dict['std RGB'] = st.checkbox('RGB',  key='std RGB', help='Standard deviation for each color channel (RGB)' , value=ALL_QIPS)
-            check_dict['std Lab'] = st.checkbox('Lab',  key='std LAB', help='Standard deviation for each channel (Lab)', value=ALL_QIPS)
-            check_dict['std HSV'] = st.checkbox('HSV',  key='std HSV', help='Standard deviation for S and V channel. Circular standard deviation for H channel' , value=ALL_QIPS)
+            check_dict['std RGB'] = st.checkbox('RGB',  key='std RGB'+str(ALL_QIPS) , help='Standard deviation for each color channel (RGB)' , value=ALL_QIPS)
+            check_dict['std Lab'] = st.checkbox('Lab',  key='std LAB'+str(ALL_QIPS) , help='Standard deviation for each channel (Lab)', value=ALL_QIPS)
+            check_dict['std HSV'] = st.checkbox('HSV',  key='std HSV'+str(ALL_QIPS) , help='Standard deviation for S and V channel. Circular standard deviation for H channel' , value=ALL_QIPS)
             st.write('**Channel entropy**')
             check_dict['Color entropy'] =  st.checkbox('Color entropy', help='Color entropy = Shannon entropy of the Hue channel (HSV)' , value=ALL_QIPS)
         with columns[2]:
