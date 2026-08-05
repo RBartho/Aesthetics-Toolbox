@@ -4,7 +4,7 @@ This project contains Python scripts to run the streamlit application "Aesthetic
 
 #  Scientific paper
 
-A detailed description of the toolbox and the implemented image properties is available here: https://doi.org/10.3758/s13428-025-02632-3. If you use the Aesthetics Toolbox in your work, please consider citing the published paper.
+A detailed description of the toolbox and the implemented image properties is available here: https://doi.org/10.3758/s13428-025-02632-3. If you use the Aesthetics Toolbox in your work, please consider citing the published paper. The scientific paper describing DODA (Database of Datasets for Aesthetics), which is the newest addition to the Aesthetics Toolbox, is available as a preprint here: https://arxiv.org/abs/2608.00089
 
 # Cloud version with limited resources (but no installation)
 
