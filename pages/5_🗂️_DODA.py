@@ -7,7 +7,7 @@ AT_misc.build_heading(head  = 'DODA: Database of Datasets for Aesthetics',
                       notes = 'DODA is a curated database of image datasets used in empirical and computational aesthetics research. \
                                 Each entry summarizes key properties of a dataset so that researchers can quickly search, compare, and \
                                 select suitable datasets. A preprint describing DODA is available here: \
-                                <a href="Preprint_LINK_PLACEHOLDER" target="_blank">link to preprint</a>.',
+                                <a href="https://arxiv.org/abs/2608.00089" target="_blank">link to preprint</a>.',
                       DODA  = True)
                
 csv_file = Path(__file__).parent / "DODA.csv"
