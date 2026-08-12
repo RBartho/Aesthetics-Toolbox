@@ -1,10 +1,16 @@
-# Aesthetics Toolbox v1.0.2
+# Aesthetics Toolbox v1.0.3
 
 This project contains Python scripts to run the streamlit application "Aesthetics Toolbox" in your browser. The Toolbox includes an interface to compute a number of commonly studied quantitative image properties (QIPs) for aesthetic research and also contains many common methods for image preprocessing.
 
-#  Scientific paper
+# DODA - Database of Datasets for Aesthetics
+The newest feature of the Aesthetic Toolbox was added in August 2026. DODA is an extensive curated database of image datasets used in empirical and computational aesthetics research. Each entry summarizes key properties of a dataset so that researchers can quickly search, compare, and select suitable datasets. A preprint describing DODA is available here: https://arxiv.org/abs/2608.00089. All features of DODA can be used in the cloud version.
 
-A detailed description of the toolbox and the implemented image properties is available here: https://doi.org/10.3758/s13428-025-02632-3. If you use the Aesthetics Toolbox in your work, please consider citing the published paper. The scientific paper describing DODA (Database of Datasets for Aesthetics), which is the newest addition to the Aesthetics Toolbox, is available as a preprint here: https://arxiv.org/abs/2608.00089
+# Precomputed quantitative image properties for DODA
+For most of the datasets listed in DODA, we have already computed all quantitative image properties available in the aesthetic toolbox. We will make these data publicly available here shortly.
+
+# Related scientific paper(s)
+
+A detailed description of the toolbox and the implemented image properties is available here: https://doi.org/10.3758/s13428-025-02632-3. If you use the Aesthetics Toolbox in your work, please consider citing the published paper. The preprint describing DODA is available here: https://arxiv.org/abs/2608.00089
 
 # Cloud version with limited resources (but no installation)
 
@@ -55,10 +61,10 @@ Detailed information about the data provided in the supplemental material can be
 If you use the local installation version, all calculations and data transfers of the Toolbox will take place on your local computer. The browser is used only as an interface. No data is uploaded to the Internet. The opposite is true for the Streamlit Community Cloud version.
 
 # Contributors
-Ralf Bartho: Toolbox concept, code development, maintenance, bugfixes, Development Dataset feature <br />
-Christoph Redies: Toolbox concept, supervision of the project, documentation of image properties <br />
+Ralf Bartho: Toolbox concept, code development, maintenance, bugfixes, DODA <br />
+Christoph Redies: Toolbox concept, supervision of the project, documentation of image properties, DODA <br />
 Gregor Hayn-Leichsenring: Toolbox concept <br />
-Lisa Kossmann, Johan Wagemans: Development Dataset feature <br />
+Lisa Kossmann, Johan Wagemans: Concept and maintenance DODA <br />
 Branka Spehar: Provided code to compute image properties <br />
 Ronald Hübner: Provided code to compute image properties <br />
 George Mather: Provided code to compute image properties <br />
