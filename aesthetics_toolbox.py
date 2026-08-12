@@ -69,11 +69,11 @@ with left:
     
 st.divider()
 
-st.markdown('<p class="contr">Contributers</p>', unsafe_allow_html=True)
-st.markdown('Ralf Bartho: Toolbox concept, code development, maintenance, bugfixes', unsafe_allow_html=True)
-st.markdown('Christoph Redies: Toolbox concept, supervision of the project, QIP documentation', unsafe_allow_html=True)
+st.markdown('<p class="contr">Contributors</p>', unsafe_allow_html=True)
+st.markdown('Ralf Bartho: Toolbox concept, code development, maintenance, bugfixes, DODA', unsafe_allow_html=True)
+st.markdown('Christoph Redies: Toolbox concept, supervision of the project, QIP documentation, DODA', unsafe_allow_html=True)
 st.markdown('Gregor Hayn-Leichsenring: Toolbox concept', unsafe_allow_html=True)
-st.markdown('Lisa Kossmann, Johan Wagemanns: Development of the dataset feature', unsafe_allow_html=True)
+st.markdown('Lisa Kossmann, Johan Wagemanns: DODA concept and maintenance', unsafe_allow_html=True)
 st.markdown('Branka Spehar, Ronald Hübner, George Mather: Provided code to compute image properties', unsafe_allow_html=True)
 
         
