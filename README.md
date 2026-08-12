@@ -3,7 +3,7 @@
 This project contains Python scripts to run the streamlit application "Aesthetics Toolbox" in your browser. The Toolbox includes an interface to compute a number of commonly studied quantitative image properties (QIPs) for aesthetic research and also contains many common methods for image preprocessing.
 
 # DODA - Database of Datasets for Aesthetics
-The newest feature of the Aesthetic Toolbox was added in August 2026. DODA is an extensive curated database of image datasets used in empirical and computational aesthetics research. Each entry summarizes key properties of a dataset so that researchers can quickly search, compare, and select suitable datasets. A preprint describing DODA is available here: https://arxiv.org/abs/2608.00089. All features of DODA can be used in the cloud version.
+The newest feature of the Aesthetic Toolbox was added in August 2026. DODA is an extensive curated database of image datasets used in empirical and computational aesthetics research. Each entry summarizes key properties of a dataset so that researchers can quickly search, compare, and select suitable datasets. A preprint describing DODA is available here: https://arxiv.org/abs/2608.00089. All features of DODA can be used in the cloud version. If you would like your dataset to be added to DODA, or if we have missed a relevant dataset, please let us know at aestheticstoolbox@gmail.com
 
 # Precomputed quantitative image properties for DODA
 For most of the datasets listed in DODA, we have already computed all quantitative image properties available in the aesthetic toolbox. We will make these data publicly available here shortly.
